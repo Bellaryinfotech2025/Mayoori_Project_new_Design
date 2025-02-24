@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Explore Journeys</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* === GLOBAL STYLES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --primary: #3498db;
+            --primary-dark: #2980b9;
+            --secondary: #f39c12;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === HEADER STYLES === */
+        .contact-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/600') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .contact-header p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-header .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .contact-header .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .contact-header .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .contact-header .breadcrumb .separator {
+            opacity: 0.5;
+        }
+
+        .contact-header .breadcrumb .active {
+            opacity: 1;
+        }
+
+        /* === MAIN CONTENT STYLES === */
+        .contact-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: -80px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom right, transparent 49%, var(--light) 50%);
+        }
+
+        .contact-wrapper {
+            display: flex;
+            gap: 40px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            flex: 1;
+            padding: 50px;
+        }
+
+        .contact-form-container h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .contact-form-container h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            background-color: white;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Contact Info */
+        .contact-info-container {
+            flex: 0.8;
+            background: linear-gradient(135deg, var(--primary), #00a8ff);
+            color: white;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info-container::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .contact-info-container::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .contact-info-container h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .contact-info-container h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: white;
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .icon-box {
+            min-width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info-details {
+            flex: 1;
+        }
+
+        .contact-info-details h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-info-details p, .contact-info-details a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info-details a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Map Container */
+        .map-container {
+            margin-top: 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .office-locations {
+            margin-top: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .offices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .office-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .office-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .office-image {
+            height: 200px;
+            position: relative;
+        }
+
+        .office-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .office-location {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .office-details {
+            padding: 25px;
+        }
+
+        .office-details h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .office-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .office-info-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .office-info-item i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .directions-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .directions-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+
+        .accordion-header:hover {
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+
+        .accordion-body {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+        }
+
+        .accordion-body-content {
+            padding-bottom: 20px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .accordion-item.active .accordion-body {
+            max-height: 300px;
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s;
+            font-size: 16px;
+            color: var(--primary);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* === FORM SUCCESS MESSAGE === */
+        .success-message {
+            display: none;
+            background-color: rgba(46, 204, 113, 0.2);
+            border-left: 4px solid var(--success);
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === RESPONSIVE STYLES === */
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                flex-direction: column;
+            }
+
+            .contact-info-container {
+                order: -1;
+            }
+
+            .contact-header h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-header {
+                padding: 80px 20px;
+            }
+
+            .contact-header h1 {
+                font-size: 32px;
+            }
+
+            .contact-form-container, 
+            .contact-info-container {
+                padding: 30px;
+            }
+
+            .contact-section {
+                padding: 60px 0;
+            }
+
+            .office-locations {
+                margin-top: 40px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-header h1 {
+                font-size: 28px;
+            }
+
+            .contact-header p {
+                font-size: 16px;
+            }
+
+            .contact-form-container h2,
+            .contact-info-container h2 {
+                font-size: 24px;
+            }
+
+            .office-locations {
+                margin-top: 30px;
+            }
+
+            .accordion-header {
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-link {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+        /*footer css section here*/
+.footer {
+            padding: 4rem 2rem 2rem;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            margin-bottom: 3rem;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .footer-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #e5e5e5;
+        }
+
+        .footer-links {
+            flex: 3;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #FF5722;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .payment-methods img {
+            height: 24px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(51, 51, 51, 0.95);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .cookie-text {
+            margin-right: 1rem;
+        }
+
+        .cookie-text a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .close-cookie {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-brand {
+                max-width: 100%;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .payment-methods {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="contact-header">
+        <div class="header-content">
+            <h1>Get in Touch</h1>
+            <p>Have questions about your trip? We're here to help you plan your perfect adventure.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="separator">/</span>
+                <span class="active">Contact Us</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send us a Message</h2>
+                    <div class="success-message" id="successMessage">
+                        Your message has been sent successfully! We'll get back to you soon.
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="booking">Booking Inquiry</option>
+                                <option value="support">Customer Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Your message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-container">
+                    <h2>Contact Information</h2>
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-info-details">
+                                <h3>Our Main Office</h3>
+                                <p>123 Bellary, Travel City<br>Karnataka, AP 509102</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-info-details">
+                                <h3>Phone Number</h3>
+                                <a href="tel:+1234567890">+91 8668349726</a><br>
+                                <a href="tel:+1234567891">+91 8688349726</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-details">
+                                <h3>Email Address</h3>
+                                <a href="mailto:info@explorejourneys.com">info@mayooritravels.com</a><br>
+                                <a href="mailto:support@explorejourneys.com">support@mayooritoursand travels.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="icon-box">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-info-details">
+                                <h3>Working Hours</h3>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                Weekend: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059445135!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sca!4v1645564956015!5m2!1sen!2sca" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <!-- Office Locations -->
+            <div class="office-locations">
+                <div class="section-title">
+                    <h2>Our Global Offices</h2>
+                    <p>Visit us at one of our offices around the world for personalized travel planning assistance.</p>
+                </div>
+
+                <div class="offices-grid">
+                    <div class="office-card">
+                        <div class="office-image">
+                            <img src="/api/placeholder/400/200" alt="New York Office">
+                            <div class="office-location">New York</div>
+                        </div>
+                        <div class="office-details">
+                            <h3>USA Headquarters</h3>
+                            <div class="office-info">
+                                <div class="office-info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>123 Adventure Street, Travel City, New York, 10001, USA</div>
+                                </div>
+                                <div class="office-info-item">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>+1 (234) 567-890</div>
+                                </div>
+                                <div class="office-info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>newyork@explorejourneys.com</div>
+                                </div>
+                            </div>
+                            <a href="#" class="directions-btn">Get Directions</a>
+                        </div>
+                    </div>
+
+                    <div class="office-card">
+                        <div class="office-image">
+                            <img src="/api/placeholder/400/200" alt="London Office">
+                            <div class="office-location">London</div>
+                        </div>
+                        <div class="office-details">
+                            <h3>Europe Office</h3>
+                            <div class="office-info">
+                                <div class="office-info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>45 Traveller's Lane, Westminster, London, SW1A 1AA, UK</div>
+                                </div>
+                                <div class="office-info-item">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>+44 20 1234 5678</div>
+                                </div>
+                                <div class="office-info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>london@explorejourneys.com</div>
+                                </div>
+                            </div>
+                            <a href="#" class="directions-btn">Get Directions</a>
+                        </div>
+                    </div>
+
+                    <div class="office-card">
+                        <div class="office-image">
+                            <img src="/api/placeholder/400/200" alt="Singapore Office">
+                            <div class="office-location">Singapore</div>
+                        </div>
+                        <div class="office-details">
+                            <h3>Asia Office</h3>
+                            <div class="office-info">
+                                <div class="office-info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>78 Orchard Road, #09-12, Singapore 238895</div>
+                                </div>
+                                <div class="office-info-item">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <div>+65 6123 4567</div>
+                                </div>
+                                <div class="office-info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>singapore@explorejourneys.com</div>
+                                </div>
+                            </div>
+                            <a href="#" class="directions-btn">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services, booking process, and more.</p>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        How do I book a tour package?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-content">
+                            Booking a tour package is easy! Simply browse our available packages, select the one that interests you, choose your preferred dates, and follow the booking instructions. You can book directly online or contact our customer service team for assistance with the booking process.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What payment methods do you accept?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-content">
+                            We accept various payment methods including major credit cards (Visa, MasterCard, American Express), PayPal, bank transfers, and in some locations, payment through digital wallets. All payments are processed securely to ensure your financial information is protected.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What is your cancellation policy?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-content">
+                            Our cancellation policy varies depending on the type of booking and the timing of cancellation. Generally, cancellations made 30 days or more before the scheduled departure receive a full refund minus processing fees. Cancellations made 15-29 days before departure receive a 50% refund, and cancellations made less than 15 days before departure are non-refundable. We recommend purchasing travel insurance for added protection.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Do you offer travel insurance?
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-body-content">
+                            Yes, we offer comprehensive travel insurance options that cover trip cancellation, medical emergencies, baggage loss, and other unforeseen circumstances. We highly recommend purchasing travel insurance for all trips, especially international journeys. Our travel consultants can provide you with different insurance options tailored to your specific travel needs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!--footeroooooooooooooooooooooooor-->
+ <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="/api/placeholder/120/40" alt="Mayoori" class="footer-logo">
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>About Mayoori</h3>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Mayoori Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Gift cards</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Partnerships</h3>
+                    <ul>
+                        <li><a href="#">Merchant sign up</a></li>
+                        <li><a href="#">Merchant log in</a></li>
+                        <li><a href="#">Affiliate Partnership</a></li>
+                        <li><a href="#">Influencer Program</a></li>
+                        <li><a href="#">Agent Marketplace</a></li>
+                        <li><a href="#">Mayoori Partner Hub</a></li>
+                        <li><a href="#">Collaborate with Mayoori</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Terms of use</h3>
+                    <ul>
+                        <li><a href="#">General terms of use</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Bug Bounty Program</a></li>
+                        <li><a href="#">Animal Welfare Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Mayoori. All rights reserved.</p>
+            <div class="payment-methods">
+                <img src="/images/credit card.jpeg" alt="UnionPay">
+                <img src="/images/visa" alt="Visa">
+                <img src="/images/master card.jpeg" alt="Mastercard">
+                <img src="/images/phone pay.jpeg" alt="phone pe">
+                 
+                <img src="/images/gpay.jpeg" alt="Google Pay">
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    // Form submission handling
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    if (contactForm && successMessage) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // In a real application, you would send the form data to your server here
+            // For demo purposes, we'll just show the success message
+            
+            // Show success message
+            successMessage.style.display = 'block';
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+    }
+
+    // Accordion functionality
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        
+        if (header) {
+            header.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                
+                // Close all accordion items
+                accordionItems.forEach(accordionItem => {
+                    accordionItem.classList.remove('active');
+                });
+                
+                // If the clicked item wasn't active, make it active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+});
+
+ //footer
+          // Initialize Lucide icons
+          lucide.createIcons();
+
+// Cookie banner close functionality
+document.querySelector('.close-cookie').addEventListener('click', function() {
+    document.querySelector('.cookie-banner').style.display = 'none';
+});
+
+// Scroll to top functionality
+document.querySelector('.scroll-top').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+    
+                </script>
+                </body>
+                </html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us - Travel Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .bodyofchoose {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container-choose {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .why-choose-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7ec 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .features-container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .feature-box {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:nth-child(1)::before {
+            background: linear-gradient(to bottom, #f6d365 0%, #fda085 100%);
+        }
+
+        .feature-box:nth-child(2)::before {
+            background: linear-gradient(to bottom, #84fab0 0%, #8fd3f4 100%);
+        }
+
+        .feature-box:nth-child(3)::before {
+            background: linear-gradient(to bottom, #a1c4fd 0%, #c2e9fb 100%);
+        }
+
+        .feature-box:nth-child(4)::before {
+            background: linear-gradient(to bottom, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-box:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-box:nth-child(1) .icon-container {
+            background: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        }
+
+        .feature-box:nth-child(2) .icon-container {
+            background: linear-gradient(to right, #84fab0 0%, #8fd3f4 100%);
+        }
+
+        .feature-box:nth-child(3) .icon-container {
+            background: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 100%);
+        }
+
+        .feature-box:nth-child(4) .icon-container {
+            background: linear-gradient(to right, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        .icon-container i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .feature-box h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .feature-box p {
+            color: #7f8c8d;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .feature-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: transparent;
+            border: 1px solid #3498db;
+            color: #3498db;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .feature-button:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .video-container {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            height: 400px;
+        }
+
+        .video-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+            pointer-events: none;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Placeholder for video when no actual video is available */
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #3494e6, #ec6ead);
+            position: relative;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 22px solid #3498db;
+            margin-left: 5px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        /* Mobile responsiveness */
+        @media screen and (max-width: 992px) {
+            .content-wrapper {
+                flex-direction: column-reverse;
+            }
+
+            .video-container {
+                width: 100%;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .stat-number {
+                font-size: 30px;
+            }
+
+            .stats-container {
+                flex-wrap: wrap;
+            }
+
+            .stat-item {
+                flex: 0 0 50%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .why-choose-section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .section-title p {
+                font-size: 16px;
+            }
+
+            .feature-box {
+                padding: 20px;
+            }
+
+            .icon-container {
+                width: 50px;
+                height: 50px;
+            }
+
+            .icon-container i {
+                font-size: 20px;
+            }
+
+            .feature-box h3 {
+                font-size: 18px;
+            }
+
+            .stat-item {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="bodyofchoose">
+    <section class="why-choose-section">
+        <div class="container-choose">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>Discover why thousands of travelers trust us for their unforgettable journeys around the world</p>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="features-container">
+                    <div class="feature-box">
+                        <div class="icon-container">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Worldwide Coverage</h3>
+                        <p>Access to 1000+ destinations worldwide with exclusive local experiences you won't find anywhere else.</p>
+                        <a href="#" class="feature-button">Learn More</a>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="icon-container">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <h3>Best Price Guarantee</h3>
+                        <p>Find a lower price? We'll match it and give you an additional 10% off your booking.</p>
+                        <a href="#" class="feature-button">Our Promise</a>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="icon-container">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Customer Support</h3>
+                        <p>Our travel experts are available around the clock to assist you with any questions or issues.</p>
+                        <a href="#" class="feature-button">Contact Us</a>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="icon-container">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure Booking</h3>
+                        <p>Book with confidence knowing your personal data and transactions are protected by advanced encryption.</p>
+                        <a href="#" class="feature-button">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="video-container">
+                    <!-- Replace with actual video -->
+                    <div class="video-placeholder">
+                        <div class="play-button"></div>
+                    </div>
+                    <!-- Uncomment to use actual video
+                    <video controls poster="/api/placeholder/600/400">
+                        <source src="your-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    -->
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">2M+</div>
+                    <div class="stat-text">Happy Travelers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-text">Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10k+</div>
+                    <div class="stat-text">Tours & Activities</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.8/5</div>
+                    <div class="stat-text">Customer Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+</body>
+</html>
