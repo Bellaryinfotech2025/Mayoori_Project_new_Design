@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klook Promotions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF385C',
+                        secondary: '#00A699'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px', 
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .card-hover {
+            transition: transform 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-12">
+        <!-- Promotional Cards Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                <div class="h-48 mb-6 flex items-center justify-center">
+                    <img src="https://public.readdy.ai/ai/img_res/e8e050b4f466b66c4a2282b572241d95.jpg" 
+                         alt="Blog illustration" 
+                         class="h-full object-contain">
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Check out the Klook blog</h3>
+                <p class="text-gray-600 mb-6">Follow the team's musings on trends in travel, itinerary ideas and travel tips</p>
+                <button class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-colors">
+                    Read now
+                </button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                <div class="h-48 mb-6 flex items-center justify-center">
+                    <img src="https://public.readdy.ai/ai/img_res/6c62bdfbf5c751f38e858b6e052ebb73.jpg" 
+                         alt="KlookCash illustration" 
+                         class="h-full object-contain">
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Save on fun with KlookCash</h3>
+                <p class="text-gray-600 mb-6">Find out how to save more when you book and leave a review</p>
+                <button class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-colors">
+                    How KlookCash works
+                </button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                <div class="h-48 mb-6 flex items-center justify-center">
+                    <img src="https://public.readdy.ai/ai/img_res/6b708159d3b8a06574aaad79f2462ded.jpg" 
+                         alt="Referral illustration" 
+                         class="h-full object-contain">
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Share joy & get rewarded</h3>
+                <p class="text-gray-600 mb-6">After your friend signs up and completes a booking, you'll get a US$5 reward!</p>
+                <button class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 transition-colors">
+                    Invite friends
+                </button>
+            </div>
+        </div>
+
+        <!-- Client Satisfaction Section -->
+        <div class="mt-20">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+            
+            <!-- Satisfaction Metrics -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                        <i class="ri-emotion-happy-line text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">98%</h3>
+                    <p class="text-gray-600">Customer Satisfaction</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                        <i class="ri-group-line text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">1M+</h3>
+                    <p class="text-gray-600">Active Users</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
+                        <i class="ri-star-line text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">4.9/5</h3>
+                    <p class="text-gray-600">Average Rating</p>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                            <i class="ri-user-smile-line text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Emily Thompson</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Amazing experience using Klook! The booking process was smooth and the rewards system is fantastic. Will definitely use again!"</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                            <i class="ri-user-smile-line text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The blog recommendations were spot on! Found some hidden gems for my trip to Japan. The KlookCash savings were an added bonus."</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4">
+                            <i class="ri-user-smile-line text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Martinez</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Referred my friends and we all got rewards! The service is excellent and the app is very user-friendly. Highly recommended!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.add('scale-95');
+                setTimeout(() => this.classList.remove('scale-95'), 200);
+            });
+        });
+    </script>
+</body>
+</html>
