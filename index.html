@@ -24,124 +24,437 @@
         scroll-behavior: smooth;
         }
 
+        /*from here the css of navbar starts*/
         :root {
-            --primary-color: #FF5722;
-            --secondary-color: #00B8B0;
-        }
+      --primary-color: #FF5722;
+      --secondary-color: #00B8B0;
+      --text-color: #333;
+      --light-gray: #f5f5f5;
+      --medium-gray: #ddd;
+      --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    .bodyofnavbar {
+      background-color: #fff;
+      color: var(--text-color);
+      line-height: 1.6;
+      padding-top: 70px;
+    }
 
-        /* Header Styles */
-        .header {
-            background: white;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    /* Header Styles */
+    .header {
+      background: white;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .logo {
-            width: 120px;
-            height: auto;
-        }
+    .logo {
+      width: 120px;
+      height: auto;
+    }
 
-        .search-bar {
-            flex: 1;
-            max-width: 400px;
-            margin: 0 2rem;
-            position: relative;
-        }
+    .search-bar {
+      flex: 1;
+      max-width: 400px;
+      margin: 0 2rem;
+      position: relative;
+    }
 
-        .search-bar input {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 24px;
-            font-size: 1rem;
-        }
+    .search-bar input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--medium-gray);
+      border-radius: 24px;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
+    .search-bar input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+    }
 
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-size: 0.9rem;
-        }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
 
-        .login-btn {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 24px;
-            text-decoration: none;
-        }
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
 
-        /* Navigation Menu */
-        .main-nav {
-            background: white;
-            padding: 1rem 2rem;
-            margin-top: 70px;
-            border-bottom: 1px solid #eee;
-        }
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
 
-        .nav-menu {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+    .login-btn {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 24px;
+      text-decoration: none;
+      transition: var(--transition);
+      font-weight: 500;
+    }
 
-        .nav-menu-item {
-            position: relative;
-        }
+    .login-btn:hover {
+      background: #e64a19;
+      transform: translateY(-2px);
+    }
 
-        .nav-menu-link {
-            text-decoration: none;
-            color: #333;
-            font-size: 0.9rem;
-            padding: 0.5rem 0;
-        }
+    /* Navigation Menu */
+    .main-nav {
+      background: white;
+      padding: 1rem 2rem;
+      margin-top: 0;
+      border-bottom: 1px solid #eee;
+    }
 
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 200px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            display: none;
-            z-index: 100;
-        }
+    .nav-menu {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+    }
 
-        .nav-menu-item:hover .dropdown {
-            display: block;
-        }
+    .nav-menu-item {
+      position: relative;
+    }
 
-        .dropdown-item {
-            padding: 0.8rem 1rem;
-            display: block;
-            text-decoration: none;
-            color: #333;
-        }
+    .nav-menu-link {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      transition: var(--transition);
+      display: block;
+    }
 
-        .dropdown-item:hover {
-            background: #f5f5f5;
-        }
+    .nav-menu-link:hover {
+      color: var(--primary-color);
+    }
 
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 200px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      display: none;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    .nav-menu-item:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown-item {
+      padding: 0.8rem 1rem;
+      display: block;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background: var(--light-gray);
+      color: var(--primary-color);
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 20px;
+      position: relative;
+      margin-left: 20px;
+    }
+
+    .hamburger span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: var(--primary-color);
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: var(--transition);
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0px;
+    }
+
+    .hamburger span:nth-child(2),
+    .hamburger span:nth-child(3) {
+      top: 8px;
+    }
+
+    .hamburger span:nth-child(4) {
+      top: 16px;
+    }
+
+    /* Hamburger Animation */
+    .hamburger.open span:nth-child(1) {
+      top: 8px;
+      width: 0%;
+      left: 50%;
+    }
+
+    .hamburger.open span:nth-child(2) {
+      transform: rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+
+    .hamburger.open span:nth-child(4) {
+      top: 8px;
+      width: 0%;
+      left: 50%;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      overflow-y: auto;
+      transition: var(--transition);
+      padding: 2rem 1rem;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--medium-gray);
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-link {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 1rem;
+      display: block;
+      padding: 0.7rem 0;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .sidebar-link:hover {
+      color: var(--primary-color);
+    }
+
+    .sidebar-dropdown {
+      padding-left: 1.5rem;
+      display: none;
+      margin-top: 0.5rem;
+    }
+
+    .sidebar-dropdown.show {
+      display: block;
+    }
+
+    .sidebar-dropdown a {
+      display: block;
+      padding: 0.6rem 0;
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .sidebar-dropdown a:hover {
+      color: var(--primary-color);
+    }
+
+    .has-dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      position: absolute;
+      right: 0;
+      top: 0.7rem;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dropdown-toggle:hover {
+      color: var(--primary-color);
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background-color: var(--medium-gray);
+      margin: 1.5rem 0;
+    }
+
+    .sidebar-button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 24px;
+      width: 100%;
+      margin-top: 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .sidebar-button:hover {
+      background: #e64a19;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Page Content (for demo) */
+    .page-content {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .search-bar {
+        max-width: 300px;
+        margin: 0 1rem;
+      }
+
+      .nav-right {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .search-bar {
+        max-width: 180px;
+        margin: 0 0.5rem;
+      }
+      
+      .main-nav, 
+      .nav-right .nav-link {
+        display: none;
+      }
+      
+      .nav-right {
+        gap: 0.5rem;
+      }
+      
+      .login-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .header {
+        padding: 0.8rem 1rem;
+      }
+      
+      .search-bar {
+        display: none;
+      }
+      
+      .nav-right .login-btn {
+        display: none;
+      }
+      
+      .hamburger {
+        margin-left: 0;
+      }
+    }
+
+    /* For demo only - to show content */
+    .content-placeholder {
+      height: 400px;
+      background: var(--light-gray);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      color: #888;
+    }
         /* Hero Section */
         .hero {
             height: 80vh;
@@ -1670,49 +1983,131 @@ h1 {
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="nav-container">
+    <section class="bodyofnavbar"> 
+        <!-- Header -->
+        <header class="header">
+          <div class="nav-container">
             <img src="/api/placeholder/120/40" alt="Mayoori" class="logo">
+            
             <div class="search-bar">
-                <input type="text" placeholder="Search destinations or activities with Mayoori">
+              <input type="text" placeholder="Search destinations or activities with Mayoori">
             </div>
+            
             <div class="nav-right">
-                <a href="#" class="nav-link">IND</a>
-                <a href="#" class="nav-link">Help</a>
-                <a href="#" class="nav-link">Recently viewed</a>
-                <a href="#" class="nav-link">Sign up</a>
-                <a href="Contact Page.html" class="login-btn">Contact Mayoori Tours and Travels</a>
+              <a href="#" class="nav-link">IND</a>
+              <a href="#" class="nav-link">Help</a>
+              <a href="#" class="nav-link">Recently viewed</a>
+              <a href="#" class="nav-link">Sign up</a>
+              <a href="Contact Page.html" class="login-btn">Contact Mayoori</a>
             </div>
+            
+            <div class="hamburger" id="hamburger-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </header>
+      
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+          <ul class="nav-menu">
+            <li class="nav-menu-item">
+              <a href="About Page.html" class="nav-menu-link">About Mayoori</a>
+            </li>
+            <li class="nav-menu-item">
+              <a href="#" class="nav-menu-link">Popular destinations</a>
+              <div class="dropdown">
+                <a href="#" class="dropdown-item">Tokyo</a>
+                <a href="#" class="dropdown-item">Singapore</a>
+                <a href="#" class="dropdown-item">Bangkok</a>
+                <a href="#" class="dropdown-item">Seoul</a>
+                <a href="#" class="dropdown-item">Osaka</a>
+              </div>
+            </li>
+            <li class="nav-menu-item">
+              <a href="Our Facilities.html" class="nav-menu-link">Our facilities</a>
+            </li>
+            <li class="nav-menu-item">
+              <a href="ToursPackage.html" class="nav-menu-link">Explore Packages</a>
+            </li>
+            <li class="nav-menu-item">
+              <a href="#" class="nav-menu-link">Gift cards</a>
+            </li>
+          </ul>
+        </nav>
+      
+        <!-- Sidebar -->
+        <div class="overlay" id="overlay"></div>
+        
+        <div class="sidebar" id="sidebar">
+          <div class="sidebar-header">
+            <img src="/api/placeholder/100/30" alt="Mayoori" class="logo">
+            <button class="sidebar-close" id="close-sidebar">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <div class="search-mobile" style="margin-bottom: 1.5rem;">
+            <input type="text" placeholder="Search destinations..." style="width: 100%; padding: 0.8rem 1rem; border: 1px solid #ddd; border-radius: 24px; font-size: 0.9rem;">
+          </div>
+          
+          <ul class="sidebar-menu">
+            <li class="sidebar-item">
+              <a href="About Page.html" class="sidebar-link">About Mayoori</a>
+            </li>
+            
+            <li class="sidebar-item has-dropdown">
+              <a href="#" class="sidebar-link">Popular destinations</a>
+              <button class="dropdown-toggle">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="sidebar-dropdown">
+                <a href="#">Tokyo</a>
+                <a href="#">Singapore</a>
+                <a href="#">Bangkok</a>
+                <a href="#">Seoul</a>
+                <a href="#">Osaka</a>
+              </div>
+            </li>
+            
+            <li class="sidebar-item">
+              <a href="Our Facilities.html" class="sidebar-link">Our facilities</a>
+            </li>
+            
+            <li class="sidebar-item">
+              <a href="ToursPackage.html" class="sidebar-link">Explore Packages</a>
+            </li>
+            
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Gift cards</a>
+            </li>
+          </ul>
+          
+          <div class="sidebar-divider"></div>
+          
+          <ul class="sidebar-menu">
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">IND</a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Help</a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Recently viewed</a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Sign up</a>
+            </li>
+          </ul>
+          
+          <button class="sidebar-button">Contact Mayoori Tours and Travels</button>
         </div>
-    </header>
-    <br>
+      
+         </section>
 
-    <nav class="main-nav">
-        <ul class="nav-menu">
-            <li class="nav-menu-item">
-                <a href="About Page.html" class="nav-menu-link">About Mayoori</a>
-            </li>
-            <li class="nav-menu-item">
-                <a href="#" class="nav-menu-link">Popular destinations</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-item">Tokyo</a>
-                    <a href="#" class="dropdown-item">Singapore</a>
-                    <a href="#" class="dropdown-item">Bangkok</a>
-                    <a href="#" class="dropdown-item">Seoul</a>
-                    <a href="#" class="dropdown-item">Osaka</a>
-                </div>
-            </li>
-            <li class="nav-menu-item">
-                <a href="Our Facilities.html" class="nav-menu-link">Our facilities</a>
-            </li>
-            <li class="nav-menu-item">
-                <a href="ToursPackage.html" class="nav-menu-link">Explore Packages</a>
-            </li>
-            <li class="nav-menu-item">
-                <a href="#" class="nav-menu-link">Gift cards</a>
-            </li>
-        </ul>
-    </nav>
+         <!--navbar ends here html ok-->
 
     <section class="hero">
         <div class="carousel">
@@ -2547,6 +2942,52 @@ h1 {
      
 
     <script>
+         // Navbar here js Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger-menu');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('close-sidebar');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('open');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+    });
+
+    closeBtn.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      sidebar.classList.remove('open');
+      this.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Dropdown Toggle in Sidebar
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const parent = this.parentElement;
+        const dropdown = parent.querySelector('.sidebar-dropdown');
+        dropdown.classList.toggle('show');
+        
+        // Toggle icon
+        const icon = this.querySelector('i');
+        if (dropdown.classList.contains('show')) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
+      });
+    });
         //carousel fubctionality
          const slides = document.querySelectorAll('.carousel-slide');
         let currentSlide = 0;

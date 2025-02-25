@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
-        /* Previous styles remain the same */
+        /* Global reset */
         * {
             margin: 0;
             padding: 0;
@@ -20,6 +20,7 @@
             color: #fff;
             line-height: 1.5;
             overflow-x: hidden;
+            font-size: 16px;
         }
 
         .navbar {
@@ -42,6 +43,7 @@
             justify-content: center;
             perspective: 1000px;
             overflow: hidden;
+            padding-top: 100px; /* Ensure it starts below the navbar */
         }
 
         .code-container {
@@ -74,10 +76,51 @@
             z-index: 1;
         }
 
-        /* Existing responsive styles remain */
+        /* Mobile-specific styling */
         @media (max-width: 768px) {
+            body {
+                font-size: 14px; /* Slightly smaller font on mobile */
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+
+            .code-section {
+                padding-top: 80px; /* Adjust padding for smaller screen */
+                height: auto;
+            }
+
             .code-container {
-                width: 95%;
+                width: 100%;
+                height: 50vh; /* Make it shorter on mobile */
+                max-width: 100%;
+                aspect-ratio: unset; /* Remove aspect ratio for flexibility */
+                box-shadow: 0 0 50px rgba(0, 0, 0, 0.3); /* Reduce shadow size */
+            }
+
+            .code-editor {
+                border-radius: 8px; /* Round the corners for a softer look on mobile */
+            }
+
+            .glow {
+                background: radial-gradient(circle at 50% 50%, rgba(123, 97, 255, 0.4) 0%, transparent 70%);
+            }
+        }
+
+        /* Further responsiveness on very small screens (like under 480px) */
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+
+            .code-container {
+                height: 45vh; /* Even smaller height */
+                max-width: 100%;
+            }
+
+            .code-editor {
+                border-radius: 6px; /* More rounded corners */
             }
         }
     </style>
@@ -133,8 +176,6 @@
             repeat: -1,
             ease: 'power1.inOut'
         });
-
-        // Previous animations remain
     </script>
 </body>
 </html>
