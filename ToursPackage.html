@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayoori Tours & Travels - Tour Packages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #ffffff, #e6f7ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" fill-opacity="1" d="M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,202.7C840,203,960,181,1080,176C1200,171,1320,181,1380,186.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .carousel-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-description {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-btn {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .carousel-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
+        }
+
+        .carousel-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 1;
+            padding: 0 2rem;
+        }
+
+        .carousel-arrow {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .carousel-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            position: relative;
+        }
+
+        .search-wrapper {
+            background: white;
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .search-wrapper:focus-within {
+            border-color: #1e5799;
+            box-shadow: 0 10px 30px rgba(30, 87, 153, 0.2);
+        }
+
+        .search-icon {
+            color: #1e5799;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+        }
+
+        .search-clear {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        .search-clear.active {
+            display: block;
+        }
+
+        /* Package Section Styles */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1e5799, #7db9e8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .section-heading p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #1e5799, #7db9e8);
+            margin: 1rem auto;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .package-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.5s forwards;
+            width: 300px;
+            height: 450px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .package-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .package-card:hover .package-image img {
+            transform: scale(1.2);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .package-content {
+            padding: 1.5rem;
+        }
+
+        .package-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .package-location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .package-location i {
+            margin-right: 0.5rem;
+            color: #1e5799;
+        }
+
+        .package-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .feature i {
+            margin-right: 0.3rem;
+            color: #1e5799;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e5799;
+            margin-bottom: 1rem;
+        }
+
+        .package-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .package-btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, #1e5799, #7db9e8);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .package-btn:hover {
+            box-shadow: 0 4px 12px rgba(30, 87, 153, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            width: 100%;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: #666;
+            display: none;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, #1e5799, #7db9e8);
+            padding: 3rem 0;
+            margin-top: 5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            border: none;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .newsletter-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            border: none;
+            background-color: #fff;
+            color: #1e5799;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: #1e5799;
+            margin-top: 0.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #1e5799;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #444;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #1e5799;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #444;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .carousel {
+                height: 400px;
+            }
+            
+            .carousel-title {
+                font-size: 2.5rem;
+            }
+            
+            .carousel-description {
+                font-size: 1.2rem;
+            }
+            
+            .package-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-heading h2 {
+                font-size: 2rem;
+            }
+            
+            .carousel {
+                height: 350px;
+            }
+            
+            .carousel-title {
+                font-size: 2rem;
+            }
+            
+            .carousel-description {
+                font-size: 1.1rem;
+            }
+            
+            .carousel-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .package-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 1.5rem 0;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .carousel {
+                height: 300px;
+            }
+            
+            .carousel-title {
+                font-size: 1.5rem;
+            }
+            
+            .carousel-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .carousel-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .search-wrapper {
+                padding: 0.6rem 1.2rem;
+            }
+            
+            .search-icon {
+                font-size: 1.2rem;
+            }
+            
+            .search-input {
+                font-size: 1rem;
+            }
+            
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-heading h2 {
+                font-size: 1.8rem;
+            }
+            
+            .newsletter h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /*footer css section here*/
+.footer {
+            padding: 4rem 2rem 2rem;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            margin-bottom: 3rem;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .footer-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #e5e5e5;
+        }
+
+        .footer-links {
+            flex: 3;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #FF5722;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .payment-methods img {
+            height: 24px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(51, 51, 51, 0.95);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .cookie-text {
+            margin-right: 1rem;
+        }
+
+        .cookie-text a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .close-cookie {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-brand {
+                max-width: 100%;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .payment-methods {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>Mayoori Tours & Travels</h1>
+            <p>Explore our handpicked selection of domestic and international tour packages to create unforgettable memories</p>
+        </div>
+        <div class="wave"></div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Carousel -->
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-slide active" style="background-image: url('/images/image2.jpg')">
+                    <div class="carousel-overlay">
+                        <h2 class="carousel-title">Discover Paradise in Bali</h2>
+                        <p class="carousel-description">Experience breathtaking beaches, stunning temples, and vibrant culture in this island paradise</p>
+                        <a href="#" class="carousel-btn">Explore Packages</a>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: url('/images/image3.jpg')">
+                    <div class="carousel-overlay">
+                        <h2 class="carousel-title">Incredible India Awaits</h2>
+                        <p class="carousel-description">From majestic mountains to serene beaches, discover the diverse beauty of India</p>
+                        <a href="#" class="carousel-btn">View Destinations</a>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: url('/images/image5.jpg')">
+                    <div class="carousel-overlay">
+                        <h2 class="carousel-title">European Dream Tour</h2>
+                        <p class="carousel-description">Experience the rich history, stunning architecture, and cultural heritage of Europe</p>
+                        <a href="#" class="carousel-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-arrows">
+                <div class="carousel-arrow prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="carousel-arrow next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active"></div>
+                <div class="carousel-indicator"></div>
+                <div class="carousel-indicator"></div>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <input type="text" class="search-input" placeholder="Search for destinations, tours, or activities...">
+                <button class="search-clear">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Foreign Tour Packages -->
+        <section class="foreign-packages">
+            <div class="section-heading">
+                <h2>International Tour Packages</h2>
+                <p>Experience exotic destinations and cultures around the world with our premium international tour packages</p>
+            </div>
+
+            <div class="package-grid" id="international-packages">
+                <!-- Package 1 -->
+                <div class="package-card" style="animation-delay: 0.1s" data-destination="bali" data-country="indonesia" data-package="paradise beach island">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Bali Beach Package">
+                        <div class="package-badge">Bestseller</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Bali Paradise Escape</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Bali, Indonesia
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 7 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹59,999 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card" style="animation-delay: 0.2s" data-destination="switzerland" data-country="europe" data-package="alpine adventure snow mountain">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Switzerland Tour">
+                        <div class="package-badge">20% Off</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Swiss Alpine Adventure</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Switzerland
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 8 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 5-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹1,25,000 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card" style="animation-delay: 0.3s" data-destination="dubai" data-country="uae" data-package="luxury desert experience">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Dubai Tour">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Dubai Luxury Experience</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Dubai, UAE
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 6 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 5-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹89,999 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="package-card" style="animation-delay: 0.4s" data-destination="thailand" data-country="asia" data-package="island hopping beach">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Thailand Tour">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Thailand Island Hopping</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Thailand
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 9 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹72,999 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 5 -->
+                <div class="package-card" style="animation-delay: 0.5s" data-destination="singapore" data-country="asia" data-package="family fun vacation">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Singapore Tour">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Singapore Family Fun</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Singapore
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 5 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹68,500 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 6 -->
+                <div class="package-card" style="animation-delay: 0.6s" data-destination="japan" data-country="asia" data-package="cherry blossom cultural">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Japan Tour">
+                        <div class="package-badge">New</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Japan Cherry Blossom Tour</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Japan
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 10 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹1,45,000 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="no-results" id="no-international-results">No international packages match your search. Try different keywords.</div>
+        </section>
+
+        <!-- Domestic Tour Packages -->
+        <section class="foreign-packages">
+            <div class="section-heading">
+                <h2>Domestic Tour Packages</h2>
+                <p>Experience exotic destinations and cultures around the world with our premium Indian tour packages</p>
+            </div>
+
+            <div class="package-grid" id="international-packages">
+                <!-- Package 1 -->
+                <div class="package-card" style="animation-delay: 0.1s" data-destination="bali" data-country="indonesia" data-package="paradise beach island">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Bali Beach Package">
+                        <div class="package-badge">Bestseller</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Bali Paradise Escape</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Bali, Indonesia
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 7 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹59,999 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card" style="animation-delay: 0.2s" data-destination="switzerland" data-country="europe" data-package="alpine adventure snow mountain">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Switzerland Tour">
+                        <div class="package-badge">20% Off</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Swiss Alpine Adventure</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Switzerland
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 8 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 5-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹1,25,000 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card" style="animation-delay: 0.3s" data-destination="dubai" data-country="uae" data-package="luxury desert experience">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Dubai Tour">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Dubai Luxury Experience</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Dubai, UAE
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 6 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 5-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹89,999 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="package-card" style="animation-delay: 0.4s" data-destination="thailand" data-country="asia" data-package="island hopping beach">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Thailand Tour">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Thailand Island Hopping</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Thailand
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 9 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹72,999 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 5 -->
+                <div class="package-card" style="animation-delay: 0.5s" data-destination="singapore" data-country="asia" data-package="family fun vacation">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Singapore Tour">
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Singapore Family Fun</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Singapore
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 5 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹68,500 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Package 6 -->
+                <div class="package-card" style="animation-delay: 0.6s" data-destination="japan" data-country="asia" data-package="cherry blossom cultural">
+                    <div class="package-image">
+                        <img src="/images/image2.jpg" alt="Japan Tour">
+                        <div class="package-badge">New</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Japan Cherry Blossom Tour</h3>
+                        <div class="package-location">
+                            <i class="fas fa-map-marker-alt"></i> Japan
+                        </div>
+                        <div class="package-features">
+                            <span class="feature"><i class="fas fa-calendar"></i> 10 Days</span>
+                            <span class="feature"><i class="fas fa-utensils"></i> Meals</span>
+                            <span class="feature"><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <div class="package-price">₹1,45,000 <span>/ per person</span></div>
+                        <button class="package-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="no-results" id="no-international-results">No international packages match your search. Try different keywords.</div>
+        </section>
+        </div>
+
+        <!--footeroooooooooooooooooooooooor-->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/api/placeholder/120/40" alt="Mayoori" class="footer-logo">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>About Mayoori</h3>
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Newsroom</a></li>
+                            <li><a href="#">Mayoori Blog</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Gift cards</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Partnerships</h3>
+                        <ul>
+                            <li><a href="#">Merchant sign up</a></li>
+                            <li><a href="#">Merchant log in</a></li>
+                            <li><a href="#">Affiliate Partnership</a></li>
+                            <li><a href="#">Influencer Program</a></li>
+                            <li><a href="#">Agent Marketplace</a></li>
+                            <li><a href="#">Mayoori Partner Hub</a></li>
+                            <li><a href="#">Collaborate with Mayoori</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Terms of use</h3>
+                        <ul>
+                            <li><a href="#">General terms of use</a></li>
+                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Bug Bounty Program</a></li>
+                            <li><a href="#">Animal Welfare Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Mayoori. All rights reserved.</p>
+                <div class="payment-methods">
+                    <img src="/images/credit card.jpeg" alt="UnionPay">
+                    <img src="/images/visa" alt="Visa">
+                    <img src="/images/master card.jpeg" alt="Mastercard">
+                    <img src="/images/phone pay.jpeg" alt="phone pe">
+                     
+                    <img src="/images/gpay.jpeg" alt="Google Pay">
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script>
+            // Get the search input element
+const searchInput = document.querySelector('.search-input');
+const searchClear = document.querySelector('.search-clear');
+const packageCards = document.querySelectorAll('.package-card');
+const noResultsMessages = document.querySelectorAll('.no-results');
+
+// Function to filter packages based on search input
+function filterPackages() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    let hasResults = false;
+
+    // Loop through each package card to check if it matches the search term
+    packageCards.forEach(card => {
+        // Get the content to search within
+        const title = card.querySelector('.package-title').textContent.toLowerCase();
+        const location = card.querySelector('.package-location').textContent.toLowerCase();
+        const packageData = card.dataset.package ? card.dataset.package.toLowerCase() : '';
+        const destinationData = card.dataset.destination ? card.dataset.destination.toLowerCase() : '';
+        const countryData = card.dataset.country ? card.dataset.country.toLowerCase() : '';
+        
+        // Check if the search term exists in any of the relevant data
+        if (
+            title.includes(searchTerm) || 
+            location.includes(searchTerm) || 
+            packageData.includes(searchTerm) || 
+            destinationData.includes(searchTerm) || 
+            countryData.includes(searchTerm)
+        ) {
+            // If match found, show the card
+            card.style.display = 'block';
+            hasResults = true;
+        } else {
+            // If no match, hide the card
+            card.style.display = 'none';
+        }
+    });
+    
+    // Show or hide the "No results" messages
+    noResultsMessages.forEach(message => {
+        message.style.display = hasResults ? 'none' : 'block';
+    });
+    
+    // Show or hide the clear button
+    if (searchTerm.length > 0) {
+        searchClear.classList.add('active');
+    } else {
+        searchClear.classList.remove('active');
+    }
+}
+
+// Event listeners for the search input
+searchInput.addEventListener('input', filterPackages);
+
+// Event listener for the clear button
+searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    filterPackages();
+    searchInput.focus();
+});
+
+// Initial call to ensure UI state is correct
+filterPackages();
+
+//carousels
+// Get all carousel elements
+const carousel = document.querySelector('.carousel');
+const slides = document.querySelectorAll('.carousel-slide');
+const indicators = document.querySelectorAll('.carousel-indicator');
+const prevArrow = document.querySelector('.carousel-arrow.prev');
+const nextArrow = document.querySelector('.carousel-arrow.next');
+
+// Set up initial variables
+let currentSlide = 0;
+let intervalId;
+const autoplayInterval = 3000; // 3 seconds
+
+// Function to show a specific slide
+function showSlide(index) {
+    // Handle out of bounds indices
+    if (index >= slides.length) {
+        index = 0;
+    } else if (index < 0) {
+        index = slides.length - 1;
+    }
+    
+    // Remove active class from all slides and indicators
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Add active class to the current slide and indicator
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    
+    // Update current slide index
+    currentSlide = index;
+}
+
+// Start the autoplay function
+function startAutoplay() {
+    intervalId = setInterval(() => {
+        showSlide(currentSlide + 1);
+    }, autoplayInterval);
+}
+
+// Stop the autoplay function
+function stopAutoplay() {
+    clearInterval(intervalId);
+}
+
+// Event listeners for manual navigation
+prevArrow.addEventListener('click', () => {
+    stopAutoplay(); // Stop autoplay when manually navigating
+    showSlide(currentSlide - 1);
+    startAutoplay(); // Restart autoplay after manual navigation
+});
+
+nextArrow.addEventListener('click', () => {
+    stopAutoplay();
+    showSlide(currentSlide + 1);
+    startAutoplay();
+});
+
+// Event listeners for indicators
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        stopAutoplay();
+        showSlide(index);
+        startAutoplay();
+    });
+});
+
+// Event listeners to pause autoplay when hovering over carousel
+carousel.addEventListener('mouseenter', stopAutoplay);
+carousel.addEventListener('mouseleave', startAutoplay);
+
+// Initialize the carousel
+showSlide(currentSlide);
+startAutoplay();
+
+
+ //footer
+          // Initialize Lucide icons
+          lucide.createIcons();
+
+// Cookie banner close functionality
+document.querySelector('.close-cookie').addEventListener('click', function() {
+    document.querySelector('.cookie-banner').style.display = 'none';
+});
+
+// Scroll to top functionality
+document.querySelector('.scroll-top').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+        </script>
+        
+                        </body>
+                        </html>
+                        

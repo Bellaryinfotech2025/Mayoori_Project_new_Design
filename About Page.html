@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayoori Travels - Our Story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    
+    <script>
+        
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#FF9F43'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+
+    
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+    
+</head>
+
+
+<body>
+    <header class="relative min-h-screen">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/30">
+            <img src="image-3.avif" class="w-full h-full object-cover" alt="Mayoori travels">
+        </div>
+        
+        <nav class="relative z-10 flex items-center justify-between px-8 py-6">
+            <a href="/" class="flex items-center space-x-2">
+                <span class="text-3xl font-bold">
+                    <span class="text-blue-500">Mayoori</span>
+                    <span class="text-yellow-400">Travels</span>
+                </span>
+            </a>
+            
+            <div class="flex items-center space-x-8">
+                <a href="/" class="text-white hover:text-secondary transition-colors">HOME</a>
+                <a href="/about" class="text-white hover:text-secondary transition-colors">ABOUT US</a>
+                <div class="dropdown relative">
+                    <button class="text-white hover:text-secondary transition-colors flex items-center">
+                        TOURS
+                        <i class="ri-arrow-down-s-line ml-1"></i>
+                    </button>
+                    <div class="dropdown-content bg-white rounded shadow-lg mt-2 py-2">
+                        <a href="/tours/desert" class="block px-4 py-2 hover:bg-gray-100">Desert Tours</a>
+                        <a href="/tours/mountain" class="block px-4 py-2 hover:bg-gray-100">Mountain Tours</a>
+                        <a href="/tours/night" class="block px-4 py-2 hover:bg-gray-100">Night Tours</a>
+                    </div>
+                </div>
+                <a href="/faqs" class="text-white hover:text-secondary transition-colors">FAQS</a>
+                <a href="/blog" class="text-white hover:text-secondary transition-colors">BLOG</a>
+                <a href="/contact" class="text-white hover:text-secondary transition-colors">CONTACT US</a>
+                <button class="bg-secondary hover:bg-secondary/90 text-white px-6 py-2 rounded-button whitespace-nowrap transition-colors">
+                    BOOK NOW
+                </button>
+            </div>
+        </nav>
+
+        <div class="relative z-10 flex flex-col items-center justify-center h-screen">
+            <h1 class="text-7xl font-bold text-white mb-8">OUR STORY</h1>
+            <p class="text-xl text-white max-w-2xl text-center">
+                Experience the thrill of desert adventure with our premium Mayoori Travels. we've been creating unforgettable memories for adventure seekers from around the world.
+            </p>
+        </div>
+    </header>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buggy Tours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00BCD4',
+                        secondary: '#FFB74D'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .dot-pattern {
+            background-image: radial-gradient(#00BCD4 2px, transparent 2px);
+            background-size: 15px 15px;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen">
+    <div class="container mx-auto px-4 py-12 relative min-h-screen">
+        <div class="dot-pattern absolute top-0 left-0 w-48 h-48"></div>
+        
+        <div class="flex flex-col lg:flex-row gap-12 items-start relative z-10">
+            <div class="w-full lg:w-1/2">
+                <div class="rounded-3xl overflow-hidden shadow-lg">
+                    <img src="/images/" 
+                         alt="Desert Buggy Adventure" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h1 class="text-primary text-5xl font-bold">About Mayoori Travels</h1>
+                
+                <div class="text-gray-700 space-y-4 text-lg leading-relaxed">
+                    <p>
+                        At <a href="#" class="text-primary hover:underline">Mayoori Travels</a> – we're not just about adrenaline-pumping adventures; we're about creating moments that leave an indelible mark on your heart.
+                    </p>
+                    
+                    <p>
+                        Our expert team, composed of seasoned desert guides, safety experts, and hospitality professionals, is dedicated to ensuring your safety, comfort, and enjoyment throughout your journey.
+                    </p>
+                         
+                </div>
+                
+                <div class="flex gap-4 mt-8">
+                    <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-all flex items-center gap-2">
+                        <i class="ri-calendar-line"></i>
+                        Book Now
+                    </button>
+                    <button class="border-2 border-primary text-primary px-8 py-3 rounded-button hover:bg-primary hover:text-white transition-all flex items-center gap-2">
+                        <i class="ri-information-line"></i>
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="fixed bottom-8 right-8 w-12 h-12 bg-secondary text-white rounded-full shadow-lg hover:-translate-y-1 transition-all flex items-center justify-center">
+            <i class="ri-arrow-up-line text-xl"></i>
+        </button>
+    </div>
+</body>
+</html>
+
+    <main>
+        <section class="py-20 px-8 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6">A Decade of Road travels</h2>
+                        <p class="text-gray-600 mb-6">
+                            For over 10 years, Mayoori Travels has been the premier provider of adventures in the region. Our passion for off-road exploration and commitment to safety has made us the trusted choice for thrill-seekers worldwide.
+                        </p>
+                        <p class="text-gray-600 mb-6">
+                            We started with just two buggies and a dream. Today, we operate a fleet of 20+ state-of-the-art vehicles and employ a team of expert guides who share our passion for adventure.
+                        </p>
+                        <button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button whitespace-nowrap transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                    <div>
+                        <img src="image-4.avif" class="rounded-lg shadow-xl w-full" alt="Mayoori Travel">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 px-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-16">Why Choose Us</h2>
+                <div class="grid grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="ri-shield-star-line text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Safety First</h3>
+                        <p class="text-gray-600">All our tours follow strict safety protocols with professional guides and well-maintained equipment.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="ri-map-2-line text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Expert Guides</h3>
+                        <p class="text-gray-600">Our experienced guides know the terrain inside out and provide fascinating insights about the travel.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="ri-jeep-line text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Modern Fleet</h3>
+                        <p class="text-gray-600">We maintain a fleet of latest model buggies equipped with modern safety features.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="mb-2"></p>
+                    <p class="mb-2">C Camp, Bellary, Karnataka</p>
+                    <p class="mb-2">Phone: +91 9876543210</p>
+                    <p>Email: mayoori@travelsgamil.com</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="/tours" class="hover:text-secondary transition-colors">Tours</a></li>
+                        <li><a href="/faqs" class="hover:text-secondary transition-colors">FAQs</a></li>
+                        <li><a href="/contact" class="hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <i class="ri-facebook-fill text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <i class="ri-instagram-fill text-2xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <i class="ri-twitter-fill text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="mb-4">Subscribe to our newsletter for updates and special offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-button focus:outline-none text-gray-900 w-full">
+                        <button type="submit" class="bg-secondary hover:bg-secondary/90 px-6 py-2 rounded-r-button whitespace-nowrap transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-gray-800 text-center">
+                <p>&copy; 2025 Mayoori Travels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
