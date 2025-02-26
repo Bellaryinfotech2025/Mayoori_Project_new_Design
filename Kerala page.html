@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Holiday Sale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            position: relative;
+            width: calc(100% - 370px); /* Adjust width to accommodate modal */
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('/images/kerala\ image\ of\ page.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            transition: width 0.3s ease;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Animation classes */
+        .animate-text {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* Staggered animation delays */
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .offer-banner {
+            background-color: rgba(25, 47, 89, 0.9);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .features {
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-icon {
+            color: #ff9f1c;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-text {
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Right side modal */
+        .modal {
+            position: fixed;
+            z-index: 999;
+            right: 0;
+            top: 0;
+            width: 370px;
+            height: 100%;
+            animation: slideInRight 0.4s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 15px 0 0 15px;
+            overflow: hidden;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+            height: 100vh;
+            max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            color: white;
+            padding: 1.2rem;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            overflow-y: auto; 
+            flex: 1;
+        }
+
+        .form-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab {
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: #555;
+            border-bottom: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .tab.active {
+            color: #0083b0;
+            border-bottom: 3px solid #0083b0;
+        }
+
+        .tab:hover {
+            color: #0083b0;
+        }
+
+        .tab i {
+            margin-right: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: #0083b0;
+            box-shadow: 0 0 0 2px rgba(0, 131, 176, 0.1);
+            outline: none;
+        }
+
+        .input-icon {
+            position: relative;
+        }
+
+        .input-icon i {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .input-icon input {
+            padding-left: 3rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .package-options {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .package-option {
+            flex: 1;
+            min-width: 90px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .package-option:hover {
+            border-color: #0083b0;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .package-option.selected {
+            border-color: #0083b0;
+            background-color: rgba(0, 131, 176, 0.1);
+        }
+
+        .package-option i {
+            font-size: 1.5rem;
+            color: #0083b0;
+            margin-bottom: 0.4rem;
+        }
+
+        .package-name {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .package-price {
+            color: #ff7e5f;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ff9f1c 0%, #ff7e5f 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .date-picker {
+            position: relative;
+        }
+
+        .date-picker i {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            color: #777;
+            pointer-events: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero {
+                width: 100%;
+            }
+            
+            .modal {
+                width: 320px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .offer-banner {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+            }
+            
+            .feature-item {
+                font-size: 1rem;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .offer-banner {
+                font-size: 1rem;
+                padding: 0.7rem 1.2rem;
+            }
+            
+            .modal-title {
+                font-size: 1.3rem;
+            }
+            
+            .tab {
+                padding: 0.7rem;
+                font-size: 0.8rem;
+            }
+            
+            .modal {
+                width: 85%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1rem;
+            }
+            
+            .modal {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .modal-content {
+                border-radius: 0;
+            }
+            
+            .package-option {
+                min-width: 80px;
+                padding: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title animate-text delay-1">Kerala Holiday Sale Live Now!</h1>
+            <div class="offer-banner animate-text delay-2">Save upto 30% on Kerala Holiday Packages</div>
+            
+            <div class="features">
+                <div class="feature-item animate-text delay-3">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span class="feature-text">Best Priced Packages within your budget</span>
+                </div>
+                <div class="feature-item animate-text delay-3">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span class="feature-text">Local Insider Tips and Recommendations</span>
+                </div>
+                <div class="feature-item animate-text delay-4">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span class="feature-text">Vacations Made Easy, Savings Guaranteed</span>
+                </div>
+                <div class="feature-item animate-text delay-4">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span class="feature-text">Seamless Journey, Endless Memories</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Right-Side Modal (Always Visible) -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Book Your Kerala Adventure</h2>
+                <p class="modal-subtitle">Get exclusive deals and personalized itineraries</p>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-tabs">
+                    <div class="tab active" data-tab="booking">
+                        <i class="fas fa-calendar-check"></i> Booking
+                    </div>
+                    <div class="tab" data-tab="packages">
+                        <i class="fas fa-suitcase"></i> Packages
+                    </div>
+                    <div class="tab" data-tab="info">
+                        <i class="fas fa-info-circle"></i> Info
+                    </div>
+                </div>
+                
+                <form id="bookingForm">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Your Name</label>
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" class="form-input" placeholder="Full Name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" class="form-input" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Contact Number</label>
+                            <div class="input-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" class="form-input" placeholder="Your Phone Number" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Departing City</label>
+                            <div class="input-icon">
+                                <i class="fas fa-plane-departure"></i>
+                                <input type="text" class="form-input" placeholder="City Name" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">Departure Date</label>
+                            <div class="date-picker">
+                                <input type="date" class="form-input" required>
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Return Date</label>
+                            <div class="date-picker">
+                                <input type="date" class="form-input" required>
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Number of Travelers</label>
+                        <div class="grid-2">
+                            <div class="input-icon">
+                                <i class="fas fa-user-friends"></i>
+                                <input type="number" class="form-input" placeholder="Adults" min="1" value="2" required>
+                            </div>
+                            <div class="input-icon">
+                                <i class="fas fa-child"></i>
+                                <input type="number" class="form-input" placeholder="Children" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Select Package Type</label>
+                        <div class="package-options">
+                            <div class="package-option selected">
+                                <i class="fas fa-star"></i>
+                                <div class="package-name">Standard</div>
+                                <div class="package-price">$999</div>
+                            </div>
+                            <div class="package-option">
+                                <i class="fas fa-star-half-alt"></i>
+                                <div class="package-name">Deluxe</div>
+                                <div class="package-price">$1299</div>
+                            </div>
+                            <div class="package-option">
+                                <i class="fas fa-crown"></i>
+                                <div class="package-name">Premium</div>
+                                <div class="package-price">$1699</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Book My Trip Now
+                    </button>
+                    
+                    <div class="form-footer">
+                        By booking, you agree to our terms and conditions. 
+                        No payment required now - this is just an inquiry.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ensure animations run on page refresh
+        document.addEventListener('DOMContentLoaded', () => {
+            // Reset animations on page load
+            const animatedElements = document.querySelectorAll('.animate-text');
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(50px)';
+                
+                // Force a reflow
+                void el.offsetWidth;
+                
+                // Re-add the animation class
+                el.style.animation = 'none';
+                setTimeout(() => {
+                    el.style.animation = '';
+                }, 10);
+            });
+
+            // Adjust the hero section width for smaller screens
+            const adjustHeroWidth = () => {
+                const hero = document.querySelector('.hero');
+                if (window.innerWidth <= 992) {
+                    hero.style.width = '100%';
+                } else {
+                    hero.style.width = 'calc(100% - 370px)';
+                }
+            };
+
+            // Call on load and resize
+            adjustHeroWidth();
+            window.addEventListener('resize', adjustHeroWidth);
+        });
+        
+        // Modal close functionality
+        const modal = document.getElementById('bookingModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        
+        closeModalBtn.addEventListener('click', () => {
+            // Instead of hiding, we'll just animate it out to the right
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.style.transform = 'translateX(100%)';
+            modalContent.style.opacity = '0';
+            
+            // After animation, reset and toggle display
+            setTimeout(() => {
+                const hero = document.querySelector('.hero');
+                hero.style.width = '100%';
+                modal.style.display = 'none';
+                
+                // Add a button to bring the modal back
+                if (!document.getElementById('showModalBtn')) {
+                    const showBtn = document.createElement('button');
+                    showBtn.id = 'showModalBtn';
+                    showBtn.className = 'book-btn';
+                    showBtn.innerHTML = '<i class="fas fa-calendar-alt"></i> Book Now';
+                    showBtn.style.position = 'fixed';
+                    showBtn.style.bottom = '20px';
+                    showBtn.style.right = '20px';
+                    showBtn.style.zIndex = '99';
+                    
+                    showBtn.addEventListener('click', () => {
+                        showModal();
+                        document.body.removeChild(showBtn);
+                    });
+                    
+                    document.body.appendChild(showBtn);
+                }
+            }, 400);
+        });
+        
+        // Function to show the modal
+        function showModal() {
+            const hero = document.querySelector('.hero');
+            if (window.innerWidth > 992) {
+                hero.style.width = 'calc(100% - 370px)';
+            }
+            
+            modal.style.display = 'block';
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.style.transform = 'translateX(0)';
+            modalContent.style.opacity = '1';
+        }
+        
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Here you would normally show/hide content based on tab
+                console.log(`Tab selected: ${tab.getAttribute('data-tab')}`);
+            });
+        });
+        
+        // Package selection
+        const packageOptions = document.querySelectorAll('.package-option');
+        
+        packageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                packageOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+        
+        // Form submission
+        const bookingForm = document.getElementById('bookingForm');
+        
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your booking request! Our team will contact you shortly to confirm your Kerala adventure.');
+        });
+    </script>
+</body>
+</html>
