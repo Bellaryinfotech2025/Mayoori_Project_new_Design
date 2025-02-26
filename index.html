@@ -500,7 +500,7 @@
 
         /* Hero Section */
         .hero {
-            height: 80vh;
+            height: 90vh;
             position: relative;
             overflow: hidden;
         }
@@ -1411,6 +1411,198 @@
                 padding: 1.5rem;
             }
         }
+        /*new promomcode desing here good one*/
+         
+        .promo-container-new {
+            background-color: #ebe7f7;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            border-radius: 15px;
+            box-shadow: 0 0 2px;
+        }
+        
+        .content-col {
+            flex: 0 0 70%;
+            padding: 30px;
+            z-index: 2;
+        }
+        
+        .image-col {
+            flex: 0 0 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        
+        .devices-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .phone-image {
+            position: relative;
+            height: 340px;
+            z-index: 3;
+            margin-right: -20px;
+            transform: rotate(-5deg);
+        }
+        
+        .laptop-image {
+            position: relative;
+            height: 360px;
+            z-index: 2;
+            margin-left: -30px;
+            transform: rotate(5deg);
+        }
+        
+        .heading {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .description {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .download-button {
+            background-color: #1a1a1a;
+            color: white;
+            border-radius: 8px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .button-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .floating-image {
+            position: absolute;
+            right: -100px;
+            top: 50px;
+            width: 45%;
+            height: auto;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* Extra image for the side-by-side arrangement */
+        .side-image {
+            position: absolute;
+            right: 20%;
+            top: 20%;
+            width: 200px;
+            height: auto;
+            z-index: 4;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 1024px) {
+            .content-col {
+                flex: 0 0 60%;
+            }
+            
+            .image-col {
+                flex: 0 0 40%;
+            }
+            
+            .heading {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .promo-container-new {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+            
+            .content-col, .image-col {
+                flex: 0 0 100%;
+                width: 100%;
+                padding: 20px 0;
+            }
+            
+            .content-col {
+                order: 1;
+            }
+            
+            .image-col {
+                order: 2;
+                margin-top: 20px;
+            }
+            
+            .devices-container {
+                justify-content: center;
+                margin-top: 30px;
+            }
+            
+            .phone-image {
+                height: 280px;
+                margin-right: -40px;
+            }
+            
+            .laptop-image {
+                height: 300px;
+            }
+            
+            .heading {
+                font-size: 32px;
+                text-align: center;
+            }
+            
+            .description {
+                font-size: 16px;
+                text-align: center;
+            }
+            
+            .download-buttons {
+                justify-content: center;
+            }
+            
+            .floating-image {
+                display: none;
+            }
+            
+            .side-image {
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                right: auto;
+                top: auto;
+                width: 150px;
+                margin-bottom: 20px;
+            }
+        }
  
     </style>
 </head>
@@ -1531,7 +1723,7 @@
 
          <section class="hero">
             <div class="carousel">
-                <div class="carousel-slide active" style="background-image: url('/images/image4.jpg')"></div>
+                <div class="carousel-slide active" style="background-image: url('/images/carousel\ image.png')"></div>
                 <div class="carousel-slide" style="background-image: url('/images/image2.jpg')"></div>
                 <div class="carousel-slide" style="background-image: url('/images/image3.jpg')"></div>
                 <div class="carousel-slide" style="background-image: url('/images/image4.jpg')"></div>
@@ -1564,10 +1756,14 @@
                     <div class="form-group">
                         <label>Select Destination</label>
                         <select id="destinationSelect">
-                            <option value="krabi">Krabi, Thailand</option>
-                            <option value="phuket">Phuket, Thailand</option>
-                            <option value="bangkok">Bangkok, Thailand</option>
-                            <option value="pattaya">Pattaya, Thailand</option>
+                            <option value="usa">USA</option>
+                            <option value="burj khalifa">Burj KhalifaDubai</option>
+                            <option value="singapore">Singapore</option>
+                            <option value="thailand">Pattaya, Thailand</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="pattaya">Europe</option>
+                            <option value="pattaya">Srilanka</option>
+                            <option value="pattaya">Australia</option>
                         </select>
                     </div>
     
@@ -2640,6 +2836,49 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!--new promo code here good section-->
+            <div class="promo-container-new">
+                <div class="content-col">
+                    <h1 class="heading">Book your tickets with Mayoori</h1>
+                    <p class="description">
+                        Want to unlock even more features to make your photos shine? With Photoroom Pro, you'll get access to useful features like Batch Editor, HD quality, Smart Resize, and more.
+                    </p>
+                    <div class="download-buttons">
+                        <a href="#" class="download-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bus-front-fill" viewBox="0 0 16 16">
+                                <path d="M16 7a1 1 0 0 1-1 1v3.5c0 .818-.393 1.544-1 2v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V14H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2a2.5 2.5 0 0 1-1-2V8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1V2.64C1 1.452 1.845.408 3.064.268A44 44 0 0 1 8 0c2.1 0 3.792.136 4.936.268C14.155.408 15 1.452 15 2.64V4a1 1 0 0 1 1 1zM3.552 3.22A43 43 0 0 1 8 3c1.837 0 3.353.107 4.448.22a.5.5 0 0 0 .104-.994A44 44 0 0 0 8 2c-1.876 0-3.426.109-4.552.226a.5.5 0 1 0 .104.994M8 4c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m-3 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0m8 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m-7 0a1 1 0 0 0 1 1h2a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1"/>
+                              </svg>
+                            Book
+                        </a>
+                        <a href="#" class="download-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bus-front-fill" viewBox="0 0 16 16">
+                                <path d="M16 7a1 1 0 0 1-1 1v3.5c0 .818-.393 1.544-1 2v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V14H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2a2.5 2.5 0 0 1-1-2V8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1V2.64C1 1.452 1.845.408 3.064.268A44 44 0 0 1 8 0c2.1 0 3.792.136 4.936.268C14.155.408 15 1.452 15 2.64V4a1 1 0 0 1 1 1zM3.552 3.22A43 43 0 0 1 8 3c1.837 0 3.353.107 4.448.22a.5.5 0 0 0 .104-.994A44 44 0 0 0 8 2c-1.876 0-3.426.109-4.552.226a.5.5 0 1 0 .104.994M8 4c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m-3 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0m8 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m-7 0a1 1 0 0 0 1 1h2a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1"/>
+                              </svg>
+                            Travel
+                        </a>
+                        <a href="#" class="download-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bus-front-fill" viewBox="0 0 16 16">
+                                <path d="M16 7a1 1 0 0 1-1 1v3.5c0 .818-.393 1.544-1 2v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V14H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2a2.5 2.5 0 0 1-1-2V8a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1V2.64C1 1.452 1.845.408 3.064.268A44 44 0 0 1 8 0c2.1 0 3.792.136 4.936.268C14.155.408 15 1.452 15 2.64V4a1 1 0 0 1 1 1zM3.552 3.22A43 43 0 0 1 8 3c1.837 0 3.353.107 4.448.22a.5.5 0 0 0 .104-.994A44 44 0 0 0 8 2c-1.876 0-3.426.109-4.552.226a.5.5 0 1 0 .104.994M8 4c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m-3 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0m8 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m-7 0a1 1 0 0 0 1 1h2a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1"/>
+                              </svg>
+                            Enjoy
+                        </a>
+                    </div>
+                </div>
+                <div class="image-col">
+                    <div class="devices-container">
+                        <img src="/images/about image.jpg" alt="Mobile app" class="phone-image">
+                        <img src="/images/bus about.jpeg" alt="Laptop app" class="laptop-image">
+                    </div>
+                </div>
+                
+                <!-- Additional image that extends 30% outside the container -->
+                <img src="/images/about image.png" alt="Additional jewelry image" class="floating-image">
+        
+                
+                <!-- Side-by-side image -->
+                <img src="/images/about main image.jpg" alt="Jewelry photo" class="side-image">
             </div>
     <!--footeroooooooooooooooooooooooor-->
     <footer class="footer">

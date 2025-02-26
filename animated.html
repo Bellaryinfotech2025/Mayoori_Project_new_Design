@@ -3,540 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Packages</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Photoroom Promo</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-
-        .bodyofplacesnew {
-            background-color: #f5f5f5;
+        
+        
+        
+        .promo-container-new {
+            background-color: #ebe7f7;
             padding: 20px;
-        }
-
-        .container-places {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 32px;
-            color: #333;
-        }
-
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .packages-grid.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .package-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .package-image {
-            height: 200px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             position: relative;
             overflow: hidden;
+            min-height: 500px;
+            border-radius: 15px;
+            box-shadow: 0 0 2px;
         }
-
-        .package-image img {
+        
+        .content-col {
+            flex: 0 0 70%;
+            padding: 30px;
+            z-index: 2;
+        }
+        
+        .image-col {
+            flex: 0 0 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        
+        .devices-container {
+            position: relative;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .package-card:hover .package-image img {
-            transform: scale(1.1);
-        }
-
-        .package-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 10px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
-
-        .package-details {
-            padding: 15px;
+        
+        .phone-image {
+            position: relative;
+            height: 340px;
+            z-index: 3;
+            margin-right: -20px;
+            transform: rotate(-5deg);
         }
-
-        .package-title {
+        
+        .laptop-image {
+            position: relative;
+            height: 360px;
+            z-index: 2;
+            margin-left: -30px;
+            transform: rotate(5deg);
+        }
+        
+        .heading {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .description {
             font-size: 18px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .package-location {
             color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 40px;
+            line-height: 1.5;
         }
-
-        .rating {
-            color: #ffc107;
-            margin-bottom: 15px;
-        }
-
-        .buttons-container {
+        
+        .download-buttons {
             display: flex;
-            justify-content: space-between;
-            gap: 10px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
-
-        .btn {
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-weight: 500;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .btn-primary {
-            background-color: #0066cc;
+        
+        .download-button {
+            background-color: #1a1a1a;
             color: white;
-            flex: 1;
-        }
-
-        .btn-primary:hover {
-            background-color: #0055aa;
-        }
-
-        .btn-secondary {
-            background-color: #eaeaea;
-            color: #333;
+            border-radius: 8px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .button-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .floating-image {
+            position: absolute;
+            right: -100px;
+            top: 50px;
+            width: 45%;
+            height: auto;
+            z-index: 0;
+            opacity: 0.5;
         }
 
-        .btn-secondary:hover {
-            background-color: #d5d5d5;
+        /* Extra image for the side-by-side arrangement */
+        .side-image {
+            position: absolute;
+            right: 20%;
+            top: 20%;
+            width: 200px;
+            height: auto;
+            z-index: 4;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
-        /* Mobile Responsive Design */
-        @media (max-width: 1100px) {
-            .packages-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 650px) {
-            .packages-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 1024px) {
+            .content-col {
+                flex: 0 0 60%;
             }
             
-            .package-image {
-                height: 180px;
+            .image-col {
+                flex: 0 0 40%;
+            }
+            
+            .heading {
+                font-size: 36px;
             }
         }
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            margin-bottom: 8px;
-        }
-
-        .rating-star {
-            color: #00aa6c;
-        }
-
-        .rating-text {
-            color: #00aa6c;
-            font-weight: 500;
-        }
-        .favorite-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: white;
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        
+        @media (max-width: 768px) {
+            .promo-container-new {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+            
+            .content-col, .image-col {
+                flex: 0 0 100%;
+                width: 100%;
+                padding: 20px 0;
+            }
+            
+            .content-col {
+                order: 1;
+            }
+            
+            .image-col {
+                order: 2;
+                margin-top: 20px;
+            }
+            
+            .devices-container {
+                justify-content: center;
+                margin-top: 30px;
+            }
+            
+            .phone-image {
+                height: 280px;
+                margin-right: -40px;
+            }
+            
+            .laptop-image {
+                height: 300px;
+            }
+            
+            .heading {
+                font-size: 32px;
+                text-align: center;
+            }
+            
+            .description {
+                font-size: 16px;
+                text-align: center;
+            }
+            
+            .download-buttons {
+                justify-content: center;
+            }
+            
+            .floating-image {
+                display: none;
+            }
+            
+            .side-image {
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                right: auto;
+                top: auto;
+                width: 150px;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <section class="bodyofplacesnew">
-    <div class="container-places">
-        <h2 class="section-title">Discover Mayoori</h2>
+    <div class="promo-container-new">
+        <div class="content-col">
+            <h1 class="heading">Go further with Photoroom</h1>
+            <p class="description">
+                Want to unlock even more features to make your photos shine? With Photoroom Pro, you'll get access to useful features like Batch Editor, HD quality, Smart Resize, and more.
+            </p>
+            <div class="download-buttons">
+                <a href="#" class="download-button">
+                    <svg class="button-icon" viewBox="0 0 24 24" fill="white">
+                        <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
+                    </svg>
+                    App Store
+                </a>
+                <a href="#" class="download-button">
+                    <svg class="button-icon" viewBox="0 0 24 24" fill="white">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                    </svg>
+                    Google Play
+                </a>
+                <a href="#" class="download-button">
+                    <svg class="button-icon" viewBox="0 0 24 24" fill="white">
+                        <path d="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V20H8V22H16V20H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z"/>
+                    </svg>
+                    Web App
+                </a>
+            </div>
+        </div>
+        <div class="image-col">
+            <div class="devices-container">
+                <img src="/images/about image.jpg" alt="Mobile app" class="phone-image">
+                <img src="/images/bus about.jpeg" alt="Laptop app" class="laptop-image">
+            </div>
+        </div>
         
-        <div class="packages-grid">
-            <div class="package-card">
-                <div class="package-image">
-                    <button class="favorite-btn">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <img src="/images/USA  images.jpeg" alt="Krabi, Phuket and Bangkok">
-                    <div class="package-info">
-                        <div>6 nights / 7 days</div>
-                        <div>₹ 25,799/- pp</div>
-                    </div>
-                </div>
-                <div class="package-details">
-                    <h3 class="package-title">Best of USA</h3>
-                    <p class="package-location">
-                        <i class="fas fa-map-marker-alt"></i> Phuket 2N, Krabi 2N, Bangkok 2N
-                    </p>
-                    <div class="rating">
-                        <span class="rating-star">★</span>
-                        <span class="rating-text">5.0</span>
-                         
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="buttons-container">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-book"></i> Book Now
-                        </button>
-                        <button class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="package-card">
-                <div class="package-image">
-                    <button class="favorite-btn">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <img src="/images/dubai image.jpeg" alt="Fun in Krabi - Phuket Islands">
-                    <div class="package-info">
-                        <div>5 nights / 6 days</div>
-                        <div>₹ 19,499/- pp</div>
-                    </div>
-                </div>
-                <div class="package-details">
-                    <h3 class="package-title">Fun in Krabi - Phuket Islands</h3>
-                    <p class="package-location">
-                        <i class="fas fa-map-marker-alt"></i> Krabi 2N, Phuket 3N
-                    </p>
-                    <div class="rating">
-                        <span class="rating-star">★</span>
-                        <span class="rating-text">5.0</span>
-                         
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="buttons-container">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-book"></i> Book Now
-                        </button>
-                        <button class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="package-card">
-                <div class="package-image">
-                    <button class="favorite-btn">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <img src="/images/singapore images.jpeg" alt="Krabi Phuket on Budget">
-                    <div class="package-info">
-                        <div>4 nights / 5 days</div>
-                        <div>₹ 14,193/- pp</div>
-                    </div>
-                </div>
-                <div class="package-details">
-                    <h3 class="package-title">Krabi Phuket on Budget</h3>
-                    <p class="package-location">
-                        <i class="fas fa-map-marker-alt"></i> Krabi 2N, Phuket 2N
-                    </p>
-                    <div class="rating">
-                        <span class="rating-star">★</span>
-                        <span class="rating-text">5.0</span>
-                         
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="buttons-container">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-book"></i> Book Now
-                        </button>
-                        <button class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="package-card">
-                <div class="package-image">
-                    <button class="favorite-btn">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <img src="/images/thailand images.jpeg" alt="Krabi Phuket for Families">
-                    <div class="package-info">
-                        <div>4 nights / 5 days</div>
-                        <div>₹ 23,399/- pp</div>
-                    </div>
-                </div>
-                <div class="package-details">
-                    <h3 class="package-title">Krabi Phuket for Families</h3>
-                    <p class="package-location">
-                        <i class="fas fa-map-marker-alt"></i> Krabi 2N, Phuket 2N
-                    </p>
-                    <div class="rating">
-                        <span class="rating-star">★</span>
-                        <span class="rating-text">5.0</span>
-                         
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="buttons-container">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-book"></i> Book Now
-                        </button>
-                        <button class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Additional image that extends 30% outside the container -->
+        <img src="/images/about image.png" alt="Additional jewelry image" class="floating-image">
 
-        <div class="packages-grid">
-            <div class="package-card">
-                <div class="package-image">
-                    <button class="favorite-btn">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <img src="/images/USA  images.jpeg" alt="Krabi, Phuket and Bangkok">
-                    <div class="package-info">
-                        <div>6 nights / 7 days</div>
-                        <div>₹ 25,799/- pp</div>
-                    </div>
-                </div>
-                <div class="package-details">
-                    <h3 class="package-title">Best of USA</h3>
-                    <p class="package-location">
-                        <i class="fas fa-map-marker-alt"></i> Phuket 2N, Krabi 2N, Bangkok 2N
-                    </p>
-                    <div class="rating">
-                        <span class="rating-star">★</span>
-                        <span class="rating-text">5.0</span>
-                         
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="buttons-container">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-book"></i> Book Now
-                        </button>
-                        <button class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="package-card">
-                <div class="package-image">
-                    <button class="favorite-btn">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <img src="/images/dubai image.jpeg" alt="Fun in Krabi - Phuket Islands">
-                    <div class="package-info">
-                        <div>5 nights / 6 days</div>
-                        <div>₹ 19,499/- pp</div>
-                    </div>
-                </div>
-                <div class="package-details">
-                    <h3 class="package-title">Fun in Krabi - Phuket Islands</h3>
-                    <p class="package-location">
-                        <i class="fas fa-map-marker-alt"></i> Krabi 2N, Phuket 3N
-                    </p>
-                    <div class="rating">
-                        <span class="rating-star">★</span>
-                        <span class="rating-text">5.0</span>
-                         
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="buttons-container">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-book"></i> Book Now
-                        </button>
-                        <button class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="package-card">
-                <div class="package-image">
-                    <button class="favorite-btn">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <img src="/images/singapore images.jpeg" alt="Krabi Phuket on Budget">
-                    <div class="package-info">
-                        <div>4 nights / 5 days</div>
-                        <div>₹ 14,193/- pp</div>
-                    </div>
-                </div>
-                <div class="package-details">
-                    <h3 class="package-title">Krabi Phuket on Budget</h3>
-                    <p class="package-location">
-                        <i class="fas fa-map-marker-alt"></i> Krabi 2N, Phuket 2N
-                    </p>
-                    <div class="rating">
-                        <span class="rating-star">★</span>
-                        <span class="rating-text">5.0</span>
-                         
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="buttons-container">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-book"></i> Book Now
-                        </button>
-                        <button class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="package-card">
-                <div class="package-image">
-                    <button class="favorite-btn">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    <img src="/images/thailand images.jpeg" alt="Krabi Phuket for Families">
-                    <div class="package-info">
-                        <div>4 nights / 5 days</div>
-                        <div>₹ 23,399/- pp</div>
-                    </div>
-                </div>
-                <div class="package-details">
-                    <h3 class="package-title">Krabi Phuket for Families</h3>
-                    <p class="package-location">
-                        <i class="fas fa-map-marker-alt"></i> Krabi 2N, Phuket 2N
-                    </p>
-                    <div class="rating">
-                        <span class="rating-star">★</span>
-                        <span class="rating-text">5.0</span>
-                         
-                    </div>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="buttons-container">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-book"></i> Book Now
-                        </button>
-                        <button class="btn btn-secondary">
-                            <i class="fas fa-info-circle"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+        <!-- Side-by-side image -->
+        <img src="/images/about main image.jpg" alt="Jewelry photo" class="side-image">
     </div>
-    </section>
-
-    
-
-    <script>
-        // Function to handle the scroll animation
-        function handleScrollAnimation() {
-            const packagesGrid = document.querySelector('.packages-grid');
-            const position = packagesGrid.getBoundingClientRect();
-            
-            // Check if element is in viewport
-            if (position.top < window.innerHeight * 0.8) {
-                packagesGrid.classList.add('visible');
-            }
-        }
-
-        // Initial check in case elements are already in view when page loads
-        window.addEventListener('load', handleScrollAnimation);
-        
-        // Check when user scrolls
-        window.addEventListener('scroll', handleScrollAnimation);
-    </script>
 </body>
 </html>
