@@ -663,7 +663,186 @@
                 text-align: left;
             }
         }
-
+        /*new info section css here*/
+               
+        .bodyofinfo {
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        
+        .col-half {
+            width: 50%;
+            padding: 0 15px;
+        }
+        
+        .section-divider {
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 16px;
+            padding-bottom: 4px;
+            font-weight: bold;
+            color: #212529;
+            font-size: 24px;
+        }
+        
+        .highlight-title {
+            color: #ff6b6b;
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .mb-4 {
+            margin-bottom: 24px;
+        }
+        
+        .mb-3 {
+            margin-bottom: 16px;
+        }
+        
+        .check-icon::before {
+            content: "✓";
+            color: #20c997;
+            margin-right: 8px;
+        }
+        
+        .x-icon::before {
+            content: "✗";
+            color: #ff6b6b;
+            margin-right: 8px;
+        }
+        
+        .highlight-text {
+            font-weight: 500;
+        }
+        
+        .list-unstyled {
+            list-style: none;
+        }
+        
+        .payment-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px 24px;
+        }
+        
+        .payment-option {
+            flex: 0 0 25%;
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
+        
+        .payment-box {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .bank-transfer {
+            border: 2px solid #ff6b6b;
+        }
+        
+        .payment-icon {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .strikethrough {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+        
+        .discount-price {
+            font-size: 32px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .per-person {
+            color: #6c757d;
+            display: block;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .proceed-btn {
+            background: linear-gradient(to right, #20c997, #6f42c1);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        
+        .back-btn {
+            border: 2px solid #ff6b6b;
+            color: #ff6b6b;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        
+        .border-top {
+            border-top: 1px solid #dee2e6;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .col-half {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .payment-option {
+                flex: 0 0 50%;
+            }
+            
+            .price-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .button-group {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .payment-option {
+                flex: 0 0 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -989,6 +1168,119 @@
                 </div>
                 </div>
                 </section>
+                 <!---info about tour-->
+                 <section class="bodyofinfo">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Itinerary Highlights Section -->
+                            <div class="col-half">
+                                <div class="section-divider">Itinerary Highlights</div>
+                                
+                                <div class="mb-4">
+                                    <h5 class="highlight-title">Days 1-4: New York City</h5>
+                                    <p>Explore Times Square, Central Park, Statue of Liberty, Brooklyn Bridge, and Museum of Modern Art. Enjoy Broadway show and fine dining experiences.</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5 class="highlight-title">Days 5-8: San Francisco</h5>
+                                    <p>Visit Golden Gate Bridge, Alcatraz Island, Fisherman's Wharf, and Napa Valley wine tour. Experience cable car rides and Chinatown explorations.</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5 class="highlight-title">Days 9-12: Las Vegas & Grand Canyon</h5>
+                                    <p>Enjoy Las Vegas Strip, world-class shows, and Fremont Street. Day trip to Grand Canyon with helicopter tour option. Farewell dinner at iconic restaurant.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Package Details Section -->
+                            <div class="col-half">
+                                <div class="section-divider">Package Details</div>
+                                
+                                <ul class="list-unstyled">
+                                    <li class="mb-3 check-icon">
+                                        <span class="highlight-text">Return international flights with premium carrier</span>
+                                    </li>
+                                    <li class="mb-3 check-icon">
+                                        <span class="highlight-text">All domestic flights between cities</span>
+                                    </li>
+                                    <li class="mb-3 check-icon">
+                                        <span class="highlight-text">4-star accommodation throughout your journey</span>
+                                    </li>
+                                    <li class="mb-3 check-icon">
+                                        <span class="highlight-text">Daily breakfast and select meals</span>
+                                    </li>
+                                    <li class="mb-3 check-icon">
+                                        <span class="highlight-text">Professional English-speaking guides</span>
+                                    </li>
+                                    <li class="mb-3 check-icon">
+                                        <span class="highlight-text">Entrance fees to all attractions in itinerary</span>
+                                    </li>
+                                    <li class="mb-3 check-icon">
+                                        <span class="highlight-text">Airport transfers and ground transportation</span>
+                                    </li>
+                                    <li class="mb-3 check-icon">
+                                        <span class="highlight-text">24/7 customer support during your trip</span>
+                                    </li>
+                                </ul>
+                                
+                                <div class="section-divider">Not Included</div>
+                                
+                                <ul class="list-unstyled">
+                                    <li class="mb-3 x-icon">
+                                        <span class="highlight-text">Travel insurance</span>
+                                    </li>
+                                    <li class="mb-3 x-icon">
+                                        <span class="highlight-text">Optional activities marked as additional</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Payment Section -->
+                        <div class="border-top">
+                            <h3 class="mb-4">Select Your Payment Option</h3>
+                            
+                            <div class="payment-row">
+                                <div class="payment-option">
+                                    <div class="payment-box">
+                                        <span class="payment-icon">💳</span>
+                                        <div>Credit Card</div>
+                                    </div>
+                                </div>
+                                <div class="payment-option">
+                                    <div class="payment-box">
+                                        <span class="payment-icon">🅿️</span>
+                                        <div>Phone Pe</div>
+                                    </div>
+                                </div>
+                                <div class="payment-option">
+                                    <div class="payment-box bank-transfer">
+                                        <span class="payment-icon">🏦</span>
+                                        <div>Bank Transfer</div>
+                                    </div>
+                                </div>
+                                <div class="payment-option">
+                                    <div class="payment-box">
+                                        <span class="payment-icon">👛</span>
+                                        <div>Digital Wallet</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="price-section">
+                                <div>
+                                    <span class="strikethrough">&#8377;85000</span>
+                                    <span class="discount-price">&#8377;76000</span>
+                                    <span class="per-person">per person</span>
+                                </div>
+                                <div class="button-group">
+                                    <button class="proceed-btn">Proceed to Payment</button>
+                                    <button class="back-btn">Back to Home</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </section>
     <script>
         // Ensure animations run on page refresh
         document.addEventListener('DOMContentLoaded', () => {
