@@ -490,6 +490,14 @@
       margin-top: 2rem;
       color: #888;
     }
+    :root {
+            --primary-color: #e91e63;
+            --secondary-color: #333;
+            --light-gray: #f5f5f5;
+        }
+
+        
+
         /* Hero Section */
         .hero {
             height: 80vh;
@@ -566,6 +574,205 @@
             font-size: 1.1rem;
         }
 
+        /* Book Now Button in corner */
+        .book-now-corner {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+
+        .book-now-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .book-now-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-now-btn i {
+            font-size: 18px;
+        }
+
+        /* Booking Popup */
+        .booking-popup {
+            position: absolute;
+            top: 80px;
+            right: 30px;
+            width: 320px;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            z-index: 100;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(-20px);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .booking-popup.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .booking-popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .booking-popup-header h3 {
+            color: var(--secondary-color);
+            font-size: 18px;
+        }
+
+        .close-popup {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: var(--secondary-color);
+            font-size: 14px;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .schedule-calendar {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .calendar-nav button {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .month-name {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .schedule-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .schedule-date {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .schedule-date:hover {
+            background-color: #e9e9e9;
+        }
+
+        .schedule-date.selected {
+            background-color: rgba(233, 30, 99, 0.1);
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .date-number {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .schedule-details {
+            flex: 1;
+        }
+
+        .schedule-time {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--secondary-color);
+        }
+
+        .schedule-info {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .book-schedule-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s ease;
+        }
+
+        .book-schedule-btn:hover {
+            background-color: #d81b60;
+        }
+
         @media (max-width: 768px) {
             .header {
                 padding: 1rem;
@@ -610,207 +817,19 @@
             .search-btn {
                 width: 100%;
             }
-        }
-/*animated section*/
-        .bodyofanimated {
-            background-color:#0d1117;
-            color: #fff;
-             
-            overflow-x: hidden;
-        }
-        .navbar {
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgba(13, 17, 23, 0.95);
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-        }
 
-        /* Add new styles for the code editor section */
-        .code-section {
-            position: relative;
-            height: 150vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            perspective: 1000px;
-            overflow: hidden;
-        }
+            .book-now-corner {
+                top: 20px;
+                right: 20px;
+            }
 
-        .code-container {
-            width: 90%;
-            max-width: 1200px;
-            aspect-ratio: 16/9;
-            background: #1f2428;
-            border-radius: 12px;
-            transform-origin: bottom center;
-            position: sticky;
-            top: 20%;
-            box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-
-        .code-editor {
-            width: 100%;
-            height: 100%;
-            background: url('/images/dubai2.jpg') center/cover;
-            border-radius: 12px;
-            opacity: 0.9;
-        }
-
-        .glow {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(123, 97, 255, 0.2) 0%, transparent 80%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Existing responsive styles remain */
-        @media (max-width: 768px) {
-            .code-container {
-                width: 95%;
+            .booking-popup {
+                top: 70px;
+                right: 10px;
+                left: 10px;
+                width: auto;
             }
         }
-        /*about section css*/
-        /*about*/
-
-
-.body-aboutK {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
-}
-
-.container-about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.image-container-A {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 20px;
-}
-
-.image-container-A img {
-    width: 100%;
-    height: auto;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 10px;
-}
-
-.content {
-    width: 100%;
-}
-
-h1 {
-    color: #d14d72;
-    font-size: 2em;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-}
-
-.service-about{
-    display: flex;
-    align-items: flex-start;
-}
-
-.icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-.service-content h2 {
-    color: #333;
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-}
-
-.service-content p {
-    margin: 0;
-    color: #666;
-    font-size: 0.9em;
-}
-
-.find-out-more {
-    color: #d14d72;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9em;
-}
-
-.find-out-more:after {
-    content: ' ›';
-}
-
-@media (min-width: 768px) {
-    .container-about {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .image-container-A {
-        flex: 1;
-        padding: 20px;
-        margin-bottom: 0;
-         
-    }
-
-    .content {
-        flex: 1;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    h1 {
-        font-size: 2.5em;
-        text-align: left;
-    }
-
-    .icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    .service-content h2 {
-        font-size: 1.5em;
-    }
-
-    .service-content p, .find-out-more {
-        font-size: 1em;
-    }
-}
-
 /*footer css section here*/
 .footer {
             padding: 4rem 2rem 2rem;
@@ -1002,6 +1021,46 @@ h1 {
         }
 
         /*places of tours and travels */
+        .rating-star-new{
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #0a152f;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background-color: #0055aa;
+        }
+
+        .btn-secondary {
+            background-color: #eaeaea;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-secondary:hover {
+            background-color: #d5d5d5;
+        }
         .bodyofplaces {
             background: #fff;
             padding: 20px;
@@ -1024,6 +1083,7 @@ h1 {
             font-size: 32px;
             margin: 20px 0 30px;
             text-align: center;
+            font-weight: bold;
         }
 
         .filters {
@@ -1209,234 +1269,7 @@ h1 {
             }
         }
 
-        /*desing section css here*/
-        .bodyofdesign {
-            background: linear-gradient(45deg, #0d1117, #161b22);
-            color: #c9d1d9;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .container-design {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .content {
-            padding-right: 40px;
-        }
-
-        h1 {
-            font-size: 48px;
-            color: #ffffff;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .subtitle {
-            font-size: 20px;
-            color: #8b949e;
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
-
-        .cta-link {
-            color: #58a6ff;
-            text-decoration: none;
-            font-size: 18px;
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 48px;
-        }
-
-        .cta-link:hover {
-            text-decoration: underline;
-        }
-
-        .cta-link::after {
-            content: "→";
-            margin-left: 8px;
-            transition: transform 0.2s;
-        }
-
-        .cta-link:hover::after {
-            transform: translateX(4px);
-        }
-
-        .features {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .feature {
-            padding: 24px;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .feature:hover {
-            border-color: #58a6ff;
-            transform: translateX(8px);
-        }
-
-        .feature h3 {
-            color: #ffffff;
-            font-size: 20px;
-            margin-bottom: 0;
-        }
-
-        .feature span {
-            color: #8b949e;
-            font-size: 24px;
-        }
-
-        .workflow-card {
-            background: #1c2128;
-            border-radius: 16px;
-            padding: 24px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 80px rgba(88, 166, 255, 0.15);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .glow {
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(88, 166, 255, 0.2) 0%, rgba(88, 166, 255, 0) 70%);
-            animation: rotate 10s linear infinite;
-        }
-
-        .workflow-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .workflow-count {
-            font-size: 16px;
-            color: #ffffff;
-        }
-
-        .workflow-actions {
-            display: flex;
-            gap: 16px;
-        }
-
-        .workflow-btn {
-            padding: 6px 12px;
-            background: #21262d;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            color: #c9d1d9;
-            cursor: pointer;
-        }
-
-        .workflow-btn:hover{
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-        }
-        .workflow-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .workflow-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: #21262d;
-            border-radius: 8px;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .workflow-item:hover {
-            background: #282f38;
-        }
-
-        .status-icon {
-            width: 16px;
-            height: 16px;
-            background: #238636;
-            border-radius: 50%;
-        }
-
-        .workflow-info {
-            flex: 1;
-        }
-
-        .workflow-title {
-            color: #ffffff;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .workflow-desc {
-            color: #8b949e;
-            font-size: 12px;
-        }
-
-        .workflow-meta {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #8b949e;
-            font-size: 12px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @media (max-width: 968px) {
-            .container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .content {
-                padding-right: 0;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            .subtitle {
-                font-size: 18px;
-            }
-
-            .workflow-card {
-                margin: 0 auto;
-                max-width: 500px;
-            }
-        }
+       
 
         /*image and sign up section here css*/
         
@@ -1578,443 +1411,7 @@ h1 {
                 padding: 1.5rem;
             }
         }
-
-        /*welcome cards*/
-        .container-welcome {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            color: #333;
-            font-size: 28px;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .cards-container {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Hide scrollbar */
-        .cards-container::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .cards-container {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .card {
-            min-width: 350px;
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            color: white;
-        }
-
-        .card-content {
-            z-index: 2;
-        }
-
-        .card h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        .card p {
-            font-size: 16px;
-            line-height: 1.4;
-        }
-
-        .card-button {
-            background-color: white;
-            color: #333;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin-top: 10px;
-            text-align: center;
-            width: fit-content;
-        }
-
-        /* Card backgrounds */
-        .Mayoori-card {
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-        }
-
-        .japan-card {
-            background: linear-gradient(to right, #f9a825, #00693E);
-        }
-
-        .ski-card {
-            background: linear-gradient(to right, #5472d2, #77a1d3);
-        }
-
-        .card-carousel {
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .card {
-                min-width: 300px;
-                height: 280px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .card {
-                min-width: 260px;
-                height: 260px;
-            }
-        }
-
-        /*why chhoose section css here ok */
-        
-        .bodyofchoose {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container-choose {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .why-choose-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7ec 100%);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 36px;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .section-title p {
-            font-size: 18px;
-            color: #7f8c8d;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .content-wrapper {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .features-container {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .feature-box {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            padding: 25px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .feature-box:nth-child(1)::before {
-            background: linear-gradient(to bottom, #f6d365 0%, #fda085 100%);
-        }
-
-        .feature-box:nth-child(2)::before {
-            background: linear-gradient(to bottom, #84fab0 0%, #8fd3f4 100%);
-        }
-
-        .feature-box:nth-child(3)::before {
-            background: linear-gradient(to bottom, #a1c4fd 0%, #c2e9fb 100%);
-        }
-
-        .feature-box:nth-child(4)::before {
-            background: linear-gradient(to bottom, #ff9a9e 0%, #fad0c4 100%);
-        }
-
-        .feature-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-box:hover::before {
-            width: 100%;
-            opacity: 0.1;
-        }
-
-        .icon-container {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-box:nth-child(1) .icon-container {
-            background: linear-gradient(to right, #f6d365 0%, #fda085 100%);
-        }
-
-        .feature-box:nth-child(2) .icon-container {
-            background: linear-gradient(to right, #84fab0 0%, #8fd3f4 100%);
-        }
-
-        .feature-box:nth-child(3) .icon-container {
-            background: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 100%);
-        }
-
-        .feature-box:nth-child(4) .icon-container {
-            background: linear-gradient(to right, #ff9a9e 0%, #fad0c4 100%);
-        }
-
-        .icon-container i {
-            font-size: 24px;
-            color: white;
-        }
-
-        .feature-box h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .feature-box p {
-            color: #7f8c8d;
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
-
-        .feature-button {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: transparent;
-            border: 1px solid #3498db;
-            color: #3498db;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .feature-button:hover {
-            background-color: #3498db;
-            color: white;
-        }
-
-        .video-container {
-            flex: 1;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            position: relative;
-            height: 400px;
-        }
-
-        .video-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-            pointer-events: none;
-        }
-
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Placeholder for video when no actual video is available */
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, #3494e6, #ec6ead);
-            position: relative;
-        }
-
-        .play-button {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .play-button::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            border-left: 22px solid #3498db;
-            margin-left: 5px;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-            text-align: center;
-        }
-
-        .stat-item {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .stat-text {
-            font-size: 16px;
-            color: #7f8c8d;
-        }
-
-        /* Mobile responsiveness */
-        @media screen and (max-width: 992px) {
-            .content-wrapper {
-                flex-direction: column-reverse;
-            }
-
-            .video-container {
-                width: 100%;
-                margin-bottom: 40px;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .features-container {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title h2 {
-                font-size: 30px;
-            }
-
-            .stat-number {
-                font-size: 30px;
-            }
-
-            .stats-container {
-                flex-wrap: wrap;
-            }
-
-            .stat-item {
-                flex: 0 0 50%;
-                margin-bottom: 20px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .why-choose-section {
-                padding: 50px 0;
-            }
-
-            .section-title {
-                margin-bottom: 40px;
-            }
-
-            .section-title h2 {
-                font-size: 26px;
-            }
-
-            .section-title p {
-                font-size: 16px;
-            }
-
-            .feature-box {
-                padding: 20px;
-            }
-
-            .icon-container {
-                width: 50px;
-                height: 50px;
-            }
-
-            .icon-container i {
-                font-size: 20px;
-            }
-
-            .feature-box h3 {
-                font-size: 18px;
-            }
-
-            .stat-item {
-                flex: 0 0 100%;
-            }
-        }
+ 
     </style>
 </head>
 <body>
@@ -2022,13 +1419,15 @@ h1 {
         <!-- Header -->
         <header class="header">
           <div class="nav-container">
-            <img src="/api/placeholder/120/40" alt="Mayoori" class="logo">
+            <h1 style="color: maroon;font-size: 25px;font-weight: bold;">Mayoori</h1>
+            <!-- <img src="/api/placeholder/120/40" alt="Mayoori" class="logo"> -->
             
             <div class="search-bar">
-              <input type="text" placeholder="Search destinations or activities with Mayoori">
+              <input type="text" placeholder="Search destinations">
             </div>
             
             <div class="nav-right">
+                <img src="/images/indian flag.jpeg" alt="indian flag" style="width: 30px;height: 20px;">
               <a href="#" class="nav-link">IND</a>
               <a href="About Page.html" class="nav-link">About Mayoori</a>
               <a href="#" class="nav-link">Explore Packages</a>
@@ -2130,39 +1529,191 @@ h1 {
 
          <!--navbar ends here html ok-->
 
-    <section class="hero">
-        <div class="carousel">
-            <div class="carousel-slide active" style="background-image: url('/images/image4.jpg')"></div>
-            <div class="carousel-slide" style="background-image: url('/images/image2.jpg')"></div>
-            <div class="carousel-slide" style="background-image: url('/images/image3.jpg')"></div>
-            <div class="carousel-slide" style="background-image: url('/images/image4.jpg')"></div>
-            <div class="carousel-slide" style="background-image: url('/images/image5.jpg')"></div>
-        </div>
-        <div class="hero-content">
-            <h1 style="color: #ff7e5f;">Mayoori - A world of joy</h1>
-            <p>From local escapes to far-flung adventures, find what makes you happy anytime, anywhere</p>
-            <div class="hero-search">
-                <input type="text" placeholder="Search your next adventure with Mayoori...">
-                <button class="search-btn">Search</button>
+         <section class="hero">
+            <div class="carousel">
+                <div class="carousel-slide active" style="background-image: url('/images/image4.jpg')"></div>
+                <div class="carousel-slide" style="background-image: url('/images/image2.jpg')"></div>
+                <div class="carousel-slide" style="background-image: url('/images/image3.jpg')"></div>
+                <div class="carousel-slide" style="background-image: url('/images/image4.jpg')"></div>
+                <div class="carousel-slide" style="background-image: url('/images/image5.jpg')"></div>
             </div>
-        </div>
-    </section>
+            <div class="hero-content">
+                <h1 style="color:maroon; font-weight: bold;">Mayoori - A world of joy</h1>
+                <p>From local escapes to far-flung adventures, find what makes you happy anytime, anywhere</p>
+                <div class="hero-search">
+                    <input type="text" placeholder="Search your next adventure with Mayoori...">
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+    
+            <!-- Book Now Button & Popup -->
+            <div class="book-now-corner">
+                <button class="book-now-btn" id="toggleBooking">
+                    <i class="fas fa-calendar-alt"></i> Book Now
+                </button>
+            </div>
+    
+            <div class="booking-popup" id="bookingPopup">
+                <div class="booking-popup-header">
+                    <h3>Check Schedule & Book</h3>
+                    <button class="close-popup" id="closePopup">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label>Select Destination</label>
+                        <select id="destinationSelect">
+                            <option value="krabi">Krabi, Thailand</option>
+                            <option value="phuket">Phuket, Thailand</option>
+                            <option value="bangkok">Bangkok, Thailand</option>
+                            <option value="pattaya">Pattaya, Thailand</option>
+                        </select>
+                    </div>
+    
+                    <div class="schedule-calendar">
+                        <div class="calendar-nav">
+                            <button type="button" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                            <span class="month-name" id="currentMonth">March 2025</span>
+                            <button type="button" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+    
+                        <div class="schedule-list" id="schedulesList">
+                            <!-- March 2025 -->
+                            <div class="schedule-date" data-month="march">
+                                <div class="date-number">5</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">9:00 AM Departure</div>
+                                    <div class="schedule-info">4 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date selected" data-month="march">
+                                <div class="date-number">12</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">10:30 AM Departure</div>
+                                    <div class="schedule-info">8 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="march">
+                                <div class="date-number">18</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">8:15 AM Departure</div>
+                                    <div class="schedule-info">2 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="march">
+                                <div class="date-number">24</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">11:00 AM Departure</div>
+                                    <div class="schedule-info">6 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="march">
+                                <div class="date-number">29</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">9:45 AM Departure</div>
+                                    <div class="schedule-info">3 seats left • Direct</div>
+                                </div>
+                            </div>
+                            
+                            <!-- April 2025 (initially hidden) -->
+                            <div class="schedule-date" data-month="april" style="display: none;">
+                                <div class="date-number">3</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">8:30 AM Departure</div>
+                                    <div class="schedule-info">9 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="april" style="display: none;">
+                                <div class="date-number">10</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">10:00 AM Departure</div>
+                                    <div class="schedule-info">5 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="april" style="display: none;">
+                                <div class="date-number">16</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">9:15 AM Departure</div>
+                                    <div class="schedule-info">7 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="april" style="display: none;">
+                                <div class="date-number">22</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">11:30 AM Departure</div>
+                                    <div class="schedule-info">4 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="april" style="display: none;">
+                                <div class="date-number">28</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">10:45 AM Departure</div>
+                                    <div class="schedule-info">2 seats left • Direct</div>
+                                </div>
+                            </div>
+                            
+                            <!-- May 2025 (initially hidden) -->
+                            <div class="schedule-date" data-month="may" style="display: none;">
+                                <div class="date-number">5</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">9:30 AM Departure</div>
+                                    <div class="schedule-info">8 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="may" style="display: none;">
+                                <div class="date-number">11</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">8:45 AM Departure</div>
+                                    <div class="schedule-info">6 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="may" style="display: none;">
+                                <div class="date-number">17</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">10:15 AM Departure</div>
+                                    <div class="schedule-info">3 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="may" style="display: none;">
+                                <div class="date-number">24</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">9:00 AM Departure</div>
+                                    <div class="schedule-info">5 seats left • Direct</div>
+                                </div>
+                            </div>
+                            <div class="schedule-date" data-month="may" style="display: none;">
+                                <div class="date-number">30</div>
+                                <div class="schedule-details">
+                                    <div class="schedule-time">11:15 AM Departure</div>
+                                    <div class="schedule-info">4 seats left • Direct</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <button type="button" class="book-schedule-btn">
+                        <i class="fas fa-ticket-alt"></i> Book Selected Schedule
+                    </button>
+                </form>
+            </div>
+        </section>
+    
+        
 
     <!--******************************animated section starts here github ------------**********************************-->
-<section class="bodyofanimated">
-       <!-- Previous navbar and hero section remain the same -->
-       
-    <!-- Add new code editor section -->
+<!-- <section class="bodyofanimated">
+      
     <section class="code-section">
         <div class="glow"></div>
         <div class="code-container">
             <div class="code-editor"></div>
         </div>
     </section>
-    </section>
+    </section> -->
 
 
-    <!-----About us section-->
+    <!-- ---About us section
     <div class="body-aboutk">
         <div class="container-about">
             <div class="image-container-A">
@@ -2211,7 +1762,7 @@ h1 {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <br>
     <br>
 
@@ -2259,13 +1810,26 @@ h1 {
                             <span class="rating-text">4.9</span>
                             
                         </div>
-                        <h3 class="tour-title">USA (14 Nightsss / 15 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            4 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">USA (14 Nightsss / 15 Days)</h3>
+                        <h4>Best of USA</h4>
+                        
                         <div class="price">
-                            from <span class="price-amount">₹3,106</span>
+                            Range -   <span class="price-amount">₹50000</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2284,14 +1848,28 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Europe ( 13 Nights / 14 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Europe ( 13 Nights / 14 Days)</h3>
+                        <h4>Best of Dubai</h4>
+                         
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹35000</span>
                         </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                        
                     </div>
                 </div>
     
@@ -2309,13 +1887,26 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Singapore ( 4 Nights / 5 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Singapore ( 4 Nights / 5 Days)</h3>
+                        <h4>Best of USA</h4>
+                        
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹30000</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2333,13 +1924,25 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Mauritius( 6 Nights / 7 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Mauritius( 6 Nights / 7 Days)</h3>
+                        <h4>Best of USA</h4>
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -   <span class="price-amount">₹25000</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2357,13 +1960,28 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Thailand( 4 Nights / 5 Days)</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Thailand( 4 Nights / 5 Days)</h3>
+                        <h4>Best of USA</h4>
                         <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
+                            
                         </div>
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2381,13 +1999,26 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Srilanka ( 5 Nights / 6 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Srilanka ( 5 Nights / 6 Days)</h3>
+                        <h4>Best of USA</h4>
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <br>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2405,13 +2036,21 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Dubai ( 3 Nights / 4 Days)</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Dubai ( 3 Nights / 4 Days)</h3>
+                        <h4>Best of USA</h4>
                         <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
+                             
                         </div>
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -   <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2429,13 +2068,26 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Australia(15 Nights / 16 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Australia(15 Nights / 16 Days)</h3>
+                        <h4>Best of USA</h4>
+                         
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2453,13 +2105,26 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Amarnath( 11 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Amarnath( 11 Days)</h3>
+                        <h4>Best of USA</h4>
+                         
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2477,13 +2142,28 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Chandham(11 Days)</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Chandham(11 Days)</h3>
+                        <h4>Best of USA</h4>
                         <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
+                            
                         </div>
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2501,13 +2181,26 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Andaman( 5 Nights / 6 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Andaman( 5 Nights / 6 Days)</h3>
+                        <h4>Best of USA</h4>
+                         
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -   <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2525,13 +2218,28 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Kashmir( 6 Nights / 7 Days)</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Kashmir( 6 Nights / 7 Days)</h3>
+                        <h4>Best of USA</h4>
                         <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
+                            
                         </div>
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2550,13 +2258,26 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Goa( 3 Nights / 4 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Goa( 3 Nights / 4 Days)</h3>
+                        <h4>Best of USA</h4>
+                        
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2574,13 +2295,26 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Kerala(4 Nights / 5 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Kerala(4 Nights / 5 Days)</h3>
+                        <h4>Best of USA</h4>
+                         
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2598,13 +2332,25 @@ h1 {
                             <span class="rating-text">5.0</span>
                             
                         </div>
-                        <h3 class="tour-title">Simla( 5 Nights / 6 Days)</h3>
-                        <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
-                        </div>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Simla( 5 Nights / 6 Days)</h3>
+                        <h4>Best of USA</h4>
                         <div class="price">
-                            from <span class="price-amount">₹7,597</span>
+                            Range -  <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2622,13 +2368,28 @@ h1 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title">Gujarath( 6 Nights / 7 Days)</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Gujarath( 6 Nights / 7 Days)</h3>
+                        <h4>Best of USA</h4>
                         <div class="duration">
-                            <i class="far fa-clock"></i>
-                            6 hours
+                            
                         </div>
                         <div class="price">
                             from <span class="price-amount">₹7,597</span>
+                        </div>
+                        <div class="rating-star-new style="color: yellow;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="buttons-container">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-book"></i> Book Now
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2639,7 +2400,7 @@ h1 {
         </section>
 
         <!--desing of section html here-->
-        <section class="bodyofdesign">
+        <!-- <section class="bodyofdesign">
             <div class="container-design">
                 <div class="content">
                     <h1 style="font-size:35px;color: whitesmoke;">Travel far enough, you meet yourself</h1>
@@ -2722,7 +2483,7 @@ h1 {
                     </div>
                 </div>
             </div>
-            </section>
+            </section> -->
             <!--new image and signup section hetml here-->
             <div class="promo-container">
                 <div class="promo-card">
@@ -2740,89 +2501,9 @@ h1 {
                     </div>
                 </div>
             </div>
-            <!--choose why section html here ok -->
-            <section class="bodyofchoose">
-                <section class="why-choose-section">
-                    <div class="container-choose">
-                        <div class="section-title">
-                            <h2>Why Choose Us</h2>
-                            <p>Discover why thousands of travelers trust us for their unforgettable journeys around the world</p>
-                        </div>
             
-                        <div class="content-wrapper">
-                            <div class="features-container">
-                                <div class="feature-box">
-                                    <div class="icon-container">
-                                        <i class="fas fa-globe"></i>
-                                    </div>
-                                    <h3>Worldwide Coverage</h3>
-                                    <p>Access to 1000+ destinations worldwide with exclusive local experiences you won't find anywhere else.</p>
-                                    <a href="#" class="feature-button">Learn More</a>
-                                </div>
             
-                                <div class="feature-box">
-                                    <div class="icon-container">
-                                        <i class="fas fa-tag"></i>
-                                    </div>
-                                    <h3>Best Price Guarantee</h3>
-                                    <p>Find a lower price? We'll match it and give you an additional 10% off your booking.</p>
-                                    <a href="#" class="feature-button">Our Promise</a>
-                                </div>
-            
-                                <div class="feature-box">
-                                    <div class="icon-container">
-                                        <i class="fas fa-headset"></i>
-                                    </div>
-                                    <h3>24/7 Customer Support</h3>
-                                    <p>Our travel experts are available around the clock to assist you with any questions or issues.</p>
-                                    <a href="#" class="feature-button">Contact Us</a>
-                                </div>
-            
-                                <div class="feature-box">
-                                    <div class="icon-container">
-                                        <i class="fas fa-shield-alt"></i>
-                                    </div>
-                                    <h3>Secure Booking</h3>
-                                    <p>Book with confidence knowing your personal data and transactions are protected by advanced encryption.</p>
-                                    <a href="#" class="feature-button">Learn More</a>
-                                </div>
-                            </div>
-            
-                            <div class="video-container">
-                                <!-- Replace with actual video -->
-                                <div class="video-placeholder">
-                                    <div class="play-button"></div>
-                                </div>
-                                <!-- Uncomment to use actual video
-                                <video controls poster="/api/placeholder/600/400">
-                                    <source src="your-video.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                -->
-                            </div>
-                        </div>
-            
-                        <div class="stats-container">
-                            <div class="stat-item">
-                                <div class="stat-number">2M+</div>
-                                <div class="stat-text">Happy Travelers</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number"10+</div>
-                                <div class="stat-text">Countries</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">10k+</div>
-                                <div class="stat-text">Tours & Activities</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number">4.8/5</div>
-                                <div class="stat-text">Customer Rating</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                </section>
+                         
             <!---happy client e=section here-->
             <div class="container mx-auto px-4 py-12">
                 <!-- Promotional Cards Section -->
@@ -3086,8 +2767,8 @@ h1 {
         }
       });
     });
-        //carousel fubctionality
-         const slides = document.querySelectorAll('.carousel-slide');
+       // Carousel functionality
+       const slides = document.querySelectorAll('.carousel-slide');
         let currentSlide = 0;
 
         function nextSlide() {
@@ -3098,43 +2779,85 @@ h1 {
 
         // Change slide every 2 seconds
         setInterval(nextSlide, 2000);
-         </script>
-     <script>
-        // Initialize GSAP ScrollTrigger
-        gsap.registerPlugin(ScrollTrigger);
 
-        // Animate code editor on scroll
-        gsap.fromTo('.code-container', 
-            {
-                rotateX: 85,
-                y: 300,
-                opacity: 0
-            },
-            {
-                rotateX: 0,
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: '.code-section',
-                    start: 'top center',
-                    end: 'center center',
-                    scrub: true
-                }
-            }
-        );
+        // Booking popup functionality
+        const toggleBooking = document.getElementById('toggleBooking');
+        const bookingPopup = document.getElementById('bookingPopup');
+        const closePopup = document.getElementById('closePopup');
+        const prevMonth = document.getElementById('prevMonth');
+        const nextMonth = document.getElementById('nextMonth');
+        const currentMonth = document.getElementById('currentMonth');
+        const scheduleDates = document.querySelectorAll('.schedule-date');
 
-        // Animate glow effect
-        gsap.to('.glow', {
-            opacity: 0.8,
-            duration: 2,
-            yoyo: true,
-            repeat: -1,
-            ease: 'power1.inOut'
+        // Toggle popup
+        toggleBooking.addEventListener('click', function() {
+            bookingPopup.classList.toggle('active');
         });
 
-        // Previous animations remain
-    </script>
+        closePopup.addEventListener('click', function() {
+            bookingPopup.classList.remove('active');
+        });
+
+        // Click outside to close
+        document.addEventListener('click', function(event) {
+            if (!bookingPopup.contains(event.target) && 
+                !toggleBooking.contains(event.target) && 
+                bookingPopup.classList.contains('active')) {
+                bookingPopup.classList.remove('active');
+            }
+        });
+
+        // Select date
+        scheduleDates.forEach(date => {
+            date.addEventListener('click', function() {
+                document.querySelector('.schedule-date.selected')?.classList.remove('selected');
+                this.classList.add('selected');
+            });
+        });
+
+        // Month navigation
+        const months = ['March 2025', 'April 2025', 'May 2025'];
+        let currentMonthIndex = 0;
+
+        function updateMonth() {
+            currentMonth.textContent = months[currentMonthIndex];
+            
+            // Hide all dates
+            scheduleDates.forEach(date => {
+                date.style.display = 'none';
+            });
+            
+            // Show only dates for current month
+            const monthToShow = months[currentMonthIndex].split(' ')[0].toLowerCase();
+            document.querySelectorAll(`.schedule-date[data-month="${monthToShow}"]`).forEach(date => {
+                date.style.display = 'flex';
+            });
+        }
+
+        prevMonth.addEventListener('click', function() {
+            if (currentMonthIndex > 0) {
+                currentMonthIndex--;
+                updateMonth();
+            }
+        });
+
+        nextMonth.addEventListener('click', function() {
+            if (currentMonthIndex < months.length - 1) {
+                currentMonthIndex++;
+                updateMonth();
+            }
+        });
+
+        // Initialize destination change
+        const destinationSelect = document.getElementById('destinationSelect');
+        destinationSelect.addEventListener('change', function() {
+            // In a real application, this would fetch new schedules
+            // For demo purposes, we'll just reset to the first month
+            currentMonthIndex = 0;
+            updateMonth();
+        });
+         </script>
+     
     <script>
          //about
 document.querySelectorAll('.find-out-more').forEach(link => {
@@ -3161,30 +2884,9 @@ document.querySelector('.scroll-top').addEventListener('click', function() {
     });
 });
 
-/*welcome cars here js*/
-document.addEventListener('DOMContentLoaded', function() {
-            const cardsContainer = document.querySelector('.cards-container');
-            const cardWidth = document.querySelector('.card').offsetWidth + 20; // Card width + gap
-            let scrollPosition = 0;
+ 
             
-            // Auto scroll function
-            function autoScroll() {
-                scrollPosition += cardWidth;
-                
-                // Reset scroll position when reaching the end
-                if (scrollPosition >= cardsContainer.scrollWidth - cardsContainer.clientWidth) {
-                    scrollPosition = 0;
-                }
-                
-                cardsContainer.scrollTo({
-                    left: scrollPosition,
-                    behavior: 'smooth'
-                });
-            }
             
-            // Set interval for auto scrolling
-            setInterval(autoScroll, 4000); // Scroll every 4 seconds
-        });
         //happy client section js 
         document.querySelectorAll('button').forEach(button => {
             button.addEventListener('click', function() {
