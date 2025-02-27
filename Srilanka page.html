@@ -18,12 +18,444 @@
             color: #333;
             overflow-x: hidden;
         }
+        /*navbar section here*/
+          /*from here the css of navbar starts*/
+          :root {
+      --primary-color: #FF5722;
+      --secondary-color: #00B8B0;
+      --text-color: #333;
+      --light-gray: #f5f5f5;
+      --medium-gray: #ddd;
+      --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    .bodyofnavbar {
+      background-color: #fff;
+      color: var(--text-color);
+      line-height: 1.6;
+      padding-top: 70px;
+    }
+
+    /* Header Styles */
+    .header {
+      background: white;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 400px;
+      margin: 0 2rem;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--medium-gray);
+      border-radius: 24px;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-bar input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+
+    .login-btn {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 24px;
+      text-decoration: none;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .login-btn:hover {
+      background: #e64a19;
+      transform: translateY(-2px);
+    }
+
+    /* Navigation Menu */
+    .main-nav {
+      background: white;
+      padding: 1rem 2rem;
+      margin-top: 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav-menu {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .nav-menu-item {
+      position: relative;
+    }
+
+    .nav-menu-link {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      transition: var(--transition);
+      display: block;
+    }
+
+    .nav-menu-link:hover {
+      color: var(--primary-color);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 200px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      display: none;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    .nav-menu-item:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown-item {
+      padding: 0.8rem 1rem;
+      display: block;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background: var(--light-gray);
+      color: var(--primary-color);
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      width: 30px;
+      height: 20px;
+      position: relative;
+      margin-left: 20px;
+    }
+
+    .hamburger span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: var(--primary-color);
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: var(--transition);
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0px;
+    }
+
+    .hamburger span:nth-child(2),
+    .hamburger span:nth-child(3) {
+      top: 8px;
+    }
+
+    .hamburger span:nth-child(4) {
+      top: 16px;
+    }
+
+    /* Hamburger Animation */
+    .hamburger.open span:nth-child(1) {
+      top: 8px;
+      width: 0%;
+      left: 50%;
+    }
+
+    .hamburger.open span:nth-child(2) {
+      transform: rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+
+    .hamburger.open span:nth-child(4) {
+      top: 8px;
+      width: 0%;
+      left: 50%;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+      overflow-y: auto;
+      transition: var(--transition);
+      padding: 2rem 1rem;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--medium-gray);
+    }
+
+    .sidebar-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-link {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 1rem;
+      display: block;
+      padding: 0.7rem 0;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .sidebar-link:hover {
+      color: var(--primary-color);
+    }
+
+    .sidebar-dropdown {
+      padding-left: 1.5rem;
+      display: none;
+      margin-top: 0.5rem;
+    }
+
+    .sidebar-dropdown.show {
+      display: block;
+    }
+
+    .sidebar-dropdown a {
+      display: block;
+      padding: 0.6rem 0;
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .sidebar-dropdown a:hover {
+      color: var(--primary-color);
+    }
+
+    .has-dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      position: absolute;
+      right: 0;
+      top: 0.7rem;
+      background: none;
+      border: none;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dropdown-toggle:hover {
+      color: var(--primary-color);
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background-color: var(--medium-gray);
+      margin: 1.5rem 0;
+    }
+
+    .sidebar-button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 24px;
+      width: 100%;
+      margin-top: 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .sidebar-button:hover {
+      background: #e64a19;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Page Content (for demo) */
+    .page-content {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .search-bar {
+        max-width: 300px;
+        margin: 0 1rem;
+      }
+
+      .nav-right {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .search-bar {
+        max-width: 180px;
+        margin: 0 0.5rem;
+      }
+      
+      .main-nav, 
+      .nav-right .nav-link {
+        display: none;
+      }
+      
+      .nav-right {
+        gap: 0.5rem;
+      }
+      
+      .login-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .header {
+        padding: 0.8rem 1rem;
+      }
+      
+      .search-bar {
+        display: none;
+      }
+      
+      .nav-right .login-btn {
+        display: none;
+      }
+      
+      .hamburger {
+        margin-left: 0;
+      }
+    }
+
+    /* For demo only - to show content */
+    .content-placeholder {
+      height: 400px;
+      background: var(--light-gray);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      color: #888;
+    }
 
         .hero {
             position: relative;
             width: calc(100% - 370px); /* Adjust width to accommodate modal */
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('/images/srilanka\ image\ of\ page.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('/images/Srilanka\ image\ of\ page.jpeg') center/cover no-repeat;
             display: flex;
             align-items: center;
             padding: 2rem;
@@ -663,6 +1095,157 @@
                 text-align: left;
             }
         }
+
+        /*move automatically section*/
+        .container-move {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #2d3748;
+      font-size: 2.5rem;
+    }
+    
+    /* Slider container */
+    .slider-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* Slider track with animation */
+    .slider-track {
+      display: flex;
+      width: calc(300px * 12); /* 6 places × 2 for looping */
+      animation: slide 30s linear infinite;
+    }
+    
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-300px * 6)); /* Move by the width of 6 places */
+      }
+    }
+    
+    /* Place card */
+    .place-card {
+      position: relative;
+      flex: 0 0 300px;
+      height: 300px;
+      width: 500px;
+      margin: 0 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .place-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    /* Info overlay (hidden by default) */
+    .place-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .place-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .place-description {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .visit-btn {
+      background-color: #4299e1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    
+    .visit-btn:hover {
+      background-color: #3182ce;
+    }
+    
+    /* Show info on hover */
+    .place-card:hover .place-info {
+      transform: translateY(0);
+    }
+    
+    .place-card:hover .place-image {
+      transform: scale(1.1);
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .slider-track {
+        width: calc(250px * 12);
+      }
+      
+      .place-card {
+        flex: 0 0 250px;
+        height: 250px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .slider-track {
+        width: calc(200px * 12);
+      }
+      
+      .place-card {
+        flex: 0 0 200px;
+        height: 200px;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+      
+      .place-info {
+        padding: 0.5rem;
+      }
+      
+      .place-title {
+        font-size: 1rem;
+      }
+      
+      .place-description {
+        font-size: 0.8rem;
+      }
+    }
         /*new info section css here*/
                
         .bodyofinfo {
@@ -846,6 +1429,117 @@
     </style>
 </head>
 <body>
+    <section class="bodyofnavbar"> 
+        <!-- Header -->
+        <header class="header">
+          <div class="nav-container">
+            <!-- <h1 style="color: maroon;font-size: 25px;font-weight: bold;">Mayoora Travels</h1> -->
+            <img src="/images/logo of mayoora.jpg" alt="Mayoora Travels" class="logo">
+            
+            
+            
+            
+            <div class="nav-right">
+                <img src="/images/indian flag.jpeg" alt="indian flag" style="width: 30px;height: 20px;">
+              <a href="index.html" class="nav-link">IND</a>
+              <a href="index.html" class="nav-link">Home</a>
+              <a href="About Page.html" class="nav-link">About Mayoora Travels</a>
+              <a href="ToursPackage.html" class="nav-link">Explore Packages</a>
+              <a href="Our Facilities.html" class="nav-link">Our Facilities</a>
+              <ul class="nav-menu">
+              <li class="nav-menu-item">
+                <a href="#" class="nav-menu-link">Popular destinations</a>
+                <div class="dropdown">
+                  <a href="international plan.html" class="dropdown-item">International plan</a>
+                  <a href="Domestic Plans.html" class="dropdown-item">Domestic Plan</a>
+                  
+                
+
+                   
+                </div>
+              </li>
+              </ul>
+              <a href="Contact Page.html" class="login-btn">Contact Mayoora Travels</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </header>
+      
+        <!-- Main Navigation -->
+        
+      
+        <!-- Sidebar -->
+        <div class="overlay" id="overlay"></div>
+        
+        <div class="sidebar" id="sidebar">
+          <div class="sidebar-header">
+            <img src="/api/placeholder/100/30" alt="Mayoora Travels" class="logo">
+            <button class="sidebar-close" id="close-sidebar">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <div class="search-mobile" style="margin-bottom: 1.5rem;">
+            <input type="text" placeholder="Search destinations..." style="width: 100%; padding: 0.8rem 1rem; border: 1px solid #ddd; border-radius: 24px; font-size: 0.9rem;">
+          </div>
+          
+          <ul class="sidebar-menu">
+            <li class="sidebar-item">
+              <a href="About Page.html" class="sidebar-link">About Mayoora Travels</a>
+            </li>
+            
+            <li class="sidebar-item has-dropdown">
+              <a href="#" class="sidebar-link">Popular destinations</a>
+              <button class="dropdown-toggle">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="sidebar-dropdown">
+                <a href="international plan.html">International Plan</a>
+                <a href="Domestic Plans.html">Domestic Plan</a>
+                
+              </div>
+            </li>
+            
+            <li class="sidebar-item">
+              <a href="Our Facilities.html" class="sidebar-link">Our facilities</a>
+            </li>
+            
+            <li class="sidebar-item">
+              <a href="ToursPackage.html" class="sidebar-link">Explore Packages</a>
+            </li>
+            
+            
+          </ul>
+          
+          <div class="sidebar-divider"></div>
+          
+          <ul class="sidebar-menu">
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">IND</a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Help</a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Recently viewed</a>
+            </li>
+            <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Sign up</a>
+            </li>
+          </ul>
+          
+          <button class="sidebar-button">Contact Mayoora Travels Tours and Travels</button>
+        </div>
+      
+         </section>
+
+         <!--navbar ends here html ok-->
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title animate-text delay-1">Srilanka Holiday Sale Live Now!</h1>
@@ -874,6 +1568,9 @@
 
     <!-- Right-Side Modal (Always Visible) -->
     <div id="bookingModal" class="modal">
+        <br>
+        <br>
+        <br>
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title">Book Your Srilanka Adventure</h2>
@@ -1167,7 +1864,124 @@
                 </div>
                 </div>
                 </section>
-
+<!--move section here-->
+<div class="container-move">
+    <h1>Explore USA Destinations</h1>
+    
+    <div class="slider-container">
+      <div class="slider-track">
+        <!-- Original 6 places -->
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="New York City" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">New York City</h3>
+            <p class="place-description">The Big Apple with iconic skyline and Times Square</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="Grand Canyon" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">Grand Canyon</h3>
+            <p class="place-description">Breathtaking natural wonder in Arizona</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="Miami Beach" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">Miami Beach</h3>
+            <p class="place-description">Sandy beaches and vibrant nightlife in Florida</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="San Francisco" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">San Francisco</h3>
+            <p class="place-description">Golden Gate Bridge and charming neighborhoods</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="Yellowstone" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">Yellowstone</h3>
+            <p class="place-description">World's first national park with geysers</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="Las Vegas" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">Las Vegas</h3>
+            <p class="place-description">Entertainment capital with iconic Strip</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <!-- Duplicate 6 places for infinite loop -->
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="New York City" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">New York City</h3>
+            <p class="place-description">The Big Apple with iconic skyline and Times Square</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="Grand Canyon" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">Grand Canyon</h3>
+            <p class="place-description">Breathtaking natural wonder in Arizona</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="Miami Beach" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">Miami Beach</h3>
+            <p class="place-description">Sandy beaches and vibrant nightlife in Florida</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="San Francisco" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">San Francisco</h3>
+            <p class="place-description">Golden Gate Bridge and charming neighborhoods</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="Yellowstone" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">Yellowstone</h3>
+            <p class="place-description">World's first national park with geysers</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+        
+        <div class="place-card">
+          <img src="/images/usa image of page.jpg" alt="Las Vegas" class="place-image">
+          <div class="place-info">
+            <h3 class="place-title">Las Vegas</h3>
+            <p class="place-description">Entertainment capital with iconic Strip</p>
+            <button class="visit-btn">Explore</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
                  <!---info about tour-->
                  <section class="bodyofinfo">
                     <div class="container">
@@ -1250,7 +2064,7 @@
                                 <div class="payment-option">
                                     <div class="payment-box">
                                         <span class="payment-icon">🅿️</span>
-                                        <div>Phone Pe</div>
+                                        <div>Phone pe</div>
                                     </div>
                                 </div>
                                 <div class="payment-option">
@@ -1262,15 +2076,15 @@
                                 <div class="payment-option">
                                     <div class="payment-box">
                                         <span class="payment-icon">👛</span>
-                                        <div>Digital Wallet</div>
+                                        <div>Cash</div>
                                     </div>
                                 </div>
                             </div>
                             
                             <div class="price-section">
                                 <div>
-                                    <span class="strikethrough">$&#8377;25000</span>
-                                    <span class="discount-price">&#8377;22000</span>
+                                    <span class="strikethrough">&#8377;15000</span>
+                                    <span class="discount-price">&#8377;8000</span>
                                     <span class="per-person">per person</span>
                                 </div>
                                 <div class="button-group">
@@ -1282,6 +2096,52 @@
                     </div>
                     </section>
     <script>
+         // Navbar here js Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger-menu');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('close-sidebar');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('open');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+    });
+
+    closeBtn.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      sidebar.classList.remove('open');
+      this.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Dropdown Toggle in Sidebar
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const parent = this.parentElement;
+        const dropdown = parent.querySelector('.sidebar-dropdown');
+        dropdown.classList.toggle('show');
+        
+        // Toggle icon
+        const icon = this.querySelector('i');
+        if (dropdown.classList.contains('show')) {
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        } else {
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        }
+      });
+    });
         // Ensure animations run on page refresh
         document.addEventListener('DOMContentLoaded', () => {
             // Reset animations on page load
