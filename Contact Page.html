@@ -776,116 +776,7 @@
             border: none;
         }
 
-        .office-locations {
-            margin-top: 60px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .offices-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .office-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .office-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .office-image {
-            height: 200px;
-            position: relative;
-        }
-
-        .office-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .office-location {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .office-details {
-            padding: 25px;
-        }
-
-        .office-details h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .office-info {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .office-info-item {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        .office-info-item i {
-            color: var(--primary);
-            margin-top: 4px;
-        }
-
-        .directions-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .directions-btn:hover {
-            background-color: var(--primary);
-            color: white;
-        }
+       
 
         /* FAQ Section */
         .faq-section {
@@ -1373,6 +1264,10 @@
                             <input type="text" id="name" class="form-control" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
+                            <label for="Phone">Phone Number</label>
+                            <input type="phone" id="phone" class="form-control" placeholder="Your Phone Number" required>
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" class="form-control" placeholder="Your email" required>
                         </div>
@@ -1407,7 +1302,13 @@
                             </div>
                             <div class="contact-info-details">
                                 <h3>Our Main Office</h3>
-                                <p>123 Bellary, Travel City<br>Karnataka, AP 509102</p>
+                                <p>Shop No-13,
+                                    <br>
+                                    U-Con Legend Complex,
+                                    <br>
+                                    Bangar Pet,Kurnool,
+                                    <br>
+                                    A.P-518002</p>
                             </div>
                         </div>
 
@@ -1417,8 +1318,8 @@
                             </div>
                             <div class="contact-info-details">
                                 <h3>Phone Number</h3>
-                                <a href="tel:+1234567890">+91 8668349726</a><br>
-                                <a href="tel:+1234567891">+91 8688349726</a>
+                                <a href="tel:+1234567890">+91 8008704213</a><br>
+                                
                             </div>
                         </div>
 
@@ -1457,102 +1358,17 @@
 
             <!-- Map Section -->
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059445135!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sca!4v1645564956015!5m2!1sen!2sca" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15353.92665077311!2d78.02541858271871!3d15.83126230473669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb5e7c6386e07cf%3A0xece30518fcfe1db8!2sSONY%20STORE!5e0!3m2!1sen!2sin!4v1741371946205!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-            <!-- Office Locations -->
-            <div class="office-locations">
-                <div class="section-title">
-                    <h2>Our Global Offices</h2>
-                    <p>Visit us at one of our offices around the world for personalized travel planning assistance.</p>
-                </div>
-
-                <div class="offices-grid">
-                    <div class="office-card">
-                        <div class="office-image">
-                            <img src="/api/placeholder/400/200" alt="New York Office">
-                            <div class="office-location">New York</div>
-                        </div>
-                        <div class="office-details">
-                            <h3>USA Headquarters</h3>
-                            <div class="office-info">
-                                <div class="office-info-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div>123 Adventure Street, Travel City, New York, 10001, USA</div>
-                                </div>
-                                <div class="office-info-item">
-                                    <i class="fas fa-phone-alt"></i>
-                                    <div>+1 (234) 567-890</div>
-                                </div>
-                                <div class="office-info-item">
-                                    <i class="fas fa-envelope"></i>
-                                    <div>newyork@explorejourneys.com</div>
-                                </div>
-                            </div>
-                            <a href="#" class="directions-btn">Get Directions</a>
-                        </div>
-                    </div>
-
-                    <div class="office-card">
-                        <div class="office-image">
-                            <img src="/api/placeholder/400/200" alt="London Office">
-                            <div class="office-location">London</div>
-                        </div>
-                        <div class="office-details">
-                            <h3>Europe Office</h3>
-                            <div class="office-info">
-                                <div class="office-info-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div>45 Traveller's Lane, Westminster, London, SW1A 1AA, UK</div>
-                                </div>
-                                <div class="office-info-item">
-                                    <i class="fas fa-phone-alt"></i>
-                                    <div>+44 20 1234 5678</div>
-                                </div>
-                                <div class="office-info-item">
-                                    <i class="fas fa-envelope"></i>
-                                    <div>london@explorejourneys.com</div>
-                                </div>
-                            </div>
-                            <a href="#" class="directions-btn">Get Directions</a>
-                        </div>
-                    </div>
-
-                    <div class="office-card">
-                        <div class="office-image">
-                            <img src="/api/placeholder/400/200" alt="Singapore Office">
-                            <div class="office-location">Singapore</div>
-                        </div>
-                        <div class="office-details">
-                            <h3>Asia Office</h3>
-                            <div class="office-info">
-                                <div class="office-info-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div>78 Orchard Road, #09-12, Singapore 238895</div>
-                                </div>
-                                <div class="office-info-item">
-                                    <i class="fas fa-phone-alt"></i>
-                                    <div>+65 6123 4567</div>
-                                </div>
-                                <div class="office-info-item">
-                                    <i class="fas fa-envelope"></i>
-                                    <div>singapore@explorejourneys.com</div>
-                                </div>
-                            </div>
-                            <a href="#" class="directions-btn">Get Directions</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+ 
 
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="container">
             <div class="section-title">
-                <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about our services, booking process, and more.</p>
+               <center><h2>Frequently Asked Questions</h2></center>
+                
             </div>
 
             <div class="accordion">
@@ -1575,7 +1391,7 @@
                     </div>
                     <div class="accordion-body">
                         <div class="accordion-body-content">
-                            We accept various payment methods including major credit cards (Visa, MasterCard, American Express), PayPal, bank transfers, and in some locations, payment through digital wallets. All payments are processed securely to ensure your financial information is protected.
+                            We accept various payment methods including major credit cards (Visa, MasterCard), Phone Pe, Google Pay, bank transfers, and in some locations, payment through digital wallets. All payments are processed securely to ensure your financial information is protected.
                         </div>
                     </div>
                 </div>
