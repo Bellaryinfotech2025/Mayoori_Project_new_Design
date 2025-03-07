@@ -61,6 +61,7 @@
         }
         /*invite friends link css here*/
           /* Button Style */
+        
           #inviteBtn {
             padding: 12px 24px;
             font-size: 18px;
@@ -76,7 +77,6 @@
             background: #0056b3;
         }
 
-        /* Popup Styles */
         .popup {
             display: none;
             position: fixed;
@@ -97,7 +97,6 @@
             to { opacity: 1; transform: translate(-50%, -50%); }
         }
 
-        /* Input Field */
         #inviteLink {
             width: 100%;
             padding: 8px;
@@ -109,7 +108,6 @@
             font-size: 14px;
         }
 
-        /* Copy Button */
         .copy-btn {
             background: #28a745;
             color: white;
@@ -125,7 +123,6 @@
             background: #218838;
         }
 
-        /* Social Media Icons */
         .social-icons {
             display: flex;
             justify-content: center;
@@ -147,22 +144,6 @@
             transform: scale(1.1);
         }
 
-        /* Close Button */
-        #closePopup {
-            background: #dc3545;
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        #closePopup:hover {
-            background: #c82333;
-        }
-
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -2823,27 +2804,27 @@
 
                 <!--pop up of invite friends -->
                 <!-- Popup -->
-                <div id="popup" class="popup">
-                    <p><strong>Share this link with friends:</strong></p>
-                    <input type="text" id="inviteLink" readonly>
-                    <button class="copy-btn" onclick="copyLink()">Copy Link</button>
-            
-                    <!-- Social Media Icons -->
-                    <div class="social-icons">
-                        <a id="whatsappShare" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                        </a>
-                        <a id="instagramShare" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-                        </a>
-                        <a id="facebookShare" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-                        </a>
-                    </div>
-                </div>
-            
-                <!-- Toast Notification -->
-                <div id="toast" class="toast">Link Copied!</div>
+               
+    <div id="popup" class="popup">
+        <p><strong>Share this link with friends:</strong></p>
+        <input type="text" id="inviteLink" readonly>
+        <button class="copy-btn" onclick="copyLink()">Copy Link</button>
+
+        <div class="social-icons">
+            <a id="whatsappShare" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+            <a id="instagramShare" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a id="facebookShare" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            </a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Link Copied!</div>
+
 
     <!--pop up completed-->
         
@@ -3238,17 +3219,17 @@ document.querySelector('.scroll-top').addEventListener('click', function() {
                 setTimeout(() => this.classList.remove('scale-95'), 200);
             });
         });
+
     </script>
     <!--invite link ok -->
    
-    <script>
+   <script>
         let popup = document.getElementById("popup");
 
         document.getElementById("inviteBtn").addEventListener("click", function() {
-            let inviteLink = window.location.href; // Get the current page link
+            let inviteLink = "https://mayoori.netlify.app/"; // Fixed link
             document.getElementById("inviteLink").value = inviteLink;
 
-            // Set up social media share links
             document.getElementById("whatsappShare").href = `https://wa.me/?text=${encodeURIComponent(inviteLink)}`;
             document.getElementById("instagramShare").href = `https://www.instagram.com/direct/new/?text=${encodeURIComponent(inviteLink)}`;
             document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(inviteLink)}`;
@@ -3259,7 +3240,7 @@ document.querySelector('.scroll-top').addEventListener('click', function() {
         function copyLink() {
             let copyText = document.getElementById("inviteLink");
             navigator.clipboard.writeText(copyText.value).then(() => {
-                showToast(); // Show toast notification
+                showToast();
             }).catch(err => console.error('Error copying:', err));
         }
 
@@ -3269,7 +3250,6 @@ document.querySelector('.scroll-top').addEventListener('click', function() {
             setTimeout(() => { toast.style.display = "none"; }, 2000);
         }
 
-        // Close popup when clicking outside
         document.addEventListener("click", function(event) {
             if (popup.style.display === "block" && !popup.contains(event.target) && event.target.id !== "inviteBtn") {
                 popup.style.display = "none";

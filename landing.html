@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invite Friends</title>
     <style>
-        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -17,7 +16,6 @@
             justify-content: center;
         }
 
-        /* Invite Button */
         #inviteBtn {
             padding: 12px 24px;
             font-size: 18px;
@@ -33,7 +31,6 @@
             background: #0056b3;
         }
 
-        /* Popup Styles */
         .popup {
             display: none;
             position: fixed;
@@ -54,7 +51,6 @@
             to { opacity: 1; transform: translate(-50%, -50%); }
         }
 
-        /* Input Field */
         #inviteLink {
             width: 100%;
             padding: 8px;
@@ -66,7 +62,6 @@
             font-size: 14px;
         }
 
-        /* Copy Button */
         .copy-btn {
             background: #28a745;
             color: white;
@@ -82,7 +77,6 @@
             background: #218838;
         }
 
-        /* Social Media Icons */
         .social-icons {
             display: flex;
             justify-content: center;
@@ -104,7 +98,6 @@
             transform: scale(1.1);
         }
 
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -128,16 +121,13 @@
 </head>
 <body>
 
-    <!-- Invite Button -->
     <button id="inviteBtn">Invite Friends</button>
 
-    <!-- Popup -->
     <div id="popup" class="popup">
         <p><strong>Share this link with friends:</strong></p>
         <input type="text" id="inviteLink" readonly>
         <button class="copy-btn" onclick="copyLink()">Copy Link</button>
 
-        <!-- Social Media Icons -->
         <div class="social-icons">
             <a id="whatsappShare" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
@@ -151,17 +141,15 @@
         </div>
     </div>
 
-    <!-- Toast Notification -->
     <div id="toast" class="toast">Link Copied!</div>
 
     <script>
         let popup = document.getElementById("popup");
 
         document.getElementById("inviteBtn").addEventListener("click", function() {
-            let inviteLink = window.location.href; // Get the current page link
+            let inviteLink = "https://mayoori.netlify.app/"; // Fixed link
             document.getElementById("inviteLink").value = inviteLink;
 
-            // Set up social media share links
             document.getElementById("whatsappShare").href = `https://wa.me/?text=${encodeURIComponent(inviteLink)}`;
             document.getElementById("instagramShare").href = `https://www.instagram.com/direct/new/?text=${encodeURIComponent(inviteLink)}`;
             document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(inviteLink)}`;
@@ -172,7 +160,7 @@
         function copyLink() {
             let copyText = document.getElementById("inviteLink");
             navigator.clipboard.writeText(copyText.value).then(() => {
-                showToast(); // Show toast notification
+                showToast();
             }).catch(err => console.error('Error copying:', err));
         }
 
@@ -182,7 +170,6 @@
             setTimeout(() => { toast.style.display = "none"; }, 2000);
         }
 
-        // Close popup when clicking outside
         document.addEventListener("click", function(event) {
             if (popup.style.display === "block" && !popup.contains(event.target) && event.target.id !== "inviteBtn") {
                 popup.style.display = "none";
