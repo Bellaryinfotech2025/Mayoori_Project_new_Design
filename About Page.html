@@ -9,8 +9,8 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /*from here the css of navbar starts*/
-    :root {
+     /*from here the css of navbar starts*/
+     :root {
       --primary-color: #FF5722;
       --secondary-color: #00B8B0;
       --text-color: #333;
@@ -494,7 +494,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('/images/about\ main\ image.jpg');
+      background-image: url('/images/about\ main\ imagee.png');
       background-size: cover;
       background-position: center;
       filter: brightness(0.7);
@@ -1186,23 +1186,22 @@
     <!-- Header -->
     <header class="header">
       <div class="nav-container">
-        <h1 style="color: maroon;font-size: 25px;font-weight: bold;">Mayoora Travels</h1>
-        <!-- <img src="/api/placeholder/120/40" alt="Mayoora Travels" class="logo"> -->
+        <!-- <h1 style="color: maroon;font-size: 25px;font-weight: bold;">Mayoora Travels</h1> -->
+        <img src="/images/mayoora logo.png" alt="Mayoora Travels" class="logo">
         
-        <div class="search-bar">
-          <input type="text" placeholder="Search destinations">
-        </div>
+        
+        
         
         <div class="nav-right">
             <img src="/images/indian flag.jpeg" alt="indian flag" style="width: 30px;height: 20px;">
-          <a href="#" class="nav-link">IND</a>
+          <a href="index.html" class="nav-link">IND</a>
           <a href="index.html" class="nav-link">Home</a>
           <a href="About Page.html" class="nav-link">About Mayoora Travels</a>
-          <a href="ToursPackage.html" class="nav-link">Explore Packages</a>
+          <!-- <a href="ToursPackage.html" class="nav-link">Explore Packages</a> -->
           <a href="Our Facilities.html" class="nav-link">Our Facilities</a>
           <ul class="nav-menu">
           <li class="nav-menu-item">
-            <a href="#" class="nav-menu-link">Popular destinations</a>
+            <a href="#" class="nav-menu-link">Explore Mayoora Packages</a>
             <div class="dropdown">
               <a href="international plan.html" class="dropdown-item">International plan</a>
               <a href="Domestic Plans.html" class="dropdown-item">Domestic Plan</a>
@@ -1233,7 +1232,7 @@
     
     <div class="sidebar" id="sidebar">
       <div class="sidebar-header">
-        <img src="/api/placeholder/100/30" alt="Mayoora Travels" class="logo">
+        <img src="/images/mayoora logo.png" alt="Mayoora Travels" class="logo">
         <button class="sidebar-close" id="close-sidebar">
           <i class="fas fa-times"></i>
         </button>
@@ -1245,11 +1244,12 @@
       
       <ul class="sidebar-menu">
         <li class="sidebar-item">
+            <a href="index.html" class="nav-link">Home</a>
           <a href="About Page.html" class="sidebar-link">About Mayoora Travels</a>
         </li>
         
         <li class="sidebar-item has-dropdown">
-          <a href="#" class="sidebar-link">Popular destinations</a>
+          <a href="#" class="sidebar-link">Explore Mayoora Packages</a>
           <button class="dropdown-toggle">
             <i class="fas fa-chevron-down"></i>
           </button>
@@ -1275,17 +1275,16 @@
       
       <ul class="sidebar-menu">
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">IND</a>
+             <img src="/images/indian flag.jpeg" alt="Mayoora Travels" class="logo" style="width: 40px;height: 30px;">
+          <a href="index.html" class="sidebar-link">IND</a>
         </li>
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">Help</a>
+          <a href="Contact Page.html" class="sidebar-link">Help</a>
         </li>
         <li class="sidebar-item">
           <a href="#" class="sidebar-link">Recently viewed</a>
         </li>
-        <li class="sidebar-item">
-          <a href="#" class="sidebar-link">Sign up</a>
-        </li>
+        
       </ul>
       
       <button class="sidebar-button">Contact Mayoora Travels Tours and Travels</button>
@@ -1294,13 +1293,15 @@
      </section>
 
      <!--navbar ends here html ok-->
+
+
   <main>
     <!-- Hero Section -->
     <section class="about-hero">
       <div class="hero-content">
         <h1 class="hero-title">Welcome to Mayoora Travels</h1>
         <p class="hero-subtitle">Discover the world with passion, purpose and adventure</p>
-        <a href="#contact" class="btn btn-primary">Connect With Us</a>
+        <a href="Contact Page.html" class="btn btn-primary">Connect With Us</a>
       </div>
     </section>
     
@@ -1550,7 +1551,7 @@
     <div class="footer-container">
         <div class="footer-top">
             <div class="footer-brand">
-                <img src="/api/placeholder/120/40" alt="Mayoora Travels" class="footer-logo">
+                 <img src="/images/mayoora logo.png" alt="Mayoora Travels" class="logo">
                 <h1 style="color: maroon;font-weight: bold;">Shop No-13,<br>
                   U-Con Legend Complex,<br>
                   Bangar Pet,Kurnool,<br>
@@ -1628,8 +1629,8 @@
 
 
   <script>
-     // Navbar here js Hamburger Menu Toggle
-     const hamburger = document.getElementById('hamburger-menu');
+       // Navbar here js Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger-menu');
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
     const closeBtn = document.getElementById('close-sidebar');
