@@ -131,7 +131,7 @@
       padding: 0;
     }
 
-      /*dropdown here ok */
+            /*dropdown here ok */
  /* General styles for the nav-menu item */
  .nav-menu-item {
   position: relative;
@@ -493,402 +493,340 @@ h3 {
       color: #888;
     }
 
-        .hero {
-            position: relative;
-            width: calc(100% - 370px); /* Adjust width to accommodate modal */
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('/images/bangkok\ page\ image.jpeg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            padding: 2rem;
-            transition: width 0.3s ease;
-        }
+    /*hero section starts her css****************/
+    .bodyofbooking {
+      overflow-x: hidden;
+    }
+    
+    .container-booking {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/bangkok\ page\ image.jpeg');
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease-out;
+      animation: zoomIn 10s infinite alternate;
+    }
+    
+    @keyframes zoomIn {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+    
+    .content-box {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      max-width: 600px;
+      color: white;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+    
+    .subtitle {
+      font-size: 24px;
+      background-color: rgba(0, 72, 124, 0.7);
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    
+    .feature-bookings-booking {
+      margin-top: 20px;
+    }
+    
+    .feature-booking {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .feature-booking i {
+      background-color: #FFB700;
+      color: #333;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+    
+    .feature-booking span {
+      font-size: 18px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
+    
+    .booking-form {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      width: 400px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      animation: slideIn 0.8s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .form-title {
+      text-align: center;
+      color: #0086CA;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .tab {
+      padding: 10px;
+      cursor: pointer;
+      text-align: center;
+      flex: 1;
+      color: #555;
+      transition: all 0.3s ease;
+    }
+    
+    .tab.active {
+      color: #0086CA;
+      border-bottom: 3px solid #0086CA;
+    }
+    
+    .tab i {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-size: 14px;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .form-row .form-group {
+      flex: 1;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #0086CA;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    
+    .submit-btn:hover {
+      background-color: #006699;
+    }
+    
+    .partners {
+      position: absolute;
+      bottom: 20px;
+      right: 50px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .partners span {
+      color: white;
+      margin-right: 15px;
+      font-size: 14px;
+    }
+    
+    .partner-logos {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .partner-logos i {
+      color: white;
+      font-size: 24px;
+    }
+    
+    .mobile-book-btn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0086CA;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      cursor: pointer;
+    }
+    
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1001;
+    }
+    
+    .mobile-form {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 400px;
+      max-height: 80vh;
+      overflow-y: auto;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      z-index: 1002;
+      padding: 20px;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #555;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 992px) {
+      .booking-form {
+        display: none;
+      }
+      
+      .content-box {
+        left: 30px;
+        bottom: 30px;
+        max-width: 500px;
+      }
+      
+      .mobile-book-btn {
+        display: block;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .content-box {
+        left: 20px;
+        bottom: 100px;
+        max-width: 400px;
+      }
+      
+      .title {
+        font-size: 36px;
+      }
+      
+      .subtitle {
+        font-size: 18px;
+      }
+      
+      .feature-booking span {
+        font-size: 16px;
+      }
+      
+      .partners {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .content-box {
+        left: 15px;
+        bottom: 100px;
+        max-width: 90%;
+      }
+      
+      .title {
+        font-size: 32px;
+      }
+      
+      .subtitle {
+        font-size: 16px;
+      }
+    }
 
-        .hero-content {
-            max-width: 600px;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Animation classes */
-        .animate-text {
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s forwards;
-        }
-
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(50px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        /* Staggered animation delays */
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
         
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-        
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-        
-        .delay-4 {
-            animation-delay: 0.8s;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .offer-banner {
-            background-color: rgba(25, 47, 89, 0.9);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .features {
-            margin-top: 2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .feature-icon {
-            color: #ff9f1c;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .feature-text {
-            font-weight: 500;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Right side modal */
-        .modal {
-            position: fixed;
-            z-index: 999;
-            right: 0;
-            top: 0;
-            width: 370px;
-            height: 100%;
-            animation: slideInRight 0.4s ease-in-out;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background-color: white;
-            border-radius: 15px 0 0 15px;
-            overflow: hidden;
-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
-            height: 100vh;
-            max-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
-            color: white;
-            padding: 1.2rem;
-            position: relative;
-        }
-
-        .modal-title {
-            font-size: 1.6rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .modal-subtitle {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .close:hover {
-            transform: scale(1.2);
-        }
-
-        .modal-body {
-            padding: 1.5rem;
-            overflow-y: auto; 
-            flex: 1;
-        }
-
-        .form-tabs {
-            display: flex;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .tab {
-            padding: 0.8rem 1.2rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            color: #555;
-            border-bottom: 3px solid transparent;
-            font-size: 0.9rem;
-        }
-
-        .tab.active {
-            color: #0083b0;
-            border-bottom: 3px solid #0083b0;
-        }
-
-        .tab:hover {
-            color: #0083b0;
-        }
-
-        .tab i {
-            margin-right: 0.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            color: #444;
-            font-size: 0.9rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.7rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .form-input:focus {
-            border-color: #0083b0;
-            box-shadow: 0 0 0 2px rgba(0, 131, 176, 0.1);
-            outline: none;
-        }
-
-        .input-icon {
-            position: relative;
-        }
-
-        .input-icon i {
-            position: absolute;
-            top: 50%;
-            left: 1rem;
-            transform: translateY(-50%);
-            color: #777;
-        }
-
-        .input-icon input {
-            padding-left: 3rem;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .package-options {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .package-option {
-            flex: 1;
-            min-width: 90px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 0.8rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .package-option:hover {
-            border-color: #0083b0;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .package-option.selected {
-            border-color: #0083b0;
-            background-color: rgba(0, 131, 176, 0.1);
-        }
-
-        .package-option i {
-            font-size: 1.5rem;
-            color: #0083b0;
-            margin-bottom: 0.4rem;
-        }
-
-        .package-name {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            font-size: 0.9rem;
-        }
-
-        .package-price {
-            color: #ff7e5f;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #ff9f1c 0%, #ff7e5f 100%);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1rem;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-footer {
-            text-align: center;
-            margin-top: 0.8rem;
-            font-size: 0.8rem;
-            color: #777;
-        }
-
-        .date-picker {
-            position: relative;
-        }
-
-        .date-picker i {
-            position: absolute;
-            top: 50%;
-            right: 1rem;
-            transform: translateY(-50%);
-            color: #777;
-            pointer-events: none;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero {
-                width: 100%;
-            }
-            
-            .modal {
-                width: 320px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .offer-banner {
-                font-size: 1.2rem;
-                padding: 0.8rem 1.5rem;
-            }
-            
-            .feature-item {
-                font-size: 1rem;
-            }
-            
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal {
-                width: 300px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .offer-banner {
-                font-size: 1rem;
-                padding: 0.7rem 1.2rem;
-            }
-            
-            .modal-title {
-                font-size: 1.3rem;
-            }
-            
-            .tab {
-                padding: 0.7rem;
-                font-size: 0.8rem;
-            }
-            
-            .modal {
-                width: 85%;
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 1rem;
-            }
-            
-            .modal {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .modal-content {
-                border-radius: 0;
-            }
-            
-            .package-option {
-                min-width: 80px;
-                padding: 0.6rem;
-            }
-        }
          /*places of tours and travels */
          .rating-star-new{
             color: #ffc107;
@@ -1357,7 +1295,307 @@ h3 {
             list-style: none;
         }
         
+        .payment-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px 24px;
+        }
         
+        .payment-option {
+            flex: 0 0 25%;
+            padding: 0 10px;
+            margin-bottom: 15px;
+        }
+        
+        .payment-box {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .bank-transfer {
+            border: 2px solid #ff6b6b;
+        }
+        
+        .payment-icon {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .strikethrough {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+        
+        .discount-price {
+            font-size: 32px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .per-person {
+            color: #6c757d;
+            display: block;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .proceed-btn {
+            background: linear-gradient(to right, #20c997, #6f42c1);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        
+        .back-btn {
+            border: 2px solid #ff6b6b;
+            color: #ff6b6b;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        
+        .border-top {
+            border-top: 1px solid #dee2e6;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .col-half {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .payment-option {
+                flex: 0 0 50%;
+            }
+            
+            .price-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .button-group {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .payment-option {
+                flex: 0 0 100%;
+            }
+        }
+        /*footerrrrrrrrrrrrrrrrrr*/
+        .footer {
+            padding: 4rem 2rem 2rem;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            margin-bottom: 3rem;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .footer-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #e5e5e5;
+        }
+
+        .footer-links {
+            flex: 3;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #FF5722;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .payment-methods img {
+            height: 24px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(51, 51, 51, 0.95);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .cookie-text {
+            margin-right: 1rem;
+        }
+
+        .cookie-text a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .close-cookie {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 1rem;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-brand {
+                max-width: 100%;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .payment-methods {
+                justify-content: center;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -1376,7 +1614,7 @@ h3 {
               <a href="index.html" class="nav-link">IND</a>
               <a href="index.html" class="nav-link">Home</a>
               <a href="About Page.html" class="nav-link">About Mayoora Travels</a>
-              <a href="ToursPackage.html" class="nav-link">Explore Packages</a>
+              
               <a href="Our Facilities.html" class="nav-link">Our Facilities</a>
               <ul class="nav-menu">
                 <li class="nav-menu-item">
@@ -1400,7 +1638,7 @@ h3 {
                     <div class="dropdown-section right">
                       <h3>Domestic Plans</h3>
                       <a href="index.html" class="dropdown-item" style="color: maroon; font-weight: bold;">Domestic Plans</a>
-                      <a href="Amarnath page.html" class="dropdown-item">Amarnath</a>
+                      <a href="Bangkok page.html" class="dropdown-item">Bangkok</a>
                       <a href="Kerala page.html" class="dropdown-item"><Kerala</Keygen></a>
                       <a href="Andaman page.html" class="dropdown-item">Andaman</a>
                       <a href="Chandhan page.html" class="dropdown-item">Chandham</a>
@@ -1488,167 +1726,188 @@ h3 {
          </section>
 
          <!--navbar ends here html ok-->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title animate-text delay-1">Bangkok Holiday Sale Live Now!</h1>
-            <div class="offer-banner animate-text delay-2">Save upto 30% on Bangkok Holiday Packages</div>
+         
+         <section class="bodyofbooking">
+          <div class="container-booking">
+            <div class="bg-image"></div>
             
-            <div class="features">
-                <div class="feature-item animate-text delay-3">
-                    <i class="fas fa-check-circle feature-icon"></i>
-                    <span class="feature-text">Best Priced Packages within your budget</span>
+            <div class="content-box">
+              <h1 class="title">Bangkok Holiday Sale Live Now!</h1>
+              <h2 class="subtitle">Save upto 30% on Bangkok Holiday Packages</h2>
+              
+              <div class="feature-bookings-booking">
+                <div class="feature-booking">
+                  <i class="fas fa-check"></i>
+                  <span>Best Priced Packages within your budget</span>
                 </div>
-                <div class="feature-item animate-text delay-3">
-                    <i class="fas fa-check-circle feature-icon"></i>
-                    <span class="feature-text">Local Insider Tips and Recommendations</span>
+                <div class="feature-booking">
+                  <i class="fas fa-check"></i>
+                  <span>Local Insider Tips and Recommendations</span>
                 </div>
-                <div class="feature-item animate-text delay-4">
-                    <i class="fas fa-check-circle feature-icon"></i>
-                    <span class="feature-text">Vacations Made Easy, Savings Guaranteed</span>
+                <div class="feature-booking">
+                  <i class="fas fa-check"></i>
+                  <span>Vacations Made Easy, Savings Guaranteed</span>
                 </div>
-                <div class="feature-item animate-text delay-4">
-                    <i class="fas fa-check-circle feature-icon"></i>
-                    <span class="feature-text">Seamless Journey, Endless Memories</span>
+                <div class="feature-booking">
+                  <i class="fas fa-check"></i>
+                  <span>Seamless Journey, Endless Memories</span>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Right-Side Modal (Always Visible) -->
-    <div id="bookingModal" class="modal">
-        <br>
-        <br>
-        <br>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Book Your Bangkok Adventure</h2>
-                <p class="modal-subtitle">Get exclusive deals and personalized itineraries</p>
-                <span class="close" id="closeModal">&times;</span>
+              </div>
             </div>
             
-            <div class="modal-body">
-                <div class="form-tabs">
-                    <div class="tab active" data-tab="booking">
-                        <i class="fas fa-calendar-check"></i> Booking
-                    </div>
-                    <div class="tab" data-tab="packages">
-                        <i class="fas fa-suitcase"></i> Packages
-                    </div>
-                    <div class="tab" data-tab="info">
-                        <i class="fas fa-info-circle"></i> Info
-                    </div>
+            <div class="booking-form">
+              <h3 class="form-title">Book Your Bangkok Adventure</h3>
+              
+              <div class="tabs">
+                <div class="tab active">
+                  <i class="fas fa-calendar-check"></i>
+                  <span>Booking</span>
+                </div>
+                <div class="tab">
+                  <i class="fas fa-suitcase"></i>
+                  <span>Packages</span>
+                </div>
+                <div class="tab">
+                  <i class="fas fa-info-circle"></i>
+                  <span>Info</span>
+                </div>
+              </div>
+              
+              <form>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Full Name">
+                  </div>
+                  <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com">
+                  </div>
                 </div>
                 
-                <form id="bookingForm">
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label class="form-label">Your Name</label>
-                            <div class="input-icon">
-                                <i class="fas fa-user"></i>
-                                <input type="text" class="form-input" placeholder="Full Name" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Email Address</label>
-                            <div class="input-icon">
-                                <i class="fas fa-envelope"></i>
-                                <input type="email" class="form-input" placeholder="your@email.com" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label class="form-label">Contact Number</label>
-                            <div class="input-icon">
-                                <i class="fas fa-phone"></i>
-                                <input type="tel" class="form-input" placeholder="Your Phone Number" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Departing City</label>
-                            <div class="input-icon">
-                                <i class="fas fa-plane-departure"></i>
-                                <input type="text" class="form-input" placeholder="City Name" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label class="form-label">Departure Date</label>
-                            <div class="date-picker">
-                                <input type="date" class="form-input" required>
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Return Date</label>
-                            <div class="date-picker">
-                                <input type="date" class="form-input" required>
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Number of Travelers</label>
-                        <div class="grid-2">
-                            <div class="input-icon">
-                                <i class="fas fa-user-friends"></i>
-                                <input type="number" class="form-input" placeholder="Adults" min="1" value="2" required>
-                            </div>
-                            <div class="input-icon">
-                                <i class="fas fa-child"></i>
-                                <input type="number" class="form-input" placeholder="Children" min="0" value="0">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Select Package Type</label>
-                        <div class="package-options">
-                            <div class="package-option selected">
-                                <i class="fas fa-star"></i>
-                                <div class="package-name">Standard</div>
-                                <div class="package-price">$999</div>
-                            </div>
-                            <div class="package-option">
-                                <i class="fas fa-star-half-alt"></i>
-                                <div class="package-name">Deluxe</div>
-                                <div class="package-price">$1299</div>
-                            </div>
-                            <div class="package-option">
-                                <i class="fas fa-crown"></i>
-                                <div class="package-name">Premium</div>
-                                <div class="package-price">$1699</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> Book My Trip Now
-                    </button>
-                    
-                    <div class="form-footer">
-                        By booking, you agree to our terms and conditions. 
-                        No payment required now - this is just an inquiry.
-                    </div>
-                </form>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" placeholder="Your Phone Number">
+                  </div>
+                  <div class="form-group">
+                    <label>Departing City</label>
+                    <input type="text" placeholder="City Name">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label>Full Address</label>
+                  <input type="text" placeholder="Your Full Address">
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Pincode</label>
+                    <input type="text" placeholder="Pincode">
+                  </div>
+                  <div class="form-group">
+                    <label>State</label>
+                    <input type="text" placeholder="State">
+                  </div>
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Departure Date</label>
+                    <input type="date">
+                  </div>
+                  <div class="form-group">
+                    <label>Return Date</label>
+                    <input type="date">
+                  </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Book Now</button>
+              </form>
             </div>
-        </div>
-    </div>
-
+            
+             
+          </div>
+          
+          <button class="mobile-book-btn">
+            <i class="fas fa-ticket-alt"></i> Book Now
+          </button>
+          
+          <div class="modal-overlay"></div>
+          
+          <div class="mobile-form">
+            <button class="close-btn">&times;</button>
+            <h3 class="form-title">Book Your Bangkok Adventure</h3>
+            
+            <div class="tabs">
+              <div class="tab active">
+                <i class="fas fa-calendar-check"></i>
+                <span>Booking</span>
+              </div>
+              <div class="tab">
+                <i class="fas fa-suitcase"></i>
+                <span>Packages</span>
+              </div>
+              <div class="tab">
+                <i class="fas fa-info-circle"></i>
+                <span>Info</span>
+              </div>
+            </div>
+            
+            <form>
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Full Name">
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label>Contact Number</label>
+                <input type="tel" placeholder="Your Phone Number">
+              </div>
+              <div class="form-group">
+                <label>Departing City</label>
+                <input type="text" placeholder="City Name">
+              </div>
+              <div class="form-group">
+                <label>Full Address</label>
+                <input type="text" placeholder="Your Full Address">
+              </div>
+              <div class="form-group">
+                <label>Pincode</label>
+                <input type="text" placeholder="Pincode">
+              </div>
+              <div class="form-group">
+                <label>State</label>
+                <input type="text" placeholder="State">
+              </div>
+              <div class="form-group">
+                <label>Departure Date</label>
+                <input type="date">
+              </div>
+              <div class="form-group">
+                <label>Return Date</label>
+                <input type="date">
+              </div>
+              
+              <button type="submit" class="submit-btn">Book Now</button>
+              <br>
+              <br>
+            </form>
+          </div>
+          </section>
+          
+          
 
     <!--places images here boxes-->
     <section class="bodyofplaces">
         <div class="container-places">
             <a href="#" class="back-link">← All Mayoora Travels experiences</a>
             
-            <h1 class="page-title">Best Places to visit in Bangkok</h1>
+            <h1 class="page-title">Best Places to visit in USA</h1>
     
             <div class="filters">
                 
@@ -1666,7 +1925,7 @@ h3 {
                         <button class="favorite-btn">
                             <i class="far fa-heart"></i>
                         </button>
-                        <img src="/images/bangkok hotel room.jpeg" alt="Desert Safari" class="tour-image">
+                        <img src="/images/USA  images.jpeg" alt="Desert Safari" class="tour-image">
                     </div>
                     <div class="tour-content">
                         <div class="rating">
@@ -1674,9 +1933,8 @@ h3 {
                             <span class="rating-text">4.9</span>
                             
                         </div>
-                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Best places in Bangkok</h3>
-                        <h4>Day 1</h4>
-                        <h3>Pickup at the hotel and transfer to Hotel</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Best places in USA</h3>
+                        <h4>Best of USA</h4>
                         
                          
                         <div class="rating-star-new style="color: yellow;">
@@ -1687,7 +1945,7 @@ h3 {
                             <i class="far fa-star"></i>
                         </div>
                         <div class="buttons-container">
-                            <a href="Bangkok page.html">
+                            <a href="USA page.html">
                                 <button class="btn btn-primary">
                                     <i class="fas fa-book"></i> Know more
                                 </button>
@@ -1705,7 +1963,7 @@ h3 {
                         <button class="favorite-btn">
                             <i class="far fa-heart"></i>
                         </button>
-                        <img src="/images/alcazar show bangkok.jpeg" alt="Red Dunes" class="tour-image">
+                        <img src="/images/europe images.jpeg" alt="Red Dunes" class="tour-image">
                     </div>
                     <div class="tour-content">
                         <div class="rating">
@@ -1713,9 +1971,9 @@ h3 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Bangkok best Cities</h3>
-                        <h4>Day 2</h4>
-                         <h3>ALCAZAR SHOW</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">USA best Cities</h3>
+                        
+                         
                          
                         <div class="rating-star-new style="color: yellow;">
                             <i class="fas fa-star"></i>
@@ -1725,7 +1983,7 @@ h3 {
                             <i class="far fa-star"></i>
                         </div>
                         <div class="buttons-container">
-                            <a href="Bangkok page.html">
+                            <a href="USA page.html">
                                 <button class="btn btn-primary">
                                     <i class="fas fa-book"></i> Know more
                                 </button>
@@ -1744,7 +2002,7 @@ h3 {
                         <button class="favorite-btn">
                             <i class="far fa-heart"></i>
                         </button>
-                        <img src="/images/island bangkok.jpeg" alt="Red Dunes" class="tour-image">
+                        <img src="/images/singapore images.jpeg" alt="Red Dunes" class="tour-image">
                     </div>
                     <div class="tour-content">
                         <div class="rating">
@@ -1752,9 +2010,7 @@ h3 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Good restaurants to visit in Bangkok</h3>
-                        <h4>Day 3</h4>
-                        <h3>CORAL ISLAND</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Good restaurants to visit in USA</h3>
                          
                         <div class="rating-star-new style="color: yellow;">
                             <i class="fas fa-star"></i>
@@ -1764,7 +2020,7 @@ h3 {
                             <i class="far fa-star"></i>
                         </div>
                         <div class="buttons-container">
-                            <a href="Bangkok page.html">
+                            <a href="USA page.html">
                                 <button class="btn btn-primary">
                                     <i class="fas fa-book"></i> Know more
                                 </button>
@@ -1781,7 +2037,7 @@ h3 {
                         <button class="favorite-btn">
                             <i class="far fa-heart"></i>
                         </button>
-                        <img src="/images/tiger park bangkok.jpeg" alt="Red Dunes" class="tour-image">
+                        <img src="/images/Mauritius images.jpeg" alt="Red Dunes" class="tour-image">
                     </div>
                     <div class="tour-content">
                         <div class="rating">
@@ -1789,9 +2045,8 @@ h3 {
                             <span class="rating-text">5.0</span>
                              
                         </div>
-                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Best Nights in Bangkok</h3>
-                         <h4>Day 4</h4>
-                         <h3>TIGER PARK</h3>
+                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Best Nights in USA</h3>
+                         
                         <div class="rating-star-new style="color: yellow;">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -1800,44 +2055,7 @@ h3 {
                             <i class="far fa-star"></i>
                         </div>
                         <div class="buttons-container">
-                            <a href="Bangkok page.html">
-                                <button class="btn btn-primary">
-                                    <i class="fas fa-book"></i> Know more
-                                </button>
-                            </a>
-                            <button class="btn btn-secondary">
-                                <i class="fas fa-info-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="tour-card">
-                    <div class="image-container">
-                        <button class="favorite-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                        <img src="/images/airport bangkok.jpeg" alt="Red Dunes" class="tour-image">
-                    </div>
-                    <div class="tour-content">
-                        <div class="rating">
-                            <span class="rating-star">★</span>
-                            <span class="rating-text">5.0</span>
-                             
-                        </div>
-                        <h3 class="tour-title" style="color: #0a152f;font-weight: bold;">Best Nights in Bangkok</h3>
-                         <h4>Day 4</h4>
-                         <h3>Departure & Transfer to Airport</h3>
-                        <div class="rating-star-new style="color: yellow;">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="buttons-container">
-                            <a href="Bangkok page.html">
+                            <a href="USA page.html">
                                 <button class="btn btn-primary">
                                     <i class="fas fa-book"></i> Know more
                                 </button>
@@ -1855,13 +2073,13 @@ h3 {
                 </section>
 <!--move section here-->
 <div class="container-move">
-    <h1>Explore Bangkok Destinations</h1>
+    <h1>Explore USA Destinations</h1>
     
     <div class="slider-container">
       <div class="slider-track">
         <!-- Original 6 places -->
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="New York City" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="New York City" class="place-image">
           <div class="place-info">
             <h3 class="place-title">New York City</h3>
             <p class="place-description">The Big Apple with iconic skyline and Times Square</p>
@@ -1870,7 +2088,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="Grand Canyon" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="Grand Canyon" class="place-image">
           <div class="place-info">
             <h3 class="place-title">Grand Canyon</h3>
             <p class="place-description">Breathtaking natural wonder in Arizona</p>
@@ -1879,7 +2097,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="Miami Beach" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="Miami Beach" class="place-image">
           <div class="place-info">
             <h3 class="place-title">Miami Beach</h3>
             <p class="place-description">Sandy beaches and vibrant nightlife in Florida</p>
@@ -1888,7 +2106,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="San Francisco" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="San Francisco" class="place-image">
           <div class="place-info">
             <h3 class="place-title">San Francisco</h3>
             <p class="place-description">Golden Gate Bridge and charming neighborhoods</p>
@@ -1897,7 +2115,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="Yellowstone" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="Yellowstone" class="place-image">
           <div class="place-info">
             <h3 class="place-title">Yellowstone</h3>
             <p class="place-description">World's first national park with geysers</p>
@@ -1906,7 +2124,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="Las Vegas" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="Las Vegas" class="place-image">
           <div class="place-info">
             <h3 class="place-title">Las Vegas</h3>
             <p class="place-description">Entertainment capital with iconic Strip</p>
@@ -1916,7 +2134,7 @@ h3 {
         
         <!-- Duplicate 6 places for infinite loop -->
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="New York City" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="New York City" class="place-image">
           <div class="place-info">
             <h3 class="place-title">New York City</h3>
             <p class="place-description">The Big Apple with iconic skyline and Times Square</p>
@@ -1925,7 +2143,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="Grand Canyon" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="Grand Canyon" class="place-image">
           <div class="place-info">
             <h3 class="place-title">Grand Canyon</h3>
             <p class="place-description">Breathtaking natural wonder in Arizona</p>
@@ -1934,7 +2152,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="Miami Beach" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="Miami Beach" class="place-image">
           <div class="place-info">
             <h3 class="place-title">Miami Beach</h3>
             <p class="place-description">Sandy beaches and vibrant nightlife in Florida</p>
@@ -1943,7 +2161,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="San Francisco" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="San Francisco" class="place-image">
           <div class="place-info">
             <h3 class="place-title">San Francisco</h3>
             <p class="place-description">Golden Gate Bridge and charming neighborhoods</p>
@@ -1952,7 +2170,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="Yellowstone" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="Yellowstone" class="place-image">
           <div class="place-info">
             <h3 class="place-title">Yellowstone</h3>
             <p class="place-description">World's first national park with geysers</p>
@@ -1961,7 +2179,7 @@ h3 {
         </div>
         
         <div class="place-card">
-          <img src="/images/Bangkok image of page.jpg" alt="Las Vegas" class="place-image">
+          <img src="/images/usa image of page.jpg" alt="Las Vegas" class="place-image">
           <div class="place-info">
             <h3 class="place-title">Las Vegas</h3>
             <p class="place-description">Entertainment capital with iconic Strip</p>
@@ -1980,21 +2198,17 @@ h3 {
                                 <div class="section-divider">Itinerary Highlights</div>
                                 
                                 <div class="mb-4">
-                                    <h5 class="highlight-title">Hotel</h5>
+                                    <h5 class="highlight-title">Days 1-4: New York City</h5>
                                     <p>Explore Times Square, Central Park, Statue of Liberty, Brooklyn Bridge, and Museum of Modern Art. Enjoy Broadway show and fine dining experiences.</p>
                                 </div>
                                 
                                 <div class="mb-4">
-                                    <h5 class="highlight-title">Food</h5>
+                                    <h5 class="highlight-title">Days 5-8: San Francisco</h5>
                                     <p>Visit Golden Gate Bridge, Alcatraz Island, Fisherman's Wharf, and Napa Valley wine tour. Experience cable car rides and Chinatown explorations.</p>
                                 </div>
                                 
                                 <div class="mb-4">
-                                    <h5 class="highlight-title">Sightseeing</h5>
-                                    <p>Enjoy Las Vegas Strip, world-class shows, and Fremont Street. Day trip to Grand Canyon with helicopter tour option. Farewell dinner at iconic restaurant.</p>
-                                </div>
-                                <div class="mb-4">
-                                    <h5 class="highlight-title">Tour Guide</h5>
+                                    <h5 class="highlight-title">Days 9-12: Las Vegas & Grand Canyon</h5>
                                     <p>Enjoy Las Vegas Strip, world-class shows, and Fremont Street. Day trip to Grand Canyon with helicopter tour option. Farewell dinner at iconic restaurant.</p>
                                 </div>
                             </div>
@@ -2005,34 +2219,28 @@ h3 {
                                 
                                 <ul class="list-unstyled">
                                     <li class="mb-3 check-icon">
-                                        <span class="highlight-text">All Transfer on pvt exclusive Coach with guide on disposal</span>
+                                        <span class="highlight-text">Return international flights with premium carrier</span>
                                     </li>
                                     <li class="mb-3 check-icon">
-                                        <span class="highlight-text">04 Nights stay at Pattaya on twin share Basis</span>
+                                        <span class="highlight-text">All domestic flights between cities</span>
                                     </li>
                                     <li class="mb-3 check-icon">
-                                        <span class="highlight-text">01 Alcazar Show</span>
+                                        <span class="highlight-text">4-star accommodation throughout your journey</span>
                                     </li>
                                     <li class="mb-3 check-icon">
-                                        <span class="highlight-text">01 Coral island on a private speed boat</span>
+                                        <span class="highlight-text">Daily breakfast and select meals</span>
                                     </li>
                                     <li class="mb-3 check-icon">
-                                        <span class="highlight-text">01 Big Buddha Temple</span>
+                                        <span class="highlight-text">Professional English-speaking guides</span>
                                     </li>
                                     <li class="mb-3 check-icon">
-                                        <span class="highlight-text">01 Tiger Park</span>
+                                        <span class="highlight-text">Entrance fees to all attractions in itinerary</span>
                                     </li>
                                     <li class="mb-3 check-icon">
-                                        <span class="highlight-text">01 Floating Market</span>
+                                        <span class="highlight-text">Airport transfers and ground transportation</span>
                                     </li>
                                     <li class="mb-3 check-icon">
-                                        <span class="highlight-text">01 Pattaya City tour Gems Gallery</span>
-                                    </li>
-                                    <li class="mb-3 check-icon">
-                                        <span class="highlight-text">All Meals at Indian Restaurant with Transfers including Coral Meal</span>
-                                    </li>
-                                    <li class="mb-3 check-icon">
-                                        <span class="highlight-text">All applicable Thai taxes included</span>
+                                        <span class="highlight-text">24/7 customer support during your trip</span>
                                     </li>
                                 </ul>
                                 
@@ -2050,50 +2258,88 @@ h3 {
                         </div>
                         
                         <!-- Payment Section -->
-                        <!-- <div class="border-top">
-                            <h3 class="mb-4">Select Your Payment Option</h3>
-                            
-                            <div class="payment-row">
-                                <div class="payment-option">
-                                    <div class="payment-box">
-                                        <span class="payment-icon">💳</span>
-                                        <div>Credit Card</div>
-                                    </div>
-                                </div>
-                                <div class="payment-option">
-                                    <div class="payment-box">
-                                        <span class="payment-icon">🅿️</span>
-                                        <div>Phone pe</div>
-                                    </div>
-                                </div>
-                                <div class="payment-option">
-                                    <div class="payment-box bank-transfer">
-                                        <span class="payment-icon">🏦</span>
-                                        <div>Bank Transfer</div>
-                                    </div>
-                                </div>
-                                <div class="payment-option">
-                                    <div class="payment-box">
-                                        <span class="payment-icon">👛</span>
-                                        <div>Cash</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="price-section">
-                                <div>
-                                    <span class="strikethrough">&#8377;27,500</span>
-                                    <span class="discount-price">&#8377;21,500</span>
-                                    <span class="per-person">per person</span>
-                                </div>
-                                <div class="button-group">
-                                    <button class="proceed-btn">Proceed to Payment</button>
-                                    <button class="back-btn">Back to Home</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </section> -->
+                          <!--footeroooooooooooooooooooooooor-->
+    <footer class="footer">
+      <div class="footer-container">
+          <div class="footer-top">
+              <div class="footer-brand">
+                  <img src="/images/mayoora logo.png" alt="Mayoora Travels" class="logo">
+                  <h5 style="color: maroon;font-weight: bold;">Shop No-13,<br>
+                      U-Con Legend Complex,<br>
+                      Bangar Pet,Kurnool,<br>
+                      A.P-518002.<br>
+                      Cell	:	8008704213</h5>
+                  <div class="social-icons">
+                      <a href="#" class="social-icon">
+                          <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="#" class="social-icon">
+                          <i class="fab fa-instagram"></i>
+                      </a>
+                      <a href="#" class="social-icon">
+                          <i class="fab fa-twitter"></i>
+                      </a>
+                      <a href="#" class="social-icon">
+                          <i class="fab fa-youtube"></i>
+                      </a>
+                  </div>
+              </div>
+              
+              <div class="footer-links">
+                  <div class="footer-section">
+                      <h3>About Mayoora Travels</h3>
+                      <ul>
+                        <li><a href="index.html">Home</a></li>
+                          <li><a href="About Page.html">About us</a></li>
+                          <li><a href="ToursPackage.html">Explore Packages</a></li>
+                          <li><a href="#">Mayoora Travels Blog</a></li>
+                          <li><a href="Our Facilities.html">Our Facilities</a></li>
+                          <li><a href="Bangkok page.html">Popular Destination</a></li>
+                          <li><a href="#">Get in Touch</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="footer-section">
+                      <h3>Partnerships</h3>
+                      <ul>
+                          <li><a href="#">International Plans</a></li>
+                          <li><a href="#">Domestic Plans</a></li>
+                          
+                           
+                          <li><a href="#">Agent Marketplace</a></li>
+                          <li><a href="#">Mayoora Travels Partner Hub</a></li>
+                          <li><a href="#">Collaborate with Mayoora Travels</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="footer-section">
+                      <h3>Terms of use</h3>
+                      <ul>
+                          <li><a href="#">General terms of use</a></li>
+                          <li><a href="#">Privacy policy</a></li>
+                          <li><a href="#">Cookie Policy</a></li>
+                          <li><a href="#">Bug Bounty Program</a></li>
+                          <li><a href="#">Animal Welfare Policy</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="footer-bottom">
+              <p>© 2025 Mayoora Travels. All rights reserved.</p>
+              <div class="payment-methods">
+                  <img src="/images/credit card.jpeg" alt="UnionPay">
+                  <img src="/images/visa" alt="Visa">
+                  <img src="/images/master card.jpeg" alt="Mastercard">
+                  <img src="/images/phone pay.jpeg" alt="phone pe">
+                   
+                  <img src="/images/gpay.jpeg" alt="Google Pay">
+                  
+              </div>
+          </div>
+      </div>
+  </footer>
+                        
     <script>
          // Navbar here js Hamburger Menu Toggle
     const hamburger = document.getElementById('hamburger-menu');
@@ -2174,86 +2420,45 @@ h3 {
             window.addEventListener('resize', adjustHeroWidth);
         });
         
-        // Modal close functionality
-        const modal = document.getElementById('bookingModal');
-        const closeModalBtn = document.getElementById('closeModal');
         
-        closeModalBtn.addEventListener('click', () => {
-            // Instead of hiding, we'll just animate it out to the right
-            const modalContent = document.querySelector('.modal-content');
-            modalContent.style.transform = 'translateX(100%)';
-            modalContent.style.opacity = '0';
-            
-            // After animation, reset and toggle display
-            setTimeout(() => {
-                const hero = document.querySelector('.hero');
-                hero.style.width = '100%';
-                modal.style.display = 'none';
-                
-                // Add a button to bring the modal back
-                if (!document.getElementById('showModalBtn')) {
-                    const showBtn = document.createElement('button');
-                    showBtn.id = 'showModalBtn';
-                    showBtn.className = 'book-btn';
-                    showBtn.innerHTML = '<i class="fas fa-calendar-alt"></i> Book Now';
-                    showBtn.style.position = 'fixed';
-                    showBtn.style.bottom = '20px';
-                    showBtn.style.right = '20px';
-                    showBtn.style.zIndex = '99';
-                    
-                    showBtn.addEventListener('click', () => {
-                        showModal();
-                        document.body.removeChild(showBtn);
-                    });
-                    
-                    document.body.appendChild(showBtn);
-                }
-            }, 400);
-        });
-        
-        // Function to show the modal
-        function showModal() {
-            const hero = document.querySelector('.hero');
-            if (window.innerWidth > 992) {
-                hero.style.width = 'calc(100% - 370px)';
-            }
-            
-            modal.style.display = 'block';
-            const modalContent = document.querySelector('.modal-content');
-            modalContent.style.transform = 'translateX(0)';
-            modalContent.style.opacity = '1';
-        }
-        
-        // Tab functionality
-        const tabs = document.querySelectorAll('.tab');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Here you would normally show/hide content based on tab
-                console.log(`Tab selected: ${tab.getAttribute('data-tab')}`);
-            });
-        });
-        
-        // Package selection
-        const packageOptions = document.querySelectorAll('.package-option');
-        
-        packageOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                packageOptions.forEach(opt => opt.classList.remove('selected'));
-                option.classList.add('selected');
-            });
-        });
-        
-        // Form submission
-        const bookingForm = document.getElementById('bookingForm');
-        
-        bookingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your booking request! Our team will contact you shortly to confirm your Bangkok adventure.');
-        });
     </script>
+    <script>
+      // Display mobile form when Book Now button is clicked
+      document.querySelector('.mobile-book-btn').addEventListener('click', function() {
+        document.querySelector('.modal-overlay').style.display = 'block';
+        document.querySelector('.mobile-form').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+      });
+      
+      // Close modal when close button is clicked
+      document.querySelector('.close-btn').addEventListener('click', function() {
+        closeModal();
+      });
+      
+      // Close modal when clicking outside the form
+      document.querySelector('.modal-overlay').addEventListener('click', function() {
+        closeModal();
+      });
+      
+      // Function to close modal
+      function closeModal() {
+        document.querySelector('.modal-overlay').style.display = 'none';
+        document.querySelector('.mobile-form').style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+      }
+      
+      // Tab switching functionality (simplified for demo)
+      document.querySelectorAll('.tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          // Remove active class from all tabs
+          document.querySelectorAll('.tab').forEach(function(t) {
+            t.classList.remove('active');
+          });
+          // Add active class to clicked tab
+          this.classList.add('active');
+        });
+      });
+    </script>
+    
 </body>
 </html>
