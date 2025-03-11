@@ -3,283 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>USA Places to Visit</title>
+  <title>Travel Booking Form</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
     }
     
+    body {
+      background-color: #f5f5f5;
+    }
     
-    
-    .container-move {
+    .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 20px;
     }
     
-    h1 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #2d3748;
-      font-size: 2.5rem;
+    .booking-form {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-bottom: 30px;
     }
     
-    /* Slider container */
-    .slider-container {
+    .form-title {
+      background-color: #1a2b49;
+      color: white;
+      padding: 15px 20px;
+      font-size: 24px;
+    }
+    
+    .form-fields {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 25px;
+    }
+    
+    @media (max-width: 768px) {
+      .form-fields {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .form-control {
       width: 100%;
-      overflow: hidden;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    
+    .btn-search {
+      background-color: #2979ff;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      grid-column: 1 / -1;
+      width: 200px;
+      margin: 15px auto 0;
+    }
+    
+    .btn-search:hover {
+      background-color: #1c54b2;
+    }
+    
+    .hero-image-container {
       position: relative;
-    }
-    
-    /* Slider track with animation */
-    .slider-track {
-      display: flex;
-      width: calc(300px * 12); /* 6 places × 2 for looping */
-      animation: slide 30s linear infinite;
-    }
-    
-    @keyframes slide {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-300px * 6)); /* Move by the width of 6 places */
-      }
-    }
-    
-    /* Place card */
-    .place-card {
-      position: relative;
-      flex: 0 0 300px;
-      height: 300px;
-      width: 500px;
-      margin: 0 10px;
-      border-radius: 10px;
+      width: 100%;
+      height: 500px;
       overflow: hidden;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
     }
     
-    .place-image {
+    .hero-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
     }
     
-    /* Info overlay (hidden by default) */
-    .place-info {
+    .hero-text {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      bottom: 40px;
+      left: 40px;
       color: white;
-      padding: 1rem;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
+      max-width: 60%;
+    }
+    
+    .hero-text h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    
+    .promotion-banner {
+      background-color: #ffebcd;
+      padding: 15px;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: space-between;
+      border-radius: 8px;
+      margin-bottom: 20px;
     }
     
-    .place-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      text-align: center;
+    .promotion-text {
+      font-size: 18px;
+      color: #333;
     }
     
-    .place-description {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    
-    .visit-btn {
-      background-color: #4299e1;
+    .promotion-button {
+      background-color: #ff6b6b;
       color: white;
       border: none;
-      border-radius: 5px;
-      padding: 0.5rem 1rem;
+      padding: 10px 20px;
+      border-radius: 4px;
       cursor: pointer;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
+      font-weight: bold;
     }
     
-    .visit-btn:hover {
-      background-color: #3182ce;
-    }
-    
-    /* Show info on hover */
-    .place-card:hover .place-info {
-      transform: translateY(0);
-    }
-    
-    .place-card:hover .place-image {
-      transform: scale(1.1);
-    }
-    
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      .slider-track {
-        width: calc(250px * 12);
-      }
-      
-      .place-card {
-        flex: 0 0 250px;
-        height: 250px;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .slider-track {
-        width: calc(200px * 12);
-      }
-      
-      .place-card {
-        flex: 0 0 200px;
-        height: 200px;
-      }
-      
-      h1 {
-        font-size: 1.5rem;
-      }
-      
-      .place-info {
-        padding: 0.5rem;
-      }
-      
-      .place-title {
-        font-size: 1rem;
-      }
-      
-      .place-description {
-        font-size: 0.8rem;
-      }
+    .close-button {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <div class="container-move">
-    <h1>Explore USA Destinations</h1>
+  <div class="container">
+    <div class="booking-form">
+      <h1 class="form-title">Book Your Perfect Getaway</h1>
+      <div class="form-fields">
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <input type="text" id="destination" class="form-control" value="New Delhi and NCR" placeholder="Where do you want to go?">
+        </div>
+        
+        <div class="form-group">
+          <label for="check-in">Check-in</label>
+          <input type="text" id="check-in" class="form-control" value="19 Mar 2025 Wednesday" placeholder="Check-in date">
+        </div>
+        
+        <div class="form-group">
+          <label for="check-out">Check-out</label>
+          <input type="text" id="check-out" class="form-control" value="20 Mar 2025 Thursday" placeholder="Check-out date">
+        </div>
+        
+        <div class="form-group">
+          <label for="guests">Guests</label>
+          <input type="text" id="guests" class="form-control" value="1 adult, 1 room" placeholder="Number of guests">
+        </div>
+        
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" class="form-control" placeholder="Enter your full name">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="Enter your email address">
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+        </div>
+        
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" class="form-control" placeholder="Enter your address">
+        </div>
+        
+        <div class="form-group">
+          <label for="pincode">Pincode</label>
+          <input type="text" id="pincode" class="form-control" placeholder="Enter your pincode">
+        </div>
+        
+        <button type="button" class="btn-search">SEARCH</button>
+      </div>
+    </div>
     
-    <div class="slider-container">
-      <div class="slider-track">
-        <!-- Original 6 places -->
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="New York City" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">New York City</h3>
-            <p class="place-description">The Big Apple with iconic skyline and Times Square</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="Grand Canyon" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">Grand Canyon</h3>
-            <p class="place-description">Breathtaking natural wonder in Arizona</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="Miami Beach" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">Miami Beach</h3>
-            <p class="place-description">Sandy beaches and vibrant nightlife in Florida</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="San Francisco" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">San Francisco</h3>
-            <p class="place-description">Golden Gate Bridge and charming neighborhoods</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="Yellowstone" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">Yellowstone</h3>
-            <p class="place-description">World's first national park with geysers</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="Las Vegas" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">Las Vegas</h3>
-            <p class="place-description">Entertainment capital with iconic Strip</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <!-- Duplicate 6 places for infinite loop -->
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="New York City" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">New York City</h3>
-            <p class="place-description">The Big Apple with iconic skyline and Times Square</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="Grand Canyon" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">Grand Canyon</h3>
-            <p class="place-description">Breathtaking natural wonder in Arizona</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="Miami Beach" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">Miami Beach</h3>
-            <p class="place-description">Sandy beaches and vibrant nightlife in Florida</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="San Francisco" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">San Francisco</h3>
-            <p class="place-description">Golden Gate Bridge and charming neighborhoods</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="Yellowstone" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">Yellowstone</h3>
-            <p class="place-description">World's first national park with geysers</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
-        
-        <div class="place-card">
-          <img src="/images/usa image of page.jpg" alt="Las Vegas" class="place-image">
-          <div class="place-info">
-            <h3 class="place-title">Las Vegas</h3>
-            <p class="place-description">Entertainment capital with iconic Strip</p>
-            <button class="visit-btn">Explore</button>
-          </div>
-        </div>
+    <div class="promotion-banner">
+      <div class="promotion-text">
+        <strong>Want cheaper prices?</strong> Our new Deals section is live! Visit to get access to all deals, offers and discounts
+      </div>
+      <button class="promotion-button">Take me there!</button>
+      <button class="close-button">×</button>
+    </div>
+    
+    <div class="hero-image-container">
+      <img src="/images/about image.jpg" alt="Travel destination" class="hero-image">
+      <div class="hero-text">
+        <h2>Discover Extraordinary Destinations</h2>
+        <p>Explore the world's most breathtaking locations with our exclusive travel packages</p>
       </div>
     </div>
   </div>

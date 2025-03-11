@@ -3,9 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chandham Holiday Sale</title>
+    <title>Amarnath Holiday Sale</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+
+:root {
+            --primary: #4158D0;
+            --secondary: #C850C0;
+            --accent: #FFCC70;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+
+       
+
+        .bodyofbookingsystem {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container-booking {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .book-now-btn {
+            padding: 10px 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-now-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .booking-form {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: #777;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(200, 80, 192, 0.1);
+        }
+
+        .form-control.select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 15px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            margin-right: 8px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-danger {
+            background-color: #f8f9fa;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        .btn-danger:hover {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: span 1;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .hero-section {
+                height: 350px;
+            }
+
+            
+
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .booking-form {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--secondary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -131,7 +406,7 @@
       padding: 0;
     }
 
-     /*dropdown here ok */
+            /*dropdown here ok */
  /* General styles for the nav-menu item */
  .nav-menu-item {
   position: relative;
@@ -219,7 +494,6 @@ h3 {
 .nav-menu-item:hover .dropdown {
   display: flex;  /* Display the dropdown on hover */
 }
-
 
     /* Hamburger Menu */
     .hamburger {
@@ -494,402 +768,8 @@ h3 {
       color: #888;
     }
 
-        .hero {
-            position: relative;
-            width: calc(100% - 370px); /* Adjust width to accommodate modal */
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('/images/chandham\ image\ of\ page.jpeg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            padding: 2rem;
-            transition: width 0.3s ease;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Animation classes */
-        .animate-text {
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s forwards;
-        }
-
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(50px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        /* Staggered animation delays */
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-        
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-        
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-        
-        .delay-4 {
-            animation-delay: 0.8s;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .offer-banner {
-            background-color: rgba(25, 47, 89, 0.9);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .features {
-            margin-top: 2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .feature-icon {
-            color: #ff9f1c;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .feature-text {
-            font-weight: 500;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Right side modal */
-        .modal {
-            position: fixed;
-            z-index: 999;
-            right: 0;
-            top: 0;
-            width: 370px;
-            height: 100%;
-            animation: slideInRight 0.4s ease-in-out;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background-color: white;
-            border-radius: 15px 0 0 15px;
-            overflow: hidden;
-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
-            height: 100vh;
-            max-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
-            color: white;
-            padding: 1.2rem;
-            position: relative;
-        }
-
-        .modal-title {
-            font-size: 1.6rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .modal-subtitle {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .close:hover {
-            transform: scale(1.2);
-        }
-
-        .modal-body {
-            padding: 1.5rem;
-            overflow-y: auto; 
-            flex: 1;
-        }
-
-        .form-tabs {
-            display: flex;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .tab {
-            padding: 0.8rem 1.2rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            color: #555;
-            border-bottom: 3px solid transparent;
-            font-size: 0.9rem;
-        }
-
-        .tab.active {
-            color: #0083b0;
-            border-bottom: 3px solid #0083b0;
-        }
-
-        .tab:hover {
-            color: #0083b0;
-        }
-
-        .tab i {
-            margin-right: 0.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            color: #444;
-            font-size: 0.9rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.7rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .form-input:focus {
-            border-color: #0083b0;
-            box-shadow: 0 0 0 2px rgba(0, 131, 176, 0.1);
-            outline: none;
-        }
-
-        .input-icon {
-            position: relative;
-        }
-
-        .input-icon i {
-            position: absolute;
-            top: 50%;
-            left: 1rem;
-            transform: translateY(-50%);
-            color: #777;
-        }
-
-        .input-icon input {
-            padding-left: 3rem;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .package-options {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
-            flex-wrap: wrap;
-        }
-
-        .package-option {
-            flex: 1;
-            min-width: 90px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 0.8rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .package-option:hover {
-            border-color: #0083b0;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .package-option.selected {
-            border-color: #0083b0;
-            background-color: rgba(0, 131, 176, 0.1);
-        }
-
-        .package-option i {
-            font-size: 1.5rem;
-            color: #0083b0;
-            margin-bottom: 0.4rem;
-        }
-
-        .package-name {
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            font-size: 0.9rem;
-        }
-
-        .package-price {
-            color: #ff7e5f;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #ff9f1c 0%, #ff7e5f 100%);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1rem;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-footer {
-            text-align: center;
-            margin-top: 0.8rem;
-            font-size: 0.8rem;
-            color: #777;
-        }
-
-        .date-picker {
-            position: relative;
-        }
-
-        .date-picker i {
-            position: absolute;
-            top: 50%;
-            right: 1rem;
-            transform: translateY(-50%);
-            color: #777;
-            pointer-events: none;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero {
-                width: 100%;
-            }
-            
-            .modal {
-                width: 320px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .offer-banner {
-                font-size: 1.2rem;
-                padding: 0.8rem 1.5rem;
-            }
-            
-            .feature-item {
-                font-size: 1rem;
-            }
-            
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal {
-                width: 300px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .offer-banner {
-                font-size: 1rem;
-                padding: 0.7rem 1.2rem;
-            }
-            
-            .modal-title {
-                font-size: 1.3rem;
-            }
-            
-            .tab {
-                padding: 0.7rem;
-                font-size: 0.8rem;
-            }
-            
-            .modal {
-                width: 85%;
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 1rem;
-            }
-            
-            .modal {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .modal-content {
-                border-radius: 0;
-            }
-            
-            .package-option {
-                min-width: 80px;
-                padding: 0.6rem;
-            }
-        }
+    /*hero section*/
+ 
          /*places of tours and travels */
          .rating-star-new{
             color: #ffc107;
@@ -1487,7 +1367,7 @@ h3 {
               <a href="index.html" class="nav-link">IND</a>
               <a href="index.html" class="nav-link">Home</a>
               <a href="About Page.html" class="nav-link">About Mayoora Travels</a>
-              <a href="ToursPackage.html" class="nav-link">Explore Packages</a>
+              
               <a href="Our Facilities.html" class="nav-link">Our Facilities</a>
               <ul class="nav-menu">
                 <li class="nav-menu-item">
@@ -1558,11 +1438,15 @@ h3 {
             </li>
             
             <li class="sidebar-item has-dropdown">
-              <a href="index.html" class="sidebar-link">Popular destinations</a>
+              <a href="#" class="sidebar-link">Popular destinations</a>
               <button class="dropdown-toggle">
                 <i class="fas fa-chevron-down"></i>
               </button>
-               
+              <div class="sidebar-dropdown">
+                <a href="international plan.html">International Plan</a>
+                <a href="Domestic Plans.html">Domestic Plan</a>
+                
+              </div>
             </li>
             
             <li class="sidebar-item">
@@ -1599,161 +1483,174 @@ h3 {
          </section>
 
          <!--navbar ends here html ok-->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title animate-text delay-1">Chandham Holiday Sale Live Now!</h1>
-            <div class="offer-banner animate-text delay-2">Save upto 30% on Chandham Holiday Packages</div>
-            
-            <div class="features">
-                <div class="feature-item animate-text delay-3">
-                    <i class="fas fa-check-circle feature-icon"></i>
-                    <span class="feature-text">Best Priced Packages within your budget</span>
-                </div>
-                <div class="feature-item animate-text delay-3">
-                    <i class="fas fa-check-circle feature-icon"></i>
-                    <span class="feature-text">Local Insider Tips and Recommendations</span>
-                </div>
-                <div class="feature-item animate-text delay-4">
-                    <i class="fas fa-check-circle feature-icon"></i>
-                    <span class="feature-text">Vacations Made Easy, Savings Guaranteed</span>
-                </div>
-                <div class="feature-item animate-text delay-4">
-                    <i class="fas fa-check-circle feature-icon"></i>
-                    <span class="feature-text">Seamless Journey, Endless Memories</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  
 
-    <!-- Right-Side Modal (Always Visible) -->
-    <div id="bookingModal" class="modal">
-        <br>
-        <br>
-        <br>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Book Your Chandham Adventure</h2>
-                <p class="modal-subtitle">Get exclusive deals and personalized itineraries</p>
-                <span class="close" id="closeModal">&times;</span>
+         <section class="bodyofnewbookingsystem">
+            <!-- Loading Animation -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
             </div>
-            
-            <div class="modal-body">
-                <div class="form-tabs">
-                    <div class="tab active" data-tab="booking">
-                        <i class="fas fa-calendar-check"></i> Booking
+        
+            <div class="container-booking">
+                <!-- Header with Logo and Book Now Button -->
+                <header class="header">
+                    <div class="logo">
+                        <h1>TravelWorld Expeditions</h1>
                     </div>
-                    <div class="tab" data-tab="packages">
-                        <i class="fas fa-suitcase"></i> Packages
-                    </div>
-                    <div class="tab" data-tab="info">
-                        <i class="fas fa-info-circle"></i> Info
-                    </div>
-                </div>
-                
-                <form id="bookingForm">
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label class="form-label">Your Name</label>
-                            <div class="input-icon">
-                                <i class="fas fa-user"></i>
-                                <input type="text" class="form-input" placeholder="Full Name" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Email Address</label>
-                            <div class="input-icon">
-                                <i class="fas fa-envelope"></i>
-                                <input type="email" class="form-input" placeholder="your@email.com" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label class="form-label">Contact Number</label>
-                            <div class="input-icon">
-                                <i class="fas fa-phone"></i>
-                                <input type="tel" class="form-input" placeholder="Your Phone Number" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Departing City</label>
-                            <div class="input-icon">
-                                <i class="fas fa-plane-departure"></i>
-                                <input type="text" class="form-input" placeholder="City Name" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label class="form-label">Departure Date</label>
-                            <div class="date-picker">
-                                <input type="date" class="form-input" required>
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Return Date</label>
-                            <div class="date-picker">
-                                <input type="date" class="form-input" required>
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Number of Travelers</label>
-                        <div class="grid-2">
-                            <div class="input-icon">
-                                <i class="fas fa-user-friends"></i>
-                                <input type="number" class="form-input" placeholder="Adults" min="1" value="2" required>
-                            </div>
-                            <div class="input-icon">
-                                <i class="fas fa-child"></i>
-                                <input type="number" class="form-input" placeholder="Children" min="0" value="0">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Select Package Type</label>
-                        <div class="package-options">
-                            <div class="package-option selected">
-                                <i class="fas fa-star"></i>
-                                <div class="package-name">Standard</div>
-                                <div class="package-price">$999</div>
-                            </div>
-                            <div class="package-option">
-                                <i class="fas fa-star-half-alt"></i>
-                                <div class="package-name">Deluxe</div>
-                                <div class="package-price">$1299</div>
-                            </div>
-                            <div class="package-option">
-                                <i class="fas fa-crown"></i>
-                                <div class="package-name">Premium</div>
-                                <div class="package-price">$1699</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> Book My Trip Now
+                    <button class="book-now-btn" id="bookNowBtn">
+                        <i class="fas fa-plane-departure"></i> Book Now
                     </button>
-                    
-                    <div class="form-footer">
-                        By booking, you agree to our terms and conditions. 
-                        No payment required now - this is just an inquiry.
+                </header>
+        
+                <!-- Hero Section with Background Image -->
+                <div class="hero-section">
+                  <!-- Full-width Image -->
+                  <img src="/images/usa image of page.jpg" alt="Travel Image" style="width: 100%;height: 500px;">
+                  <div class="hero-content">
+                      <h2><i class="fas fa-map-marked-alt"></i> Explore The World</h2>
+                      <p>Unforgettable journeys begin with a single booking. Premium travel experiences at competitive prices. Find your next adventure today!</p>
+                  </div>
+              </div>
+              
+        
+                <!-- Booking Form -->
+                <div class="booking-form" id="bookingForm">
+                    <div class="form-header">
+                        <h3>Personalize Your Journey</h3>
+                        <p>Fill in the details below to start your adventure</p>
                     </div>
-                </form>
+        
+                    <form id="travelForm">
+                        <div class="form-grid">
+                            <!-- Personal Information -->
+                            <div class="form-group">
+                                <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+                                <input type="text" id="fullName" class="form-control" placeholder="John Doe" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 123-4567" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label><i class="fas fa-venus-mars"></i> Gender</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="gender" value="male" checked> Male
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="gender" value="female"> Female
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="gender" value="other"> Other
+                                    </label>
+                                </div>
+                            </div>
+        
+                            <!-- Travel Details -->
+                            <div class="form-group">
+                                <label for="destination"><i class="fas fa-map-marker-alt"></i> Destination</label>
+                                <select id="destination" class="form-control select" required>
+                                    <option value="" disabled selected>Select your destination</option>
+                                    <option value="bali">Bali, Indonesia</option>
+                                    <option value="paris">Paris, France</option>
+                                    <option value="tokyo">Tokyo, Japan</option>
+                                    <option value="cancun">Cancun, Mexico</option>
+                                    <option value="rome">Rome, Italy</option>
+                                    <option value="sydney">Sydney, Australia</option>
+                                    <option value="nyc">New York City, USA</option>
+                                    <option value="dubai">Dubai, UAE</option>
+                                    <option value="santorini">Santorini, Greece</option>
+                                    <option value="machu">Machu Picchu, Peru</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="travelDate"><i class="fas fa-calendar-alt"></i> Travel Date</label>
+                                <input type="date" id="travelDate" class="form-control" required min="2025-03-11">
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="adults"><i class="fas fa-user-friends"></i> Number of Adults</label>
+                                <select id="adults" class="form-control select" required>
+                                    <option value="1">1 Adult</option>
+                                    <option value="2" selected>2 Adults</option>
+                                    <option value="3">3 Adults</option>
+                                    <option value="4">4 Adults</option>
+                                    <option value="5">5 Adults</option>
+                                    <option value="6+">6+ Adults</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="children"><i class="fas fa-child"></i> Number of Children</label>
+                                <select id="children" class="form-control select" required>
+                                    <option value="0" selected>No Children</option>
+                                    <option value="1">1 Child</option>
+                                    <option value="2">2 Children</option>
+                                    <option value="3">3 Children</option>
+                                    <option value="4+">4+ Children</option>
+                                </select>
+                            </div>
+        
+                            <!-- Address Details -->
+                            <div class="form-group full-width">
+                                <label for="address"><i class="fas fa-home"></i> Complete Address</label>
+                                <input type="text" id="address" class="form-control" placeholder="123 Main St" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="city"><i class="fas fa-city"></i> City</label>
+                                <input type="text" id="city" class="form-control" placeholder="New York" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="postalCode"><i class="fas fa-map-pin"></i> Postal/Zip Code</label>
+                                <input type="text" id="postalCode" class="form-control" placeholder="10001" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="country"><i class="fas fa-globe"></i> Country</label>
+                                <select id="country" class="form-control select" required>
+                                    <option value="" disabled selected>Select your country</option>
+                                    <option value="us">United States</option>
+                                    <option value="ca">Canada</option>
+                                    <option value="uk">United Kingdom</option>
+                                    <option value="au">Australia</option>
+                                    <option value="in">India</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+        
+                            <!-- Special Requirements -->
+                            <div class="form-group full-width">
+                                <label for="specialRequirements"><i class="fas fa-clipboard-list"></i> Special Requirements</label>
+                                <textarea id="specialRequirements" class="form-control" rows="4" placeholder="Any special requirements or preferences? (e.g., dietary restrictions, accessibility needs, etc.)"></textarea>
+                            </div>
+                        </div>
+        
+                        <div class="button-group">
+                            <button type="button" class="btn btn-danger" id="cancelBtn">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-check"></i> Submit Booking
+                            </button>
+                        </div>
+        
+                        <div class="form-footer">
+                            <p>By submitting this form, you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-    </div>
-
-
+        </section>
     <!--places images here boxes-->
     <section class="bodyofplaces">
         <div class="container-places">
@@ -2269,7 +2166,58 @@ h3 {
         
         bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your booking request! Our team will contact you shortly to confirm your Chandham adventure.');
+            alert('Thank you for your booking request! Our team will contact you shortly to confirm your Amarnath adventure.');
+        });
+    </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const loading = document.getElementById('loading');
+            const bookNowBtn = document.getElementById('bookNowBtn');
+            const bookingForm = document.getElementById('bookingForm');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const travelForm = document.getElementById('travelForm');
+
+            // Hide loading after page loads
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 1500);
+
+            // Set min date for travel date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('travelDate').min = tomorrow.toISOString().split('T')[0];
+
+            // Show form when Book Now button is clicked
+            bookNowBtn.addEventListener('click', function() {
+                bookingForm.style.display = 'block';
+                // Scroll to form
+                bookingForm.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Hide form when Cancel button is clicked
+            cancelBtn.addEventListener('click', function() {
+                bookingForm.style.display = 'none';
+                // Scroll back to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Form submission
+            travelForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading
+                loading.classList.remove('hidden');
+                
+                // Simulate form submission (replace with actual API call)
+                setTimeout(() => {
+                    alert('Booking submitted successfully! Our team will contact you shortly.');
+                    loading.classList.add('hidden');
+                    bookingForm.style.display = 'none';
+                    travelForm.reset();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 1500);
+            });
         });
     </script>
 </body>

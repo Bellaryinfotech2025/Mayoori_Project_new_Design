@@ -1,623 +1,495 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mayoori Tours and Travels</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-  <style>
-    :root {
-      --primary-color: #FF5722;
-      --secondary-color: #00B8B0;
-      --text-color: #333;
-      --light-gray: #f5f5f5;
-      --medium-gray: #ddd;
-      --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4158D0;
+            --secondary: #C850C0;
+            --accent: #FFCC70;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+        .bodyofbookingsystem-booking {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    .bodyofnavbar {
-      background-color: #fff;
-      color: var(--text-color);
-      line-height: 1.6;
-      padding-top: 70px;
-    }
+        .container-booking-booking {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    /* Header Styles */
-    .header {
-      background: white;
-      padding: 1rem 2rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: var(--shadow);
-    }
+        .header-booking {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .logo-booking h1 {
+            font-size: 28px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .logo {
-      width: 120px;
-      height: auto;
-    }
+        .book-now-btn-booking {
+            padding: 10px 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-    .search-bar {
-      flex: 1;
-      max-width: 400px;
-      margin: 0 2rem;
-      position: relative;
-    }
+        .book-now-btn-booking:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
 
-    .search-bar input {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 1px solid var(--medium-gray);
-      border-radius: 24px;
-      font-size: 1rem;
-      outline: none;
-      transition: var(--transition);
-    }
+        .hero-content-booking h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-    .search-bar input:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
-    }
+        .hero-content-booking p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
+        .booking-form-booking {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
 
-    .nav-link {
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
+        .form-header-booking {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    .nav-link:hover {
-      color: var(--primary-color);
-    }
+        .form-header-booking h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
 
-    .login-btn {
-      background: var(--primary-color);
-      color: white;
-      padding: 0.5rem 1.5rem;
-      border-radius: 24px;
-      text-decoration: none;
-      transition: var(--transition);
-      font-weight: 500;
-    }
+        .form-header-booking p {
+            color: #777;
+        }
 
-    .login-btn:hover {
-      background: #e64a19;
-      transform: translateY(-2px);
-    }
+        .form-grid-booking {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
 
-    /* Navigation Menu */
-    .main-nav {
-      background: white;
-      padding: 1rem 2rem;
-      margin-top: 0;
-      border-bottom: 1px solid #eee;
-    }
+        .form-group-booking {
+            margin-bottom: 20px;
+        }
 
-    .nav-menu {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      padding: 0;
-    }
+        .form-group-booking label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
 
-    .nav-menu-item {
-      position: relative;
-    }
+        .form-control-booking {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
 
-    .nav-menu-link {
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 0.95rem;
-      padding: 0.5rem 0;
-      transition: var(--transition);
-      display: block;
-    }
+        .form-control-booking:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(200, 80, 192, 0.1);
+        }
 
-    .nav-menu-link:hover {
-      color: var(--primary-color);
-    }
+        .form-control-booking.select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 15px;
+        }
 
-    .dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      min-width: 200px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      display: none;
-      z-index: 100;
-      overflow: hidden;
-    }
+        .radio-group-booking {
+            display: flex;
+            gap: 20px;
+        }
 
-    .nav-menu-item:hover .dropdown {
-      display: block;
-    }
+        .radio-option-booking {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
 
-    .dropdown-item {
-      padding: 0.8rem 1rem;
-      display: block;
-      text-decoration: none;
-      color: var(--text-color);
-      transition: var(--transition);
-    }
+        .radio-option-booking input {
+            margin-right: 8px;
+        }
 
-    .dropdown-item:hover {
-      background: var(--light-gray);
-      color: var(--primary-color);
-    }
+        .button-group-booking {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
 
-    /* Hamburger Menu */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      width: 30px;
-      height: 20px;
-      position: relative;
-      margin-left: 20px;
-    }
+        .btn-booking {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
 
-    .hamburger span {
-      display: block;
-      position: absolute;
-      height: 3px;
-      width: 100%;
-      background: var(--primary-color);
-      border-radius: 3px;
-      opacity: 1;
-      left: 0;
-      transform: rotate(0deg);
-      transition: var(--transition);
-    }
+        .btn-primary-booking {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-    .hamburger span:nth-child(1) {
-      top: 0px;
-    }
+        .btn-primary-booking:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
 
-    .hamburger span:nth-child(2),
-    .hamburger span:nth-child(3) {
-      top: 8px;
-    }
+        .btn-danger-booking {
+            background-color: #f8f9fa;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
 
-    .hamburger span:nth-child(4) {
-      top: 16px;
-    }
+        .btn-danger-booking:hover {
+            background-color: var(--danger);
+            color: white;
+        }
 
-    /* Hamburger Animation */
-    .hamburger.open span:nth-child(1) {
-      top: 8px;
-      width: 0%;
-      left: 50%;
-    }
+        .form-footer-booking {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+        }
 
-    .hamburger.open span:nth-child(2) {
-      transform: rotate(45deg);
-    }
+        .full-width-booking {
+            grid-column: span 2;
+        }
 
-    .hamburger.open span:nth-child(3) {
-      transform: rotate(-45deg);
-    }
+        @media (max-width: 768px) {
+            .form-grid-booking {
+                grid-template-columns: 1fr;
+            }
 
-    .hamburger.open span:nth-child(4) {
-      top: 8px;
-      width: 0%;
-      left: 50%;
-    }
+            .full-width-booking {
+                grid-column: span 1;
+            }
 
-    /* Sidebar */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background: white;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 1001;
-      overflow-y: auto;
-      transition: var(--transition);
-      padding: 2rem 1rem;
-    }
+            .header-booking {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
 
-    .sidebar.open {
-      right: 0;
-    }
+            .hero-section-booking {
+                height: 350px;
+            }
 
-    .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--medium-gray);
-    }
+            .hero-content-booking h2 {
+                font-size: 1.8rem;
+            }
 
-    .sidebar-close {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--text-color);
-      cursor: pointer;
-    }
+            .hero-content-booking p {
+                font-size: 1rem;
+            }
 
-    .sidebar-menu {
-      list-style: none;
-      padding: 0;
-    }
+            .booking-form-booking {
+                padding: 20px;
+            }
 
-    .sidebar-item {
-      margin-bottom: 1.5rem;
-    }
+            .button-group-booking {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-    .sidebar-link {
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 1rem;
-      display: block;
-      padding: 0.7rem 0;
-      position: relative;
-      transition: var(--transition);
-    }
+            .btn-booking {
+                width: 100%;
+            }
+        }
 
-    .sidebar-link:hover {
-      color: var(--primary-color);
-    }
+        /* Loading animation */
+        .loading-booking {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-    .sidebar-dropdown {
-      padding-left: 1.5rem;
-      display: none;
-      margin-top: 0.5rem;
-    }
+        .spinner-booking {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--secondary);
+            animation: spin 1s ease-in-out infinite;
+        }
 
-    .sidebar-dropdown.show {
-      display: block;
-    }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
 
-    .sidebar-dropdown a {
-      display: block;
-      padding: 0.6rem 0;
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-
-    .sidebar-dropdown a:hover {
-      color: var(--primary-color);
-    }
-
-    .has-dropdown {
-      position: relative;
-    }
-
-    .dropdown-toggle {
-      position: absolute;
-      right: 0;
-      top: 0.7rem;
-      background: none;
-      border: none;
-      color: var(--text-color);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .dropdown-toggle:hover {
-      color: var(--primary-color);
-    }
-
-    .sidebar-divider {
-      height: 1px;
-      background-color: var(--medium-gray);
-      margin: 1.5rem 0;
-    }
-
-    .sidebar-button {
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 24px;
-      width: 100%;
-      margin-top: 2rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .sidebar-button:hover {
-      background: #e64a19;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-    }
-
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Page Content (for demo) */
-    .page-content {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .search-bar {
-        max-width: 300px;
-        margin: 0 1rem;
-      }
-
-      .nav-right {
-        gap: 1rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .search-bar {
-        max-width: 180px;
-        margin: 0 0.5rem;
-      }
-      
-      .main-nav, 
-      .nav-right .nav-link {
-        display: none;
-      }
-      
-      .nav-right {
-        gap: 0.5rem;
-      }
-      
-      .login-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.85rem;
-      }
-      
-      .hamburger {
-        display: block;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .header {
-        padding: 0.8rem 1rem;
-      }
-      
-      .search-bar {
-        display: none;
-      }
-      
-      .nav-right .login-btn {
-        display: none;
-      }
-      
-      .hamburger {
-        margin-left: 0;
-      }
-    }
-
-    /* For demo only - to show content */
-    .content-placeholder {
-      height: 400px;
-      background: var(--light-gray);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 2rem;
-      color: #888;
-    }
-  </style>
+        .hidden-booking {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <section class="bodyofnavbar"> 
-  <!-- Header -->
-  <header class="header">
-    <div class="nav-container">
-      <img src="/api/placeholder/120/40" alt="Mayoori" class="logo">
-      
-      <div class="search-bar">
-        <input type="text" placeholder="Search destinations or activities with Mayoori">
-      </div>
-      
-      <div class="nav-right">
-        <a href="#" class="nav-link">IND</a>
-        <a href="#" class="nav-link">Help</a>
-        <a href="#" class="nav-link">Recently viewed</a>
-        <a href="#" class="nav-link">Sign up</a>
-        <a href="Contact Page.html" class="login-btn">Contact Mayoori</a>
-      </div>
-      
-      <div class="hamburger" id="hamburger-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+  <section class="bodyofnewbookingsystem-booking">
+    <!-- Loading Animation -->
+    <div class="loading-booking" id="loading">
+        <div class="spinner-booking"></div>
     </div>
-  </header>
 
-  <!-- Main Navigation -->
-  <nav class="main-nav">
-    <ul class="nav-menu">
-      <li class="nav-menu-item">
-        <a href="About Page.html" class="nav-menu-link">About Mayoori</a>
-      </li>
-      <li class="nav-menu-item">
-        <a href="#" class="nav-menu-link">Popular destinations</a>
-        <div class="dropdown">
-          <a href="#" class="dropdown-item">Tokyo</a>
-          <a href="#" class="dropdown-item">Singapore</a>
-          <a href="#" class="dropdown-item">Bangkok</a>
-          <a href="#" class="dropdown-item">Seoul</a>
-          <a href="#" class="dropdown-item">Osaka</a>
+    <div class="container-booking-booking">
+        <!-- Header with Logo and Book Now Button -->
+        <header class="header-booking">
+            <div class="logo-booking">
+                <h1>TravelWorld Expeditions</h1>
+            </div>
+            <button class="book-now-btn-booking" id="bookNowBtn">
+                <i class="fas fa-plane-departure"></i> Book Now
+            </button>
+        </header>
+
+        <!-- Hero Section with Background Image -->
+        <div class="hero-section-booking">
+          <!-- Full-width Image -->
+          <img src="/images/usa image of page.jpg" alt="Travel Image" style="width: 100%;height: 500px;">
+          <div class="hero-content-booking">
+              <h2><i class="fas fa-map-marked-alt"></i> Explore The World</h2>
+              <p>Unforgettable journeys begin with a single booking. Premium travel experiences at competitive prices. Find your next adventure today!</p>
+          </div>
+      </div>
+      
+
+        <!-- Booking Form -->
+        <div class="booking-form-booking" id="bookingForm">
+            <div class="form-header-booking">
+                <h3>Personalize Your Journey</h3>
+                <p>Fill in the details below to start your adventure</p>
+            </div>
+
+            <form id="travelForm">
+                <div class="form-grid-booking">
+                    <!-- Personal Information -->
+                    <div class="form-group-booking">
+                        <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="fullName" class="form-control-booking" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" class="form-control-booking" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" id="phone" class="form-control-booking" placeholder="+1 (555) 123-4567" required>
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label><i class="fas fa-venus-mars"></i> Gender</label>
+                        <div class="radio-group-booking">
+                            <label class="radio-option-booking">
+                                <input type="radio" name="gender" value="male" checked> Male
+                            </label>
+                            <label class="radio-option-booking">
+                                <input type="radio" name="gender" value="female"> Female
+                            </label>
+                            <label class="radio-option-booking">
+                                <input type="radio" name="gender" value="other"> Other
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Travel Details -->
+                    <div class="form-group-booking">
+                        <label for="destination"><i class="fas fa-map-marker-alt"></i> Destination</label>
+                        <select id="destination" class="form-control-booking select" required>
+                            <option value="" disabled selected>Select your destination</option>
+                            <option value="bali">Bali, Indonesia</option>
+                            <option value="paris">Paris, France</option>
+                            <option value="tokyo">Tokyo, Japan</option>
+                            <option value="cancun">Cancun, Mexico</option>
+                            <option value="rome">Rome, Italy</option>
+                            <option value="sydney">Sydney, Australia</option>
+                            <option value="nyc">New York City, USA</option>
+                            <option value="dubai">Dubai, UAE</option>
+                            <option value="santorini">Santorini, Greece</option>
+                            <option value="machu">Machu Picchu, Peru</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label for="travelDate"><i class="fas fa-calendar-alt"></i> Travel Date</label>
+                        <input type="date" id="travelDate" class="form-control-booking" required min="2025-03-11">
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label for="adults"><i class="fas fa-user-friends"></i> Number of Adults</label>
+                        <select id="adults" class="form-control-booking select" required>
+                            <option value="1">1 Adult</option>
+                            <option value="2" selected>2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4 Adults</option>
+                            <option value="5">5 Adults</option>
+                            <option value="6+">6+ Adults</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label for="children"><i class="fas fa-child"></i> Number of Children</label>
+                        <select id="children" class="form-control-booking select" required>
+                            <option value="0" selected>No Children</option>
+                            <option value="1">1 Child</option>
+                            <option value="2">2 Children</option>
+                            <option value="3">3 Children</option>
+                            <option value="4+">4+ Children</option>
+                        </select>
+                    </div>
+
+                    <!-- Address Details -->
+                    <div class="form-group-booking full-width-booking">
+                        <label for="address"><i class="fas fa-home"></i> Complete Address</label>
+                        <input type="text" id="address" class="form-control-booking" placeholder="123 Main St" required>
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label for="city"><i class="fas fa-city"></i> City</label>
+                        <input type="text" id="city" class="form-control-booking" placeholder="New York" required>
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label for="postalCode"><i class="fas fa-map-pin"></i> Postal/Zip Code</label>
+                        <input type="text" id="postalCode" class="form-control-booking" placeholder="10001" required>
+                    </div>
+
+                    <div class="form-group-booking">
+                        <label for="country"><i class="fas fa-globe"></i> Country</label>
+                        <select id="country" class="form-control-booking select" required>
+                            <option value="" disabled selected>Select your country</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="au">Australia</option>
+                            <option value="in">India</option>
+                            <option value="fr">France</option>
+                            <option value="it">Italy</option>
+                        </select>
+                    </div>
+
+                    <div class="form-footer-booking">
+                        <p>By booking, you agree to our <a href="#">Terms & Conditions</a></p>
+                    </div>
+                </div>
+                
+                <div class="button-group-booking">
+                    <button type="button" class="btn-booking btn-danger-booking" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-booking btn-primary-booking">Submit</button>
+                </div>
+            </form>
         </div>
-      </li>
-      <li class="nav-menu-item">
-        <a href="Our Facilities.html" class="nav-menu-link">Our facilities</a>
-      </li>
-      <li class="nav-menu-item">
-        <a href="ToursPackage.html" class="nav-menu-link">Explore Packages</a>
-      </li>
-      <li class="nav-menu-item">
-        <a href="#" class="nav-menu-link">Gift cards</a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Sidebar -->
-  <div class="overlay" id="overlay"></div>
-  
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <img src="/api/placeholder/100/30" alt="Mayoori" class="logo">
-      <button class="sidebar-close" id="close-sidebar">
-        <i class="fas fa-times"></i>
-      </button>
     </div>
-    
-    <div class="search-mobile" style="margin-bottom: 1.5rem;">
-      <input type="text" placeholder="Search destinations..." style="width: 100%; padding: 0.8rem 1rem; border: 1px solid #ddd; border-radius: 24px; font-size: 0.9rem;">
-    </div>
-    
-    <ul class="sidebar-menu">
-      <li class="sidebar-item">
-        <a href="About Page.html" class="sidebar-link">About Mayoori</a>
-      </li>
-      
-      <li class="sidebar-item has-dropdown">
-        <a href="#" class="sidebar-link">Popular destinations</a>
-        <button class="dropdown-toggle">
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="sidebar-dropdown">
-          <a href="#">Tokyo</a>
-          <a href="#">Singapore</a>
-          <a href="#">Bangkok</a>
-          <a href="#">Seoul</a>
-          <a href="#">Osaka</a>
-        </div>
-      </li>
-      
-      <li class="sidebar-item">
-        <a href="Our Facilities.html" class="sidebar-link">Our facilities</a>
-      </li>
-      
-      <li class="sidebar-item">
-        <a href="ToursPackage.html" class="sidebar-link">Explore Packages</a>
-      </li>
-      
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link">Gift cards</a>
-      </li>
-    </ul>
-    
-    <div class="sidebar-divider"></div>
-    
-    <ul class="sidebar-menu">
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link">IND</a>
-      </li>
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link">Help</a>
-      </li>
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link">Recently viewed</a>
-      </li>
-      <li class="sidebar-item">
-        <a href="#" class="sidebar-link">Sign up</a>
-      </li>
-    </ul>
-    
-    <button class="sidebar-button">Contact Mayoori Tours and Travels</button>
-  </div>
+</section>
 
-   </section>
+ 
 
-  <script>
-    // Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger-menu');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    const closeBtn = document.getElementById('close-sidebar');
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+ 
 
-    hamburger.addEventListener('click', function() {
-      this.classList.toggle('open');
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('active');
-      document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
-    });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const loading = document.getElementById('loading');
+            const bookNowBtn = document.getElementById('bookNowBtn');
+            const bookingForm = document.getElementById('bookingForm');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const travelForm = document.getElementById('travelForm');
 
-    closeBtn.addEventListener('click', function() {
-      hamburger.classList.remove('open');
-      sidebar.classList.remove('open');
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+            // Hide loading after page loads
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 1500);
 
-    overlay.addEventListener('click', function() {
-      hamburger.classList.remove('open');
-      sidebar.classList.remove('open');
-      this.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+            // Set min date for travel date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('travelDate').min = tomorrow.toISOString().split('T')[0];
 
-    // Dropdown Toggle in Sidebar
-    dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', function() {
-        const parent = this.parentElement;
-        const dropdown = parent.querySelector('.sidebar-dropdown');
-        dropdown.classList.toggle('show');
-        
-        // Toggle icon
-        const icon = this.querySelector('i');
-        if (dropdown.classList.contains('show')) {
-          icon.classList.remove('fa-chevron-down');
-          icon.classList.add('fa-chevron-up');
-        } else {
-          icon.classList.remove('fa-chevron-up');
-          icon.classList.add('fa-chevron-down');
-        }
-      });
-    });
-  </script>
+            // Show form when Book Now button is clicked
+            bookNowBtn.addEventListener('click', function() {
+                bookingForm.style.display = 'block';
+                // Scroll to form
+                bookingForm.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Hide form when Cancel button is clicked
+            cancelBtn.addEventListener('click', function() {
+                bookingForm.style.display = 'none';
+                // Scroll back to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Form submission
+            travelForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading
+                loading.classList.remove('hidden');
+                
+                // Simulate form submission (replace with actual API call)
+                setTimeout(() => {
+                    alert('Booking submitted successfully! Our team will contact you shortly.');
+                    loading.classList.add('hidden');
+                    bookingForm.style.display = 'none';
+                    travelForm.reset();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 1500);
+            });
+        });
+    </script>
 </body>
 </html>
