@@ -1763,68 +1763,73 @@ h3 {
                   <i class="fas fa-calendar-check"></i>
                   <span>Booking</span>
                 </div>
-                <div class="tab">
-                  <i class="fas fa-suitcase"></i>
-                  <span>Packages</span>
-                </div>
-                <div class="tab">
-                  <i class="fas fa-info-circle"></i>
-                  <span>Info</span>
-                </div>
+                 
               </div>
               
-              <form>
+              <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+                <!-- Replace with your actual Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="017080b9-1d21-4076-b2b8-4ea5040869d9">
+                
                 <div class="form-row">
                   <div class="form-group">
                     <label>Your Name</label>
-                    <input type="text" placeholder="Full Name">
+                    <input type="text" name="name" placeholder="Full Name" required>
                   </div>
                   <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" placeholder="your@email.com">
+                    <input type="email" name="email" placeholder="your@email.com" required>
                   </div>
                 </div>
                 
                 <div class="form-row">
                   <div class="form-group">
                     <label>Contact Number</label>
-                    <input type="tel" placeholder="Your Phone Number">
+                    <input type="tel" name="phone" placeholder="Your Phone Number" required>
                   </div>
                   <div class="form-group">
                     <label>Departing City</label>
-                    <input type="text" placeholder="City Name">
+                    <input type="text" name="departing_city" placeholder="City Name" required>
                   </div>
                 </div>
                 
                 <div class="form-group">
                   <label>Full Address</label>
-                  <input type="text" placeholder="Your Full Address">
+                  <input type="text" name="address" placeholder="Your Full Address" required>
                 </div>
                 
                 <div class="form-row">
                   <div class="form-group">
                     <label>Pincode</label>
-                    <input type="text" placeholder="Pincode">
+                    <input type="text" name="pincode" placeholder="Pincode" required>
                   </div>
                   <div class="form-group">
                     <label>State</label>
-                    <input type="text" placeholder="State">
+                    <input type="text" name="state" placeholder="State" required>
                   </div>
                 </div>
                 
                 <div class="form-row">
                   <div class="form-group">
                     <label>Departure Date</label>
-                    <input type="date">
+                    <input type="date" name="departure_date" required>
                   </div>
                   <div class="form-group">
                     <label>Return Date</label>
-                    <input type="date">
+                    <input type="date" name="return_date" required>
                   </div>
                 </div>
                 
+                <!-- Honeypot Spam Protection -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                
                 <button type="submit" class="submit-btn">Book Now</button>
               </form>
+              
+              <!-- Success Message Popup (This is visible after submission success) -->
+              <div id="successMessage" style="display: none; color: green; margin-top: 20px;">
+                <p>Your details have been submitted successfully. We will call you soon!</p>
+              </div>
+              <!------form conpleted-->
             </div>
             
              
@@ -1855,48 +1860,60 @@ h3 {
               </div>
             </div>
             
-            <form>
-              <div class="form-group">
-                <label>Your Name</label>
-                <input type="text" placeholder="Full Name">
-              </div>
-              <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="your@email.com">
-              </div>
-              <div class="form-group">
-                <label>Contact Number</label>
-                <input type="tel" placeholder="Your Phone Number">
-              </div>
-              <div class="form-group">
-                <label>Departing City</label>
-                <input type="text" placeholder="City Name">
-              </div>
-              <div class="form-group">
-                <label>Full Address</label>
-                <input type="text" placeholder="Your Full Address">
-              </div>
-              <div class="form-group">
-                <label>Pincode</label>
-                <input type="text" placeholder="Pincode">
-              </div>
-              <div class="form-group">
-                <label>State</label>
-                <input type="text" placeholder="State">
-              </div>
-              <div class="form-group">
-                <label>Departure Date</label>
-                <input type="date">
-              </div>
-              <div class="form-group">
-                <label>Return Date</label>
-                <input type="date">
-              </div>
+                <!--mobile form-->
+                <form action="https://api.web3forms.com/submit" method="POST">
+
+                  <!-- Replace with your Access Key -->
+                  <input type="hidden" name="access_key" value="017080b9-1d21-4076-b2b8-4ea5040869d9">
               
-              <button type="submit" class="submit-btn">Book Now</button>
-              <br>
-              <br>
-            </form>
+                  <!-- Form Inputs. Each input must have a name="" attribute -->
+                  <div class="form-group">
+                      <label>Your Name</label>
+                      <input type="text" name="name" placeholder="Full Name" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Email Address</label>
+                      <input type="email" name="email" placeholder="your@email.com" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Contact Number</label>
+                      <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Departing City</label>
+                      <input type="text" name="departing_city" placeholder="City Name" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Full Address</label>
+                      <input type="text" name="address" placeholder="Your Full Address" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Pincode</label>
+                      <input type="text" name="pincode" placeholder="Pincode" required>
+                  </div>
+                  <div class="form-group">
+                      <label>State</label>
+                      <input type="text" name="state" placeholder="State" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Departure Date</label>
+                      <input type="date" name="departure_date" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Return Date</label>
+                      <input type="date" name="return_date" required>
+                  </div>
+                  
+                  <!-- Honeypot Spam Protection -->
+                  <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+              
+                  <button type="submit" class="submit-btn">Book Now</button>
+                  <br>
+                  <br>
+              
+              </form>
+    
+              <!--completed-->
           </div>
           </section>
           
@@ -2459,6 +2476,41 @@ h3 {
         });
       });
     </script>
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent the default form submission
     
+        const form = document.getElementById('bookingForm');
+        const formData = new FormData(form); // Collect form data
+    
+        // Send the form data to Web3Forms API using fetch
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json()) // Parse the JSON response
+        .then(data => {
+          if (data.success) {
+            // Show the success message if the form submission is successful
+            document.getElementById('successMessage').style.display = 'block';
+    
+            // Clear the form after submission
+            form.reset();
+    
+            // Optionally, scroll to the success message
+            window.scrollTo({
+              top: document.getElementById('successMessage').offsetTop,
+              behavior: 'smooth'
+            });
+          } else {
+            alert("There was an issue submitting your form. Please try again.");
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert("There was an issue submitting your form. Please try again.");
+        });
+      }
+    </script>
 </body>
 </html>
