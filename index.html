@@ -14,6 +14,7 @@
     <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -583,346 +584,383 @@
 }
 /*navbar css end*/
 
-    :root {
-            --primary-color: #e91e63;
-            --secondary-color: #333;
-            --light-gray: #f5f5f5;
-        }
+:root {
+  --primary-color: #800020; /* Maroon */
+  --primary-dark: #5c0015; /* Darker maroon */
+  --secondary-color: #333;
+  --light-gray: #f5f5f5;
+  --white: #ffffff;
+}
+ 
 
-        
+.bodyofcarousel {
+  overflow-x: hidden;
+}
 
-        /* Hero Section */
-        .hero {
-            height: 90vh;
-            position: relative;
-            overflow: hidden;
-        }
+/* Hero Section with Carousel */
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
 
-        .carousel {
-            height: 100%;
-            position: relative;
-        }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
 
-        .carousel-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
+.carousel {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
 
-        .carousel-slide.active {
-            opacity: 1;
-        }
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
 
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            z-index: 2;
-            width: 90%;
-            max-width: 800px;
-        }
+.carousel-slide.active {
+  opacity: 1;
+}
 
-        .hero-content h1 {
-            font-size: 3.4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  width: 80%;
+  max-width: 800px;
+}
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
+.hero-content h1 {
+  font-size: 3.4rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
 
-        .hero-search {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            align-items: center;
-        }
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
 
-        .hero-search input {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 24px;
-            width: 100%;
-            max-width: 500px;
-            font-size: 1.1rem;
-        }
+/* Bangkok Info Button */
+.bangkok-info-btn {
+  background: linear-gradient(to right, #800020, #a30028);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
+}
 
-        .search-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 24px;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
+.bangkok-info-btn:hover {
+  background: linear-gradient(to right, #a30028, #800020);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
 
-        /* Know More Button in corner */
-        .book-now-corner {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            z-index: 100;
-        }
+.bangkok-info-btn i {
+  font-size: 1.1rem;
+}
 
-        .book-now-btn {
-            background-color: white;
-            color: var(--primary-color);
-            border: none;
-            border-radius: 50px;
-            padding: 12px 25px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
+/* Bangkok Info Popup */
+.bangkok-info-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
 
-        .book-now-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
+.popup-header {
+  background: linear-gradient(to right, #800020, #a30028);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        .book-now-btn i {
-            font-size: 18px;
-        }
+.popup-header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
 
-        /* Booking Popup */
-        .booking-popup {
-            position: absolute;
-            top: 80px;
-            right: 30px;
-            width: 320px;
-            background-color: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            z-index: 100;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            transform: translateY(-20px);
-            opacity: 0;
-            pointer-events: none;
-        }
+.close-popup {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
 
-        .booking-popup.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: all;
-        }
+.popup-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  max-height: calc(80vh - 60px); /* Subtract header height */
+}
 
-        .booking-popup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
+/* Welcome Section */
+.welcome-section {
+  margin-bottom: 25px;
+}
 
-        .booking-popup-header h3 {
-            color: var(--secondary-color);
-            font-size: 18px;
-        }
+.welcome-section h3 {
+  color: #800020;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
 
-        .close-popup {
-            background: none;
-            border: none;
-            color: #999;
-            font-size: 20px;
-            cursor: pointer;
-        }
+.welcome-section p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
 
-        .booking-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+.promo-banner {
+  background-color: #f8e6e8;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            color: var(--secondary-color);
-            font-size: 14px;
-        }
+.promo-banner i {
+  color: #800020;
+}
 
-        .form-group select,
-        .form-group input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-        }
+.promo-banner span {
+  color: #800020;
+  font-weight: 600;
+}
 
-        .schedule-calendar {
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 12px;
-            margin-top: 10px;
-        }
+/* Bus Timings Section */
+.bus-timings-section {
+  margin-bottom: 25px;
+}
 
-        .calendar-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+.bus-timings-section h3 {
+  color: #800020;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  border-left: 4px solid #800020;
+  padding-left: 10px;
+}
 
-        .calendar-nav button {
-            background: none;
-            border: none;
-            color: var(--secondary-color);
-            cursor: pointer;
-            padding: 5px;
-        }
+.timing-section {
+  margin-bottom: 20px;
+}
 
-        .month-name {
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
+.timing-header {
+  background: linear-gradient(to right, #800020, #a30028);
+  color: white;
+  padding: 10px 15px;
+  font-weight: 600;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
 
-        .schedule-list {
-            max-height: 200px;
-            overflow-y: auto;
-        }
+.timing-rows {
+  background-color: white;
+  border: 1px solid #eee;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
 
-        .schedule-date {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 6px;
-            background-color: var(--light-gray);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+.timing-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
 
-        .schedule-date:hover {
-            background-color: #e9e9e9;
-        }
+.timing-row:last-child {
+  border-bottom: none;
+}
 
-        .schedule-date.selected {
-            background-color: rgba(233, 30, 99, 0.1);
-            border-left: 3px solid var(--primary-color);
-        }
+.time {
+  width: 90px;
+  color: #800020;
+  font-weight: 600;
+}
 
-        .date-number {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            border-radius: 50%;
-            margin-right: 12px;
-            font-weight: 600;
-            color: var(--secondary-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+.destination {
+  flex: 1;
+}
 
-        .schedule-details {
-            flex: 1;
-        }
+.status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-align: center;
+}
 
-        .schedule-time {
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--secondary-color);
-        }
+.status.available {
+  background-color: rgba(0, 128, 0, 0.1);
+  color: green;
+}
 
-        .schedule-info {
-            font-size: 12px;
-            color: #666;
-        }
+.status.full {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: red;
+}
 
-        .book-schedule-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.2s ease;
-        }
+/* Attractions Section */
+.attractions-section {
+  margin-bottom: 25px;
+}
 
-        .book-schedule-btn:hover {
-            background-color: #d81b60;
-        }
+.attractions-section h3 {
+  color: #800020;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  border-left: 4px solid #800020;
+  padding-left: 10px;
+}
 
-        @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
-            }
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
 
-            .nav-container {
-                flex-wrap: wrap;
-            }
+.attraction-item {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border: 1px solid #eee;
+}
 
-            .search-bar {
-                order: 3;
-                max-width: 100%;
-                margin: 1rem 0;
-            }
+.attraction-item i {
+  font-size: 1.8rem;
+  color: #800020;
+  margin-bottom: 10px;
+}
 
-            .nav-right {
-                gap: 1rem;
-            }
+.attraction-item h4 {
+  color: #333;
+  margin-bottom: 8px;
+}
 
-            .main-nav {
-                overflow-x: auto;
-                padding: 1rem;
-                margin-top: 120px;
-            }
+.attraction-item p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
 
-            .nav-menu {
-                width: max-content;
-            }
+/* Book Now Button */
+.book-now-section {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 
-            .hero-content h1 {
-                font-size: 2rem;
-            }
+.book-now {
+  background: linear-gradient(to right, #800020, #a30028);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-            .hero-content p {
-                font-size: 1rem;
-            }
+.book-now:hover {
+  background: linear-gradient(to right, #a30028, #800020);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
-            .hero-search {
-                flex-direction: column;
-            }
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
 
-            .search-btn {
-                width: 100%;
-            }
+  .hero-content p {
+    font-size: 1rem;
+  }
 
-            .book-now-corner {
-                top: 20px;
-                right: 20px;
-            }
+  .bangkok-info-popup {
+    width: 95%;
+    max-height: 85vh;
+  }
 
-            .booking-popup {
-                top: 70px;
-                right: 10px;
-                left: 10px;
-                width: auto;
-            }
-        }
+  .attractions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .bangkok-info-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .timing-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .time,
+  .destination,
+  .status {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .status {
+    text-align: left;
+  }
+}
+
 /*footer css section here*/
 .footer {
             padding: 4rem 2rem 2rem;
@@ -1998,7 +2036,7 @@
 </section>
 
          <!--navbar ends here html ok-->
-
+         <section class="bodyofcarousel">
          <section class="hero">
             <div class="carousel">
                 <div class="carousel-slide active" style="background-image: url('/images/bangkok\ image\ for\ carousel.jpg')"></div>
@@ -2007,13 +2045,121 @@
                 <div class="carousel-slide" style="background-image: url('/images/image4.jpg')"></div>
                 <div class="carousel-slide" style="background-image: url('/images/image5.jpg')"></div>
             </div>
+            <div class="overlay"></div>
             <div class="hero-content">
-                <h1 style="color:white; font-weight: bold;">Mayura Travels - A world of joy</h1>
-                <p style="font-weight: bold;">From local escapes to far-flung adventures, find what makes you happy anytime, anywhere</p>
-                <div class="hero-search">
-                    
+                <h1>Mayura Travels - A world of joy</h1>
+                <p>From local escapes to far-flung adventures, find what makes you happy anytime, anywhere</p>
+                <button id="bangkokInfoBtn" class="bangkok-info-btn">
+                    <i class="fas fa-info-circle"></i> Bangkok Info
+                </button>
+            </div>
+      
+            <div id="bangkokInfoPopup" class="bangkok-info-popup">
+                <div class="popup-header">
+                    <h2>Bangkok Travel Information</h2>
+                    <button id="closePopup" class="close-popup">×</button>
+                </div>
+                <div class="popup-content">
+                    <div class="welcome-section">
+                        <h3>Welcome to Bangkok!</h3>
+                        <p>Ready to explore the vibrant capital of Thailand? Bangkok offers a perfect blend of traditional culture and modern attractions.</p>
+                        
+                        <div class="promo-banner">
+                            <i class="fas fa-star"></i>
+                            <span>Special promotion: 15% off on all Bangkok tours this month!</span>
+                        </div>
+                    </div>
+      
+                    <div class="bus-timings-section">
+                        <h3>Today's Bus Timings</h3>
+                        
+                        <div class="timing-section">
+                            <div class="timing-header">Morning</div>
+                            <div class="timing-rows">
+                                <div class="timing-row">
+                                    <div class="time">08:00 AM</div>
+                                    <div class="destination">Grand Palace & Wat Pho</div>
+                                    <div class="status available">Available</div>
+                                </div>
+                                <div class="timing-row">
+                                    <div class="time">09:30 AM</div>
+                                    <div class="destination">Floating Market Tour</div>
+                                    <div class="status available">Available</div>
+                                </div>
+                                <div class="timing-row">
+                                    <div class="time">10:45 AM</div>
+                                    <div class="destination">Chinatown Food Tour</div>
+                                    <div class="status full">Full</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timing-section">
+                            <div class="timing-header">Afternoon</div>
+                            <div class="timing-rows">
+                                <div class="timing-row">
+                                    <div class="time">01:00 PM</div>
+                                    <div class="destination">Ayutthaya Day Trip</div>
+                                    <div class="status available">Available</div>
+                                </div>
+                                <div class="timing-row">
+                                    <div class="time">02:30 PM</div>
+                                    <div class="destination">Chao Phraya River Cruise</div>
+                                    <div class="status available">Available</div>
+                                </div>
+                                <div class="timing-row">
+                                    <div class="time">03:45 PM</div>
+                                    <div class="destination">Bangkok Shopping Tour</div>
+                                    <div class="status available">Available</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timing-section">
+                            <div class="timing-header">Evening</div>
+                            <div class="timing-rows">
+                                <div class="timing-row">
+                                    <div class="time">06:30 PM</div>
+                                    <div class="destination">Night Market Tour</div>
+                                    <div class="status available">Available</div>
+                                </div>
+                                <div class="timing-row">
+                                    <div class="time">07:45 PM</div>
+                                    <div class="destination">Dinner Cruise</div>
+                                    <div class="status available">Available</div>
+                                </div>
+                                <div class="timing-row">
+                                    <div class="time">08:30 PM</div>
+                                    <div class="destination">Bangkok by Night</div>
+                                    <div class="status available">Available</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+      
+                    <div class="attractions-section">
+                        <h3>Popular Attractions</h3>
+                        <div class="attractions-grid">
+                            <div class="attraction-item">
+                                <i class="fas fa-landmark"></i>
+                                <h4>Grand Palace</h4>
+                                <p>Former residence of Thai kings</p>
+                            </div>
+                            <div class="attraction-item">
+                                <i class="fas fa-pray"></i>
+                                <h4>Wat Pho</h4>
+                                <p>Temple of the Reclining Buddha</p>
+                            </div>
+                        </div>
+                    </div>
+      
+                    <div class="book-now-section">
+                        <button class="book-now">Book Your Bangkok Adventure Now!</button>
+                    </div>
                 </div>
             </div>
+        </section>
+        </section>
     
             <!-- Know More Button & Popup -->
               
@@ -2026,155 +2172,8 @@
                 </button>
             </div> -->
     
-            <div class="booking-popup" id="bookingPopup">
-                <div class="booking-popup-header">
-                    <h3>Check Schedule & Book</h3>
-                    <button class="close-popup" id="closePopup">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <form class="booking-form">
-                    <div class="form-group">
-                        <label>Select Destination</label>
-                        <select id="destinationSelect">
-                            <option value="usa">USA</option>
-                            <option value="burj khalifa">Burj KhalifaDubai</option>
-                            <option value="singapore">Singapore</option>
-                            <option value="thailand">Pattaya, Thailand</option>
-                            <option value="Mauritius">Mauritius</option>
-                            <option value="pattaya">Europe</option>
-                            <option value="pattaya">Srilanka</option>
-                            <option value="pattaya">Australia</option>
-                        </select>
-                    </div>
-    
-                    <div class="schedule-calendar">
-                        <div class="calendar-nav">
-                            <button type="button" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
-                            <span class="month-name" id="currentMonth">March 2025</span>
-                            <button type="button" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-    
-                        <div class="schedule-list" id="schedulesList">
-                            <!-- March 2025 -->
-                            <div class="schedule-date" data-month="march">
-                                <div class="date-number">5</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">9:00 AM Departure</div>
-                                    <div class="schedule-info">4 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date selected" data-month="march">
-                                <div class="date-number">12</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">10:30 AM Departure</div>
-                                    <div class="schedule-info">8 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="march">
-                                <div class="date-number">18</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">8:15 AM Departure</div>
-                                    <div class="schedule-info">2 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="march">
-                                <div class="date-number">24</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">11:00 AM Departure</div>
-                                    <div class="schedule-info">6 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="march">
-                                <div class="date-number">29</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">9:45 AM Departure</div>
-                                    <div class="schedule-info">3 seats left • Direct</div>
-                                </div>
-                            </div>
-                            
-                            <!-- April 2025 (initially hidden) -->
-                            <div class="schedule-date" data-month="april" style="display: none;">
-                                <div class="date-number">3</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">8:30 AM Departure</div>
-                                    <div class="schedule-info">9 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="april" style="display: none;">
-                                <div class="date-number">10</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">10:00 AM Departure</div>
-                                    <div class="schedule-info">5 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="april" style="display: none;">
-                                <div class="date-number">16</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">9:15 AM Departure</div>
-                                    <div class="schedule-info">7 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="april" style="display: none;">
-                                <div class="date-number">22</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">11:30 AM Departure</div>
-                                    <div class="schedule-info">4 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="april" style="display: none;">
-                                <div class="date-number">28</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">10:45 AM Departure</div>
-                                    <div class="schedule-info">2 seats left • Direct</div>
-                                </div>
-                            </div>
-                            
-                            <!-- May 2025 (initially hidden) -->
-                            <div class="schedule-date" data-month="may" style="display: none;">
-                                <div class="date-number">5</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">9:30 AM Departure</div>
-                                    <div class="schedule-info">8 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="may" style="display: none;">
-                                <div class="date-number">11</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">8:45 AM Departure</div>
-                                    <div class="schedule-info">6 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="may" style="display: none;">
-                                <div class="date-number">17</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">10:15 AM Departure</div>
-                                    <div class="schedule-info">3 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="may" style="display: none;">
-                                <div class="date-number">24</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">9:00 AM Departure</div>
-                                    <div class="schedule-info">5 seats left • Direct</div>
-                                </div>
-                            </div>
-                            <div class="schedule-date" data-month="may" style="display: none;">
-                                <div class="date-number">30</div>
-                                <div class="schedule-details">
-                                    <div class="schedule-time">11:15 AM Departure</div>
-                                    <div class="schedule-info">4 seats left • Direct</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <button type="button" class="book-schedule-btn">
-                        <i class="fas fa-ticket-alt"></i> Book Selected Schedule
-                    </button>
-                </form>
-            </div>
-        </section>
+             
+        
     
         
 
@@ -3385,94 +3384,102 @@ hamburger.addEventListener('click', function() {
 
 //navbar ends here of js 
        // Carousel functionality
-       const slides = document.querySelectorAll('.carousel-slide');
-        let currentSlide = 0;
+     // Carousel and Bangkok Info popup functionality
+document.addEventListener("DOMContentLoaded", () => {
+  // ===== Carousel functionality =====
+  const slides = document.querySelectorAll(".carousel-slide")
+  let currentSlide = 0
 
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
+  function nextSlide() {
+    slides[currentSlide].classList.remove("active")
+    currentSlide = (currentSlide + 1) % slides.length
+    slides[currentSlide].classList.add("active")
+  }
 
-        // Change slide every 2 seconds
-        setInterval(nextSlide, 2000);
+  // Auto-rotate carousel every 3 seconds
+  const carouselInterval = setInterval(nextSlide, 3000)
 
-        // Booking popup functionality
-        const toggleBooking = document.getElementById('toggleBooking');
-        const bookingPopup = document.getElementById('bookingPopup');
-        const closePopup = document.getElementById('closePopup');
-        const prevMonth = document.getElementById('prevMonth');
-        const nextMonth = document.getElementById('nextMonth');
-        const currentMonth = document.getElementById('currentMonth');
-        const scheduleDates = document.querySelectorAll('.schedule-date');
+  // ===== Bangkok Info Popup functionality =====
+  const bangkokInfoBtn = document.getElementById("bangkokInfoBtn")
+  const bangkokInfoPopup = document.getElementById("bangkokInfoPopup")
+  const closePopupBtn = document.getElementById("closePopup")
 
-        // Toggle popup
-        toggleBooking.addEventListener('click', function() {
-            bookingPopup.classList.toggle('active');
-        });
+  // Show popup when Bangkok Info button is clicked
+  bangkokInfoBtn.addEventListener("click", (e) => {
+    e.preventDefault() // Prevent default button behavior
+    bangkokInfoPopup.style.display = "flex"
 
-        closePopup.addEventListener('click', function() {
-            bookingPopup.classList.remove('active');
-        });
+    // Add animation class
+    bangkokInfoPopup.classList.add("popup-active")
 
-        // Click outside to close
-        document.addEventListener('click', function(event) {
-            if (!bookingPopup.contains(event.target) && 
-                !toggleBooking.contains(event.target) && 
-                bookingPopup.classList.contains('active')) {
-                bookingPopup.classList.remove('active');
-            }
-        });
+    // Pause carousel when popup is open (optional)
+    clearInterval(carouselInterval)
+  })
 
-        // Select date
-        scheduleDates.forEach(date => {
-            date.addEventListener('click', function() {
-                document.querySelector('.schedule-date.selected')?.classList.remove('selected');
-                this.classList.add('selected');
-            });
-        });
+  // Close popup when close button is clicked
+  closePopupBtn.addEventListener("click", () => {
+    closePopup()
+  })
 
-        // Month navigation
-        const months = ['March 2025', 'April 2025', 'May 2025'];
-        let currentMonthIndex = 0;
+  // Close popup when clicking outside of it
+  document.addEventListener("click", (event) => {
+    if (
+      event.target !== bangkokInfoBtn &&
+      !bangkokInfoPopup.contains(event.target) &&
+      bangkokInfoPopup.style.display === "flex"
+    ) {
+      closePopup()
+    }
+  })
 
-        function updateMonth() {
-            currentMonth.textContent = months[currentMonthIndex];
-            
-            // Hide all dates
-            scheduleDates.forEach(date => {
-                date.style.display = 'none';
-            });
-            
-            // Show only dates for current month
-            const monthToShow = months[currentMonthIndex].split(' ')[0].toLowerCase();
-            document.querySelectorAll(`.schedule-date[data-month="${monthToShow}"]`).forEach(date => {
-                date.style.display = 'flex';
-            });
-        }
+  // Stop propagation on popup content to prevent closing when clicking inside
+  bangkokInfoPopup.addEventListener("click", (event) => {
+    event.stopPropagation()
+  })
 
-        prevMonth.addEventListener('click', function() {
-            if (currentMonthIndex > 0) {
-                currentMonthIndex--;
-                updateMonth();
-            }
-        });
+  // Function to close the popup
+  function closePopup() {
+    // Remove animation class first
+    bangkokInfoPopup.classList.remove("popup-active")
 
-        nextMonth.addEventListener('click', function() {
-            if (currentMonthIndex < months.length - 1) {
-                currentMonthIndex++;
-                updateMonth();
-            }
-        });
+    // Hide the popup after a short delay to allow animation to complete
+    setTimeout(() => {
+      bangkokInfoPopup.style.display = "none"
+    }, 300)
 
-        // Initialize destination change
-        const destinationSelect = document.getElementById('destinationSelect');
-        destinationSelect.addEventListener('change', function() {
-            // In a real application, this would fetch new schedules
-            // For demo purposes, we'll just reset to the first month
-            currentMonthIndex = 0;
-            updateMonth();
-        });
+    // Restart carousel when popup is closed (if it was paused)
+    if (!carouselInterval) {
+      setInterval(nextSlide, 3000)
+    }
+  }
+
+  // Handle escape key to close popup
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && bangkokInfoPopup.style.display === "flex") {
+      closePopup()
+    }
+  })
+
+  // Make sure popup is properly sized and positioned on window resize
+  window.addEventListener("resize", () => {
+    if (bangkokInfoPopup.style.display === "flex") {
+      // Adjust popup position if needed
+      const heroSection = document.querySelector(".hero")
+      const heroRect = heroSection.getBoundingClientRect()
+
+      // Ensure popup stays within carousel bounds
+      if (window.innerWidth <= 768) {
+        // Mobile adjustments if needed
+        bangkokInfoPopup.style.maxWidth = "90%"
+      } else {
+        // Desktop adjustments if needed
+        bangkokInfoPopup.style.maxWidth = "500px"
+      }
+    }
+  })
+})
+
+
          </script>
      
     <script>

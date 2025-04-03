@@ -3,625 +3,618 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Mayura Travels - A World of Joy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
-      /*from here the css of navbar starts*/
-        /* Modern Navbar CSS */
-:root {
-  --primary-color: #FF5722;
-  --secondary-color: #00B8B0;
-  --text-color: #333;
+    :root {
+  --primary-color: #800020; /* Maroon */
+  --primary-dark: #5c0015; /* Darker maroon */
+  --secondary-color: #333;
   --light-gray: #f5f5f5;
-  --medium-gray: #ddd;
-  --dark-gray: #555;
-  --white: #fff;
-  --sidebar-bg: #0a1529; /* Dark blue background for sidebar */
-  --sidebar-text: #ffffff;
-  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
-  --border-radius: 8px;
-}
-.bodyofnavbar {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--text-color);
-  line-height: 1.6;
-  background-color: var(--white);
+  --white: #ffffff;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Header Styles */
-.header {
-  background-color: var(--white);
-  box-shadow: var(--shadow);
-  position: fixed;
-  width: 100%;
+body {
+  overflow-x: hidden;
+}
+
+/* Hero Section with Carousel */
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 100;
-  padding: 15px 0;
-}
-
-.header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  height: 40px;
-  width: auto;
-}
-
-/* Desktop Navigation */
-.nav-desktop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
-  margin-left: 30px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-}
-
-.country-selector {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 500;
-}
-
-.flag-icon {
-  width: 20px;
-  height: auto;
-  border-radius: 2px;
-}
-
-.nav-link {
-  color: var(--text-color);
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: var(--transition);
-  padding: 8px 12px;
-  border-radius: var(--border-radius);
-}
-
-.nav-link:hover {
-  color: var(--primary-color);
-  background-color: rgba(255, 87, 34, 0.05);
-}
-
-.btn-primary {
-  background-color: var(--primary-color);
-  color: var(--white);
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: 500;
-  transition: var(--transition);
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(255, 87, 34, 0.3);
-}
-
-.btn-primary:hover {
-  background-color: #e64a19;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(255, 87, 34, 0.4);
-}
-
-/* Dropdown / Mega Menu */
-.dropdown {
+.carousel {
+  height: 100%;
   position: relative;
+  width: 100%;
 }
 
-.dropdown-toggle {
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  width: 80%;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 3.4rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+/* Bangkok Info Button */
+.bangkok-info-btn {
+  background: linear-gradient(to right, #800020, #a30028);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
 }
 
-.dropdown-toggle i {
-  font-size: 12px;
-  transition: var(--transition);
+.bangkok-info-btn:hover {
+  background: linear-gradient(to right, #a30028, #800020);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.dropdown:hover .dropdown-toggle i {
-  transform: rotate(180deg);
+.bangkok-info-btn i {
+  font-size: 1.1rem;
 }
 
-.mega-menu {
+/* Bangkok Info Popup */
+.bangkok-info-popup {
   position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--white);
-  border-radius: var(--border-radius);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  width: 600px;
-  padding: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.dropdown:hover .mega-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.mega-menu-content {
-  display: flex;
-  gap: 30px;
-}
-
-.mega-menu-column {
-  flex: 1;
-}
-
-.mega-menu-column h3 {
-  color: var(--primary-color);
-  font-size: 16px;
-  margin-bottom: 15px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--medium-gray);
-}
-
-.mega-menu-column a {
-  display: block;
-  color: var(--text-color);
-  text-decoration: none;
-  padding: 8px 0;
-  transition: var(--transition);
-  font-size: 14px;
-}
-
-.mega-menu-column a:hover {
-  color: var(--primary-color);
-  transform: translateX(5px);
-}
-
-/* Hamburger Menu */
-.hamburger {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  z-index: 100;
   display: none;
   flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  cursor: pointer;
-  z-index: 101;
+  overflow: hidden;
 }
 
-.hamburger span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-color: var(--primary-color);
-  border-radius: 2px;
-  transition: var(--transition);
-}
-
-/* Sidebar */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 98;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition);
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -320px;
-  width: 320px;
-  height: 100%;
-  background-color: var(--sidebar-bg);
-  z-index: 99;
-  transition: var(--transition);
-  overflow-y: auto;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.sidebar.active {
-  right: 0;
-}
-
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-close {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: var(--sidebar-text);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.sidebar-close:hover {
-  color: var(--primary-color);
-}
-
-.sidebar-content {
-  padding: 0;
-}
-
-.sidebar-menu {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar-menu li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-menu li:last-child {
-  border-bottom: none;
-}
-
-.sidebar-menu a {
-  color: var(--sidebar-text);
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
+.popup-header {
+  background: linear-gradient(to right, #800020, #a30028);
+  color: white;
   padding: 15px 20px;
-  transition: var(--transition);
-}
-
-.sidebar-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.has-submenu .submenu-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 20px;
 }
 
-.has-submenu .submenu-header a {
-  padding-right: 0;
-}
-
-.submenu-toggle {
-  background: none;
-  border: none;
-  color: var(--sidebar-text);
-  font-size: 14px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.submenu-toggle i {
-  transition: var(--transition);
-}
-
-.submenu-toggle.active i {
-  transform: rotate(180deg);
-}
-
-.submenu {
-  list-style: none;
-  background-color: rgba(0, 0, 0, 0.2);
-  display: none;
-}
-
-.submenu.active {
-  display: block;
-}
-
-.submenu-category {
-  color: var(--primary-color);
-  padding: 10px 20px;
-  font-size: 14px;
+.popup-header h2 {
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
-.submenu li a {
-  padding: 10px 30px;
-  font-size: 14px;
+.close-popup {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-.divider {
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 10px 0;
+.popup-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  max-height: calc(80vh - 60px); /* Subtract header height */
 }
 
-.country-item {
+/* Welcome Section */
+.welcome-section {
+  margin-bottom: 25px;
+}
+
+.welcome-section h3 {
+  color: #800020;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.promo-banner {
+  background-color: #f8e6e8;
+  border-radius: 8px;
+  padding: 15px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  gap: 10px;
 }
 
-.country-item .flag-icon {
-  margin-right: 10px;
+.promo-banner i {
+  color: #800020;
 }
 
-.country-item a {
-  padding: 15px 0;
+.promo-banner span {
+  color: #800020;
+  font-weight: 600;
 }
 
-.sidebar-footer {
-  padding: 20px;
-  margin-top: 20px;
+/* Bus Timings Section */
+.bus-timings-section {
+  margin-bottom: 25px;
 }
 
-.mobile-btn {
-  width: 100%;
+.bus-timings-section h3 {
+  color: #800020;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  border-left: 4px solid #800020;
+  padding-left: 10px;
+}
+
+.timing-section {
+  margin-bottom: 20px;
+}
+
+.timing-header {
+  background: linear-gradient(to right, #800020, #a30028);
+  color: white;
+  padding: 10px 15px;
+  font-weight: 600;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.timing-rows {
+  background-color: white;
+  border: 1px solid #eee;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.timing-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.timing-row:last-child {
+  border-bottom: none;
+}
+
+.time {
+  width: 90px;
+  color: #800020;
+  font-weight: 600;
+}
+
+.destination {
+  flex: 1;
+}
+
+.status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
   text-align: center;
 }
 
-/* Main Content */
-.main-content {
-  padding-top: 100px;
-  min-height: 100vh;
+.status.available {
+  background-color: rgba(0, 128, 0, 0.1);
+  color: green;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  .mega-menu {
-    width: 500px;
-  }
+.status.full {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: red;
 }
 
+/* Attractions Section */
+.attractions-section {
+  margin-bottom: 25px;
+}
+
+.attractions-section h3 {
+  color: #800020;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  border-left: 4px solid #800020;
+  padding-left: 10px;
+}
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.attraction-item {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.attraction-item i {
+  font-size: 1.8rem;
+  color: #800020;
+  margin-bottom: 10px;
+}
+
+.attraction-item h4 {
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.attraction-item p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Book Now Button */
+.book-now-section {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.book-now {
+  background: linear-gradient(to right, #800020, #a30028);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-now:hover {
+  background: linear-gradient(to right, #a30028, #800020);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-  .nav-desktop {
-    display: none;
+  .hero-content h1 {
+    font-size: 2.2rem;
   }
-  
-  .hamburger {
-    display: flex;
+
+  .hero-content p {
+    font-size: 1rem;
   }
-  
-  .header .container {
-    justify-content: space-between;
+
+  .bangkok-info-popup {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .attractions-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 576px) {
-  .sidebar {
-    width: 280px;
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .bangkok-info-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .timing-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .time,
+  .destination,
+  .status {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .status {
+    text-align: left;
   }
 }
+
 
   </style>
 </head>
 <body>
-  <section class="bodyofnavbar"> 
-    <!-- Header -->
-   <header class="header">
-<div class="container">
-  <div class="logo-container">
-    <img src="/images/mayoora logo.png" alt="Mayoora Travels" class="logo">
-  </div>
-  
-  <nav class="nav-desktop">
-    <div class="nav-left">
-      <div class="country-selector">
-        <img src="/images/indian flag.jpeg" alt="Indian Flag" class="flag-icon">
-        <span>IND</span>
+  <section class="hero">
+      <div class="carousel">
+          <div class="carousel-slide active" style="background-image: url('/placeholder.svg?height=800&width=1200')"></div>
+          <div class="carousel-slide" style="background-image: url('/placeholder.svg?height=800&width=1200')"></div>
+          <div class="carousel-slide" style="background-image: url('/placeholder.svg?height=800&width=1200')"></div>
+          <div class="carousel-slide" style="background-image: url('/placeholder.svg?height=800&width=1200')"></div>
+          <div class="carousel-slide" style="background-image: url('/placeholder.svg?height=800&width=1200')"></div>
       </div>
-      <a href="About Page.html" class="nav-link">About Mayoora Travels</a>
-      <a href="Our Facilities.html" class="nav-link">Our Facilities</a>
-      
-      <div class="dropdown">
-        <a href="#" class="nav-link dropdown-toggle">Explore Mayoora Packages <i class="fas fa-chevron-down"></i></a>
-        <div class="mega-menu">
-          <div class="mega-menu-content">
-            <div class="mega-menu-column">
-              <h3>International Plans</h3>
-              <a href="Bangkok page.html">Bangkok</a>
-              <a href="Dubai Page.html">Dubai</a>
-              <a href="Europe Page.html">Europe</a>
-              <a href="Singapore Page.html">Singapore</a>
-              <a href="Maurities Page.html">Mauritius</a>
-              <a href="USA page.html">USA</a>
-              <a href="Thailand page.html">Thailand</a>
-              <a href="Srilanka page.html">Sri Lanka</a>
-              <a href="Australia page.html">Australia</a>
-            </div>
-            <div class="mega-menu-column">
-              <h3>Domestic Plans</h3>
-              <a href="Amarnath page.html">Amarnath</a>
-              <a href="Kerala page.html">Kerala</a>
-              <a href="Andaman page.html">Andaman</a>
-              <a href="Chandhan page.html">Chandham</a>
-              <a href="Kashmir page.html">Kashmir</a>
-              <a href="Goa page.html">Goa</a>
-              <a href="Simla page.html">Simla</a>
-            </div>
+      <div class="overlay"></div>
+      <div class="hero-content">
+          <h1>Mayura Travels - A world of joy</h1>
+          <p>From local escapes to far-flung adventures, find what makes you happy anytime, anywhere</p>
+          <button id="bangkokInfoBtn" class="bangkok-info-btn">
+              <i class="fas fa-info-circle"></i> Bangkok Info
+          </button>
+      </div>
+
+      <div id="bangkokInfoPopup" class="bangkok-info-popup">
+          <div class="popup-header">
+              <h2>Bangkok Travel Information</h2>
+              <button id="closePopup" class="close-popup">×</button>
           </div>
-        </div>
+          <div class="popup-content">
+              <div class="welcome-section">
+                  <h3>Welcome to Bangkok!</h3>
+                  <p>Ready to explore the vibrant capital of Thailand? Bangkok offers a perfect blend of traditional culture and modern attractions.</p>
+                  
+                  <div class="promo-banner">
+                      <i class="fas fa-star"></i>
+                      <span>Special promotion: 15% off on all Bangkok tours this month!</span>
+                  </div>
+              </div>
+
+              <div class="bus-timings-section">
+                  <h3>Today's Bus Timings</h3>
+                  
+                  <div class="timing-section">
+                      <div class="timing-header">Morning</div>
+                      <div class="timing-rows">
+                          <div class="timing-row">
+                              <div class="time">08:00 AM</div>
+                              <div class="destination">Grand Palace & Wat Pho</div>
+                              <div class="status available">Available</div>
+                          </div>
+                          <div class="timing-row">
+                              <div class="time">09:30 AM</div>
+                              <div class="destination">Floating Market Tour</div>
+                              <div class="status available">Available</div>
+                          </div>
+                          <div class="timing-row">
+                              <div class="time">10:45 AM</div>
+                              <div class="destination">Chinatown Food Tour</div>
+                              <div class="status full">Full</div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="timing-section">
+                      <div class="timing-header">Afternoon</div>
+                      <div class="timing-rows">
+                          <div class="timing-row">
+                              <div class="time">01:00 PM</div>
+                              <div class="destination">Ayutthaya Day Trip</div>
+                              <div class="status available">Available</div>
+                          </div>
+                          <div class="timing-row">
+                              <div class="time">02:30 PM</div>
+                              <div class="destination">Chao Phraya River Cruise</div>
+                              <div class="status available">Available</div>
+                          </div>
+                          <div class="timing-row">
+                              <div class="time">03:45 PM</div>
+                              <div class="destination">Bangkok Shopping Tour</div>
+                              <div class="status available">Available</div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="timing-section">
+                      <div class="timing-header">Evening</div>
+                      <div class="timing-rows">
+                          <div class="timing-row">
+                              <div class="time">06:30 PM</div>
+                              <div class="destination">Night Market Tour</div>
+                              <div class="status available">Available</div>
+                          </div>
+                          <div class="timing-row">
+                              <div class="time">07:45 PM</div>
+                              <div class="destination">Dinner Cruise</div>
+                              <div class="status available">Available</div>
+                          </div>
+                          <div class="timing-row">
+                              <div class="time">08:30 PM</div>
+                              <div class="destination">Bangkok by Night</div>
+                              <div class="status available">Available</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="attractions-section">
+                  <h3>Popular Attractions</h3>
+                  <div class="attractions-grid">
+                      <div class="attraction-item">
+                          <i class="fas fa-landmark"></i>
+                          <h4>Grand Palace</h4>
+                          <p>Former residence of Thai kings</p>
+                      </div>
+                      <div class="attraction-item">
+                          <i class="fas fa-pray"></i>
+                          <h4>Wat Pho</h4>
+                          <p>Temple of the Reclining Buddha</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="book-now-section">
+                  <button class="book-now">Book Your Bangkok Adventure Now!</button>
+              </div>
+          </div>
       </div>
-    </div>
-    
-    <div class="nav-right">
-      <a href="Contact Page.html" class="btn-primary" style="background-color: #FF5722;">Contact Mayoora Travels</a>
-    </div>
-  </nav>
-  
-  <div class="hamburger" id="hamburger-menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-</header>
+  </section>
 
-<!-- Overlay for sidebar -->
-<div class="overlay" id="overlay"></div>
+  <script>
+    // Carousel and Bangkok Info popup functionality
+document.addEventListener("DOMContentLoaded", () => {
+  // ===== Carousel functionality =====
+  const slides = document.querySelectorAll(".carousel-slide")
+  let currentSlide = 0
 
-<!-- Sidebar for mobile -->
-<div class="sidebar" id="sidebar">
-<div class="sidebar-header">
-  <img src="/images/mayoora logo.png" alt="Mayoora Travels" class="logo">
-  <button class="sidebar-close" id="close-sidebar">
-    <i class="fas fa-times"></i>
-  </button>
-</div>
-
-<div class="sidebar-content">
-  <ul class="sidebar-menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="About Page.html">About Mayoora Travels</a></li>
-    <li class="has-submenu">
-      <div class="submenu-header">
-        <a href="#">Explore Mayoora Packages</a>
-        <button class="submenu-toggle">
-          <i class="fas fa-chevron-down"></i>
-        </button>
-      </div>
-      <ul class="submenu">
-        <li class="submenu-category">International Plans</li>
-        <li><a href="Bangkok page.html">Bangkok</a></li>
-        <li><a href="Dubai Page.html">Dubai</a></li>
-        <li><a href="Europe Page.html">Europe</a></li>
-        <li><a href="Singapore Page.html">Singapore</a></li>
-        <li><a href="Maurities Page.html">Mauritius</a></li>
-        <li><a href="USA page.html">USA</a></li>
-        <li><a href="Thailand page.html">Thailand</a></li>
-        <li><a href="Srilanka page.html">Sri Lanka</a></li>
-        <li><a href="Australia page.html">Australia</a></li>
-        
-        <li class="submenu-category">Domestic Plans</li>
-        <li><a href="Amarnath page.html">Amarnath</a></li>
-        <li><a href="Kerala page.html">Kerala</a></li>
-        <li><a href="Andaman page.html">Andaman</a></li>
-        <li><a href="Chandhan page.html">Chandham</a></li>
-        <li><a href="Kashmir page.html">Kashmir</a></li>
-        <li><a href="Goa page.html">Goa</a></li>
-        <li><a href="Simla page.html">Simla</a></li>
-      </ul>
-    </li>
-    <li><a href="Our Facilities.html">Our Facilities</a></li>
-    <li><a href="ToursPackage.html">Explore Packages</a></li>
-    <li class="divider"></li>
-    <li class="country-item">
-      <img src="/images/indian flag.jpeg" alt="Indian Flag" class="flag-icon">
-      <a href="index.html">IND</a>
-    </li>
-    <li><a href="Contact Page.html">Help</a></li>
-    <li><a href="#">Recently viewed</a></li>
-  </ul>
-  
-  <div class="sidebar-footer">
-    <a href="Contact Page.html" class="btn-primary mobile-btn" style="background-color: #FF5722;">Contact Mayoora Travels</a>
-  </div>
-</div>
-</div>
-</section>
-<script>
-   // Navbar here js Hamburger Menu Toggle-----------------------------------------
-// DOM Elements
-const hamburger = document.getElementById('hamburger-menu');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
-const closeBtn = document.getElementById('close-sidebar');
-const submenuToggles = document.querySelectorAll('.submenu-toggle');
-
-// Toggle sidebar
-function toggleSidebar() {
-  hamburger.classList.toggle('active');
-  sidebar.classList.toggle('active');
-  overlay.classList.toggle('active');
-  
-  // Prevent body scrolling when sidebar is open
-  if (sidebar.classList.contains('active')) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
+  function nextSlide() {
+    slides[currentSlide].classList.remove("active")
+    currentSlide = (currentSlide + 1) % slides.length
+    slides[currentSlide].classList.add("active")
   }
-}
 
-// Event Listeners
-hamburger.addEventListener('click', toggleSidebar);
-closeBtn.addEventListener('click', toggleSidebar);
-overlay.addEventListener('click', toggleSidebar);
+  // Auto-rotate carousel every 3 seconds
+  const carouselInterval = setInterval(nextSlide, 3000)
 
-// Toggle submenu in sidebar
-submenuToggles.forEach(toggle => {
-  toggle.addEventListener('click', function() {
-    // Toggle active class on the button
-    this.classList.toggle('active');
-    
-    // Find the parent li element
-    const parentLi = this.closest('.has-submenu');
-    
-    // Find the submenu within the parent li
-    const submenu = parentLi.querySelector('.submenu');
-    
-    // Toggle the active class on the submenu
-    submenu.classList.toggle('active');
-  });
-});
+  // ===== Bangkok Info Popup functionality =====
+  const bangkokInfoBtn = document.getElementById("bangkokInfoBtn")
+  const bangkokInfoPopup = document.getElementById("bangkokInfoPopup")
+  const closePopupBtn = document.getElementById("closePopup")
 
-// Close sidebar when clicking on a link (optional)
-const sidebarLinks = document.querySelectorAll('.sidebar-menu a:not(.has-submenu a)');
-sidebarLinks.forEach(link => {
-  link.addEventListener('click', function() {
-    if (sidebar.classList.contains('active')) {
-      toggleSidebar();
+  // Show popup when Bangkok Info button is clicked
+  bangkokInfoBtn.addEventListener("click", (e) => {
+    e.preventDefault() // Prevent default button behavior
+    bangkokInfoPopup.style.display = "flex"
+
+    // Add animation class
+    bangkokInfoPopup.classList.add("popup-active")
+
+    // Pause carousel when popup is open (optional)
+    clearInterval(carouselInterval)
+  })
+
+  // Close popup when close button is clicked
+  closePopupBtn.addEventListener("click", () => {
+    closePopup()
+  })
+
+  // Close popup when clicking outside of it
+  document.addEventListener("click", (event) => {
+    if (
+      event.target !== bangkokInfoBtn &&
+      !bangkokInfoPopup.contains(event.target) &&
+      bangkokInfoPopup.style.display === "flex"
+    ) {
+      closePopup()
     }
-  });
-});
+  })
 
-// Hamburger animation
-hamburger.addEventListener('click', function() {
-  const spans = this.querySelectorAll('span');
-  
-  if (this.classList.contains('active')) {
-    // Animate to X
-    spans[0].style.transform = 'translateY(8px) rotate(45deg)';
-    spans[1].style.opacity = '0';
-    spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
-  } else {
-    // Reset to hamburger
-    spans[0].style.transform = 'none';
-    spans[1].style.opacity = '1';
-    spans[2].style.transform = 'none';
+  // Stop propagation on popup content to prevent closing when clicking inside
+  bangkokInfoPopup.addEventListener("click", (event) => {
+    event.stopPropagation()
+  })
+
+  // Function to close the popup
+  function closePopup() {
+    // Remove animation class first
+    bangkokInfoPopup.classList.remove("popup-active")
+
+    // Hide the popup after a short delay to allow animation to complete
+    setTimeout(() => {
+      bangkokInfoPopup.style.display = "none"
+    }, 300)
+
+    // Restart carousel when popup is closed (if it was paused)
+    if (!carouselInterval) {
+      setInterval(nextSlide, 3000)
+    }
   }
-});
 
-//navbar ends here of js 
-</script>
+  // Handle escape key to close popup
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && bangkokInfoPopup.style.display === "flex") {
+      closePopup()
+    }
+  })
+
+  // Make sure popup is properly sized and positioned on window resize
+  window.addEventListener("resize", () => {
+    if (bangkokInfoPopup.style.display === "flex") {
+      // Adjust popup position if needed
+      const heroSection = document.querySelector(".hero")
+      const heroRect = heroSection.getBoundingClientRect()
+
+      // Ensure popup stays within carousel bounds
+      if (window.innerWidth <= 768) {
+        // Mobile adjustments if needed
+        bangkokInfoPopup.style.maxWidth = "90%"
+      } else {
+        // Desktop adjustments if needed
+        bangkokInfoPopup.style.maxWidth = "500px"
+      }
+    }
+  })
+})
+
+
+  </script>
 </body>
 </html>
+
