@@ -15,6 +15,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -1909,6 +1910,335 @@
             margin-left: auto;
             border-bottom-right-radius: 4px;
         }
+        /*bangkok highlight css witll come here ok */
+        .bodyofbangkokk-k-h-j {
+            background-color: #f5f5f5;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        
+        .containerbangkokk-k-h-j {
+            margin: 0;
+            padding: 20px;
+            width: 100%;
+        }
+        
+        .bangkok-section-k-h-j {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.07);
+            margin: 20px auto;
+            width: 100%;
+            position: relative;
+            max-width: 1400px;
+            transform: translateY(0);
+            animation: float-k-h-j 6s ease-in-out infinite;
+        }
+        
+        @keyframes float-k-h-j {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .bangkok-box-k-h-j {
+            background: linear-gradient(135deg, #ffb6c1, #add8e6, #87ceeb);
+            color: #333;
+            padding: 50px 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bangkok-box-k-h-j::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: shimmer-k-h-j 15s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes shimmer-k-h-j {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .coupon-badge-k-h-j {
+            position: absolute;
+            top: 0;
+            left: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 12px 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            z-index: 10;
+            transform: translateY(-2px);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse-k-h-j 2s infinite;
+        }
+        
+        @keyframes pulse-k-h-j {
+            0% { box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4); }
+            50% { box-shadow: 0 5px 25px rgba(255, 107, 107, 0.7); }
+            100% { box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4); }
+        }
+        
+        .coupon-badge-k-h-j:hover {
+            transform: translateY(0) scale(1.05);
+        }
+        
+        .coupon-badge-k-h-j::before {
+            content: '✓';
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .bangkok-title-k-h-j {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            color: #333;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .bangkok-title-k-h-j::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, transparent);
+            border-radius: 2px;
+            animation: expandWidth-k-h-j 1.5s ease-out forwards;
+        }
+        
+        @keyframes expandWidth-k-h-j {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+        
+        .bangkok-description-k-h-j {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #333;
+            font-weight: 300;
+            animation: fadeIn 1.5s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .bangkok-highlights-k-h-j {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .highlight-item-k-h-j {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            color: #333;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease-out backwards;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+        
+        .highlight-item-k-h-j:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .bangkok-image-k-h-j {
+          width: 500px;
+          height: 150px;
+            object-fit: cover;
+            margin-top: 30px;
+            border-radius: 15px;
+            border: 5px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            animation: fadeIn 2s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .bangkok-image-k-h-j:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .learn-more-k-h-j {
+            display: inline-block;
+            margin-top: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+            animation: fadeIn 2.5s ease-out;
+        }
+        
+        .learn-more-k-h-j:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+        }
+        
+        .learn-more-k-h-j::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .learn-more-k-h-j:hover::after {
+            left: 100%;
+        }
+        
+        .floating-dots-k-h-j {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .dot-k-h-j {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: floatUp-k-h-j 15s linear infinite;
+        }
+        
+        @keyframes floatUp-k-h-j {
+            0% {
+                transform: translateY(100%) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%) translateX(var(--tx)) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .bangkok-title-k-h-j {
+                font-size: 2.2rem;
+            }
+            
+            .bangkok-description-k-h-j {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+            
+            .bangkok-box-k-h-j {
+                padding: 40px 25px 25px;
+            }
+            
+            .highlight-item-k-h-j {
+                font-size: 0.9rem;
+            }
+            
+            .bangkok-image-k-h-j {
+                height: 250px;
+            }
+            
+            .coupon-badge-k-h-j {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .bangkok-title-k-h-j {
+                font-size: 1.8rem;
+            }
+            
+            .bangkok-highlights-k-h-j {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .bangkok-box-k-h-j {
+                padding: 40px 20px 20px;
+            }
+            
+            .coupon-badge-k-h-j {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+                left: 20px;
+            }
+            
+            .learn-more-k-h-j {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+        }
 
  
     </style>
@@ -2241,6 +2571,29 @@
     </div> -->
     <br>
     <br>
+    <section class="bodyofbangkokk-k-h-j">
+        <div class="containerbangkokk-k-h-j">
+            <div class="bangkok-section-k-h-j">
+                <div class="coupon-badge-k-h-j">Best Place to Visit</div>
+                <div class="bangkok-box-k-h-j">
+                    <div class="floating-dots-k-h-j" id="floatingDots"></div>
+                    <h2 class="bangkok-title-k-h-j">Bangkok</h2>
+                    <p class="bangkok-description-k-h-j">
+                        Discover the vibrant capital of Thailand, where ancient temples stand alongside modern skyscrapers. Bangkok offers a unique blend of traditional culture and contemporary lifestyle, making it one of Southeast Asia's most fascinating destinations.
+                    </p>
+                    <div class="bangkok-highlights-k-h-j">
+                        <div class="highlight-item-k-h-j">Tiger Park</div>
+                        <div class="highlight-item-k-h-j">Pattaya City</div>
+                        <div class="highlight-item-k-h-j">Floating Market</div>
+                        <div class="highlight-item-k-h-j">Best Hotels</div>
+                        <div class="highlight-item-k-h-j">Street Food</div>
+                    </div>
+                     
+                    <a href="Bangkok page.html" class="learn-more-k-h-j">Explore Bangkok</a>
+                </div>
+            </div>
+        </div>
+        </section>
 
     <!---tours and travels of places here section-->
     <section class="bodyofplaces">
@@ -3554,6 +3907,62 @@ document.querySelector('.scroll-top').addEventListener('click', function() {
                 popup.style.display = "none";
             }
         });
+
+
+
+//here the bangkok sectio js starts here with animateddesing 
+ // Create floating dots
+ document.addEventListener('DOMContentLoaded', function() {
+            const dotsContainer = document.getElementById('floatingDots');
+            const numDots = 20;
+            
+            for (let i = 0; i < numDots; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot-k-h-j');
+                
+                // Random size between 5px and 20px
+                const size = Math.random() * 15 + 5;
+                dot.style.width = `${size}px`;
+                dot.style.height = `${size}px`;
+                
+                // Random position
+                const left = Math.random() * 100;
+                dot.style.left = `${left}%`;
+                
+                // Random delay
+                const delay = Math.random() * 15;
+                dot.style.animationDelay = `${delay}s`;
+                
+                // Random horizontal movement
+                const tx = (Math.random() - 0.5) * 100;
+                dot.style.setProperty('--tx', `${tx}px`);
+                
+                dotsContainer.appendChild(dot);
+            }
+            
+            // Animate highlight items
+            const highlights = document.querySelectorAll('.highlight-item-k-h-j');
+            
+            highlights.forEach((item, index) => {
+                item.style.animationDelay = `${0.3 + index * 0.2}s`;
+            });
+            
+            // Add floating effect to the entire section
+            const section = document.querySelector('.bangkok-section-k-h-j');
+            
+            // Add hover effect to the section
+            section.addEventListener('mousemove', function(e) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                section.style.transform = `translateY(-15px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+            
+            section.addEventListener('mouseleave', function() {
+                section.style.transform = 'translateY(0)';
+                section.style.animation = 'float-k-h-j 6s ease-in-out infinite';
+            });
+        });
+
     </script>
 </body>
 </html>
